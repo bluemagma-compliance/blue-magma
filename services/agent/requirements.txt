@@ -12,5 +12,5 @@ requests>=2.31.0
 tiktoken>=0.5.0
 neo4j>=5.0.0
 langgraph-checkpoint-sqlite
-aiosqlite
+aiosqlite<0.22.0
 redis>=5.0.0

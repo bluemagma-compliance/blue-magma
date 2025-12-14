@@ -287,5 +287,8 @@ blue-magma-api.exe
 .env.production
 
 *.sqlite
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
 __pycache__
 .DS_Store

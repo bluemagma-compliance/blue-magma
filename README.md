@@ -11,13 +11,13 @@ Blue Magma is intended to be built and used as an "Autonomous compliance platfor
 We are pretty sick and tired of the overpriced closed source solutions out there and want to build something that is better, faster, and makes use of recent developments in language models to make compliance a boost rather than a burden.
 
 # I just want to use the damn thing
-We can help you get compliant visit us at [trybluemagma.com](https://trybluemagma.com)
+We can help you get compliant & secure; visit us at [trybluemagma.com](https://trybluemagma.com)
 
 # How it works
 
 Blue Magma is built around the Secure Controls Framework which is a meta framework that maps to hundreds of laws, frameworks and standards from across the world. [See SCF Frameworks](https://securecontrolsframework.com/start-here/included-laws-regulations-frameworks-lrf/)
 
-We use AI (currently GPT-5.1) to help collect user requirements and evidence for controls. We are still working on an agent-native data structure to make collected evidence and requirements easy to explore by agents.
+We use AI (currently GPT-5.1) to automatically collect user requirements and evidence for controls. We are still working on an agent-native data structure to make collected evidence and requirements easy to explore by agents.
 
 # expectations & contributions
 
