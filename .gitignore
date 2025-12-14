@@ -15,6 +15,7 @@ downloads/
 eggs/
 .eggs/
 lib/
+!services/frontend/blue-magma/lib
 lib64/
 parts/
 sdist/
