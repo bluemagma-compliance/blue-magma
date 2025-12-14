@@ -47,7 +47,7 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
-        working-directory: services/backend
+        working-directory: services/backend/blue-magma-api
         run: |
           IMAGE=$ECR_REGISTRY/$ECR_REPOSITORY
           docker build -t $IMAGE:$IMAGE_TAG .
@@ -97,7 +97,7 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
-        working-directory: services/frontend
+	        working-directory: services/frontend/blue-magma
         run: |
           IMAGE=$ECR_REGISTRY/$ECR_REPOSITORY
           docker build -f Dockerfile --build-arg NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY }} -t $IMAGE:$IMAGE_TAG .

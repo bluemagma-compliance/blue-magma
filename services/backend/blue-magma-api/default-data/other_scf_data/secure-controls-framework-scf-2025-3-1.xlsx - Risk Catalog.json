@@ -1,0 +1,519 @@
+[
+  {
+    "Risk Grouping": "",
+    "Risk #": "",
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "",
+    "Description of Possible Risk Due To Control Deficiency": "IF THE CONTROL FAILS, RISK THAT THE ORGANIZATION IS EXPOSED TO IS:",
+    "NIST CSF  Function": "",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "≥ 5% of pre-tax income",
+    "": "≥ 0.5% of total revenue"
+  },
+  {
+    "Risk Grouping": "Access Control",
+    "Risk #": [
+      "R-AC-1"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Inability to maintain individual accountability",
+    "Description of Possible Risk Due To Control Deficiency": "The inability to maintain accountability (e.g., asset ownership, non-repudiation of actions or inactions, etc.).",
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-AC-2"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Improper assignment of privileged functions",
+    "Description of Possible Risk Due To Control Deficiency": "The inability to implement least privileges (e.g., Role-Based Access Control (RBAC), Privileged Account Management (PAM), etc.).",
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-AC-3"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Privilege escalation",
+    "Description of Possible Risk Due To Control Deficiency": "The inability to restrict access to privileged functions.",
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-AC-4"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Unauthorized access",
+    "Description of Possible Risk Due To Control Deficiency": "The inability to restrict access to only authorized individuals, groups or services.",
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "Asset Management",
+    "Risk #": [
+      "R-AM-1"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": [
+      "Lost,",
+      "damaged",
+      "or",
+      "stolen",
+      "asset(s)"
+    ],
+    "Description of Possible Risk Due To Control Deficiency": [
+      "Lost,",
+      "damaged",
+      "or",
+      "stolen",
+      "assets."
+    ],
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-AM-2"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Loss of integrity through unauthorized changes",
+    "Description of Possible Risk Due To Control Deficiency": "Unauthorized changes that corrupt the integrity of the system / application / service.",
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-AM-3"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Emergent properties and/or unintended consequences",
+    "Description of Possible Risk Due To Control Deficiency": "Emergent properties and/or unintended consequences from Artificial Intelligence & Autonomous Technologies (AAT).",
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "Business Continuity",
+    "Risk #": [
+      "R-BC-1"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Business interruption",
+    "Description of Possible Risk Due To Control Deficiency": "Increased latency, or a service outage, that negatively impact business operations.",
+    "NIST CSF  Function": "Recover",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-BC-2"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Data loss / corruption",
+    "Description of Possible Risk Due To Control Deficiency": "The inability to maintain the confidentiality of the data (compromise) or prevent data corruption (loss).",
+    "NIST CSF  Function": "Recover",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-BC-3"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Reduction in productivity",
+    "Description of Possible Risk Due To Control Deficiency": "Diminished user productivity.",
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-BC-4"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Information loss / corruption or system compromise due to technical attack",
+    "Description of Possible Risk Due To Control Deficiency": "A technical attack that compromises data, systems, applications or services (e.g., malware, phishing, hacking, etc.).",
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-BC-5"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Information loss / corruption or system compromise due to non‐technical attack",
+    "Description of Possible Risk Due To Control Deficiency": "A non-technical attack that compromises data, systems, applications or services (e.g., social engineering, sabotage, etc.).",
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "Exposure",
+    "Risk #": [
+      "R-EX-1"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Loss of revenue",
+    "Description of Possible Risk Due To Control Deficiency": "A negative impact on the ability to generate revenue (e.g., a loss of clients or an inability to generate future revenue).",
+    "NIST CSF  Function": "Recover",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-EX-2"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Cancelled contract",
+    "Description of Possible Risk Due To Control Deficiency": "A cancelled contract with a client or other entity for cause (e.g., failure to fulfill obligations for secure practices).",
+    "NIST CSF  Function": "Recover",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-EX-3"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Diminished competitive advantage",
+    "Description of Possible Risk Due To Control Deficiency": "Diminished competitive advantage (e.g., lose market share, internal dysfunction, etc.).",
+    "NIST CSF  Function": "Recover",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-EX-4"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Diminished reputation",
+    "Description of Possible Risk Due To Control Deficiency": "Diminished brand value (e.g., tarnished reputation).",
+    "NIST CSF  Function": "Recover",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-EX-5"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Fines and judgements",
+    "Description of Possible Risk Due To Control Deficiency": "Financial damages due to fines and/or judgements from statutory / regulatory / contractual non-compliance.",
+    "NIST CSF  Function": "Recover",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-EX-6"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Unmitigated vulnerabilities",
+    "Description of Possible Risk Due To Control Deficiency": "Unmitigated technical vulnerabilities that lack compensating controls or other mitigation actions.",
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-EX-7"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "System compromise",
+    "Description of Possible Risk Due To Control Deficiency": "A compromise of a system, application or service that affects confidentiality, integrity, availability and/or safety.",
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "Governance",
+    "Risk #": [
+      "R-GV-1"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Inability to support business processes",
+    "Description of Possible Risk Due To Control Deficiency": "Insufficient cybersecurity and/or privacy practices that cannot securely support the organization's technologies & processes.",
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-GV-2"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Incorrect controls scoping",
+    "Description of Possible Risk Due To Control Deficiency": "Missing or incorrect cybersecurity and/or privacy controls due to incorrect or inadequate control scoping practices.",
+    "NIST CSF  Function": "Identify",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-GV-3"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Lack of roles & responsibilities",
+    "Description of Possible Risk Due To Control Deficiency": "Insufficient cybersecurity and/or privacy roles & responsibilities that cannot securely support the organization's technologies & processes.",
+    "NIST CSF  Function": "Identify",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-GV-4"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Inadequate internal practices",
+    "Description of Possible Risk Due To Control Deficiency": "Insufficient cybersecurity and/or privacy practices that can securely support the organization's technologies & processes.",
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-GV-5"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Inadequate third-party practices",
+    "Description of Possible Risk Due To Control Deficiency": "Insufficient Cybersecurity Supply Chain Risk Management (C-SCRM) practices that cannot securely support the organization's technologies & processes.",
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-GV-6"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Lack of oversight of internal controls",
+    "Description of Possible Risk Due To Control Deficiency": "The inability to demonstrate appropriate evidence of due diligence and due care in overseeing the organization's internal cybersecurity and/or privacy controls.",
+    "NIST CSF  Function": "Identify",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-GV-7"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Lack of oversight of third-party controls",
+    "Description of Possible Risk Due To Control Deficiency": "The inability to demonstrate appropriate evidence of due diligence and due care in overseeing third-party cybersecurity and/or privacy controls.",
+    "NIST CSF  Function": "Identify",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-GV-8"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Illegal content or abusive action",
+    "Description of Possible Risk Due To Control Deficiency": "Disruptive content or actions that negatively affect business operations (e.g., abusive content, harmful speech, threats of violence, illegal content, etc.).",
+    "NIST CSF  Function": "Identify",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "Incident Response",
+    "Risk #": [
+      "R-IR-1"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Inability to investigate / prosecute incidents",
+    "Description of Possible Risk Due To Control Deficiency": "Insufficient incident response practices that prevent the organization from investigating and/or prosecuting incidents (e.g., chain of custody corruption, available sources of evidence, etc.).",
+    "NIST CSF  Function": "Respond",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-IR-2"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Improper response to incidents",
+    "Description of Possible Risk Due To Control Deficiency": "The inability to appropriately respond to incidents in a timely manner.",
+    "NIST CSF  Function": "Respond",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-IR-3"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Ineffective remediation actions",
+    "Description of Possible Risk Due To Control Deficiency": "The inability to ensure incident response actions were correct and/or effective.",
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-IR-4"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Expense associated with managing a loss event",
+    "Description of Possible Risk Due To Control Deficiency": "Financial repercussions from responding to an incident or loss.",
+    "NIST CSF  Function": "Respond",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "Situational Awareness",
+    "Risk #": [
+      "R-SA-1"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Inability to maintain situational awareness",
+    "Description of Possible Risk Due To Control Deficiency": "The inability to detect cybersecurity and/or privacy incidents (e.g., a lack of situational awareness).",
+    "NIST CSF  Function": "Detect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-SA-2"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Lack of a security-minded workforce",
+    "Description of Possible Risk Due To Control Deficiency": "The inability to appropriately educate and train personnel to foster a security-minded workforce.",
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "Supply Chain",
+    "Risk #": [
+      "R-SC-1"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Third-party cybersecurity exposure",
+    "Description of Possible Risk Due To Control Deficiency": "Loss of Confidentiality, Integrity, Availability and/or Safety (CIAS) from third-party cybersecurity practices, vulnerabilities and/or incidents that affects the supply chain through impacted products and/or services.",
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-SC-2"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Third-party physical security exposure",
+    "Description of Possible Risk Due To Control Deficiency": "Loss of Confidentiality, Integrity, Availability and/or Safety (CIAS) from physical security exposure of third-party structures, facilities and/or other physical assets that affects the supply chain through impacted products and/or services.",
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-SC-3"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Third-party supply chain relationships, visibility and controls",
+    "Description of Possible Risk Due To Control Deficiency": "Loss of Confidentiality, Integrity, Availability and/or Safety (CIAS) from \"downstream\" third-party relationships, visibility and controls that affect the supply chain through impacted products and/or services.",
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-SC-4"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Third-party compliance / legal exposure",
+    "Description of Possible Risk Due To Control Deficiency": "The inability to maintain compliance due to third-party non-compliance, criminal acts, or other relevant legal action(s).",
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-SC-5"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Use of product / service",
+    "Description of Possible Risk Due To Control Deficiency": "The misuse of the product / service in a manner that it was not designed or how it was approved for use.",
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": [
+      "R-SC-6"
+    ],
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "Reliance on the third-party",
+    "Description of Possible Risk Due To Control Deficiency": "The inability to continue business operations, due to the reliance on the third-party product and/or service.",
+    "NIST CSF  Function": "Protect",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Risk Grouping": "",
+    "Risk #": "",
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "",
+    "Description of Possible Risk Due To Control Deficiency": "",
+    "NIST CSF  Function": "",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "",
+    "": ""
+  },
+  {
+    "Risk Grouping": [
+      "Note:",
+      "These",
+      "are",
+      "POSSIBLE",
+      "risks",
+      "and",
+      "the",
+      "risk",
+      "catalog",
+      "is",
+      "expected",
+      "to",
+      "be",
+      "tailored",
+      "by",
+      "the",
+      "end",
+      "user",
+      "for",
+      "the",
+      "organization's",
+      "unique",
+      "set",
+      "of",
+      "obligations.",
+      "This",
+      "is",
+      "not",
+      "an",
+      "authoritative",
+      "list",
+      "of",
+      "all",
+      "applicable",
+      "risks.",
+      "You",
+      "are",
+      "required",
+      "to",
+      "apply",
+      "critical",
+      "thought",
+      "processes",
+      "when",
+      "identifying",
+      "and",
+      "evaluating",
+      "risks."
+    ],
+    "Risk #": "",
+    "Risk* Note - Some of these risks may indicate a deficiency that could be considered a failure to meet \"reasonable security practices\" ": "",
+    "Description of Possible Risk Due To Control Deficiency": "",
+    "NIST CSF  Function": "",
+    "Materiality Considerations If this risk materialized, would it potentially exceed the following financial impacts for the organization?": "",
+    "": ""
+  }
+]

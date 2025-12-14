@@ -1,0 +1,44 @@
+{
+  "name": "Sample GDPR Compliance Template",
+  "description": "A sample template for GDPR compliance requirements",
+  "version": "1.0",
+  "source": "GDPR",
+  "sections": [
+    {
+      "name": "Data Protection",
+      "description": "Requirements for protecting personal data",
+      "rules": [
+        {
+          "name": "Data Encryption",
+          "rule": "All personal data must be encrypted at rest and in transit",
+          "scope": "data_protection",
+          "tags": ["encryption", "data_security", "gdpr"]
+        },
+        {
+          "name": "Data Retention",
+          "rule": "Personal data must not be kept longer than necessary",
+          "scope": "data_retention",
+          "tags": ["retention", "data_lifecycle", "gdpr"]
+        }
+      ]
+    },
+    {
+      "name": "User Rights",
+      "description": "Implementation of user rights under GDPR",
+      "rules": [
+        {
+          "name": "Right to Access",
+          "rule": "Users must be able to access their personal data",
+          "scope": "user_rights",
+          "tags": ["access", "user_rights", "gdpr"]
+        },
+        {
+          "name": "Right to Deletion",
+          "rule": "Users must be able to request deletion of their data",
+          "scope": "user_rights",
+          "tags": ["deletion", "user_rights", "gdpr"]
+        }
+      ]
+    }
+  ]
+}

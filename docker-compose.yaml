@@ -1,0 +1,143 @@
+services:
+  app:
+    # Build backend image locally from the Go API service
+    build:
+      context: ./services/backend/blue-magma-api
+      dockerfile: Dockerfile.dev
+    image: bluemagma/backend:local
+    expose:
+      - "8080"
+    env_file:
+      - .env
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+  graphlang-agent:
+    # Build GraphLang agent image locally
+    build:
+      context: ./services/agent
+      dockerfile: Dockerfile.dev
+    image: bluemagma/graphlang-agent:local
+    expose:
+      - "8001"
+    env_file:
+      - .env
+    depends_on:
+      app:
+        condition: service_healthy
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+  frontend:
+    # Build frontend image locally from the Next.js app
+    build:
+      context: ./services/frontend/blue-magma
+      dockerfile: Dockerfile.dev
+      args:
+        # Optional: pass through Stripe publishable key used at build time
+        NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
+    image: bluemagma/frontend:local
+    expose:
+      - "3000"
+    env_file:
+      - .env
+    depends_on:
+      app:
+        condition: service_healthy
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+  db:
+    image: pgvector/pgvector:pg17
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  adminer:
+    image: adminer
+    ports:
+      - "8081:8080" 
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    entrypoint: ["sh", "-c", "exec redis-server --requirepass \"$REDIS_PASSWORD\""]
+    environment:
+      - REDIS_PASSWORD="test_password"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "test_password", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:80"
+    depends_on:
+      app:
+        condition: service_started
+      frontend:
+        condition: service_started
+      landing-website:
+        condition: service_started
+      graphlang-agent:
+        condition: service_started
+    restart: unless-stopped
+
+    # Hardening (minimal impact)
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    # Nginx needs limited extra capabilities to chown cache dirs
+    # and drop privileges from root to the nginx user inside
+    cap_add:
+      - NET_BIND_SERVICE
+      - CHOWN
+      - SETGID
+      - SETUID
+    tmpfs:
+      - /var/cache/nginx:rw,noexec,nosuid,nodev,size=64m
+      - /var/run:rw,noexec,nosuid,nodev,size=8m
+      - /tmp:rw,noexec,nosuid,nodev,size=64m
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local

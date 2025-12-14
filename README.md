@@ -6,7 +6,7 @@ AI native Open Source GRC platform for founders built by the InfoSec community w
 
 
 # Overview
-Blue Magma is intended to be built and used as an "Autonomous compliance platform" that founders can use garner trust from their customers and become compliant with the laws, regulations and certifications that they need to succeed. We are building Blue Magma to be useful for both new founders and knowledgeable security practitioners. Blue Magma is built with the support of wonderful people at Utah State University, The SandBox program, CPAs in the Utah area and CISOs from the region as well. 
+Blue Magma is intended to be built and used as an "Autonomous compliance platform" that founders can use to garner trust from their customers and become compliant with the laws, regulations and certifications that they need to succeed. We are building Blue Magma to be useful for both new founders and knowledgeable security practitioners. Blue Magma is built with the support of wonderful people at Utah State University, The SandBox program, CPAs in the Utah area and CISOs from the region as well. 
 
 We are pretty sick and tired of the overpriced closed source solutions out there and want to build something that is better, faster, and makes use of recent developments in language models to make compliance a boost rather than a burden.
 

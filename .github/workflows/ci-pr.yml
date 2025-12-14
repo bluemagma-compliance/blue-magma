@@ -46,12 +46,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd services/backend
+          cd services/backend/blue-magma-api
           go mod download
 
       - name: Run tests
         run: |
-          cd services/backend
+          cd services/backend/blue-magma-api
           go test ./...
 
   backend-docker-build:
@@ -65,7 +65,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Backend Docker build
-        working-directory: services/backend
+        working-directory: services/backend/blue-magma-api
         run: docker build -t pr-validate-backend:${{ github.sha }} .
 
   frontend-node-build:
@@ -74,7 +74,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: services/frontend
+        working-directory: services/frontend/blue-magma
 
     steps:
       - name: Checkout repository
@@ -85,7 +85,7 @@ jobs:
         with:
           node-version: 20
           cache: npm
-          cache-dependency-path: services/frontend/package-lock.json
+          cache-dependency-path: services/frontend/blue-magma/package-lock.json
 
       - name: Install dependencies
         run: npm ci
@@ -104,7 +104,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Frontend Docker build
-        working-directory: services/frontend
+        working-directory: services/frontend/blue-magma
         run: docker build --build-arg NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY }} -t pr-validate-frontend:${{ github.sha }} .
 
   agent-docker-build:

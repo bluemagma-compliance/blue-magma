@@ -1,0 +1,61 @@
+{
+  "title": "SOX Compliance Project",
+  "description": "Sarbanes-Oxley Act compliance project template for financial reporting systems",
+  "category": "SOX",
+  "template_data": {
+    "documentation_template": {
+      "pages": [
+        {
+          "id": "overview",
+          "title": "SOX Compliance Overview",
+          "content": "# SOX Compliance Project\n\nThis project tracks Sarbanes-Oxley Act (SOX) compliance for IT systems supporting financial reporting.\n\n## Objectives\n\n- Ensure IT General Controls (ITGCs) are in place\n- Implement change management procedures\n- Maintain access controls for financial systems\n- Document compliance efforts\n- Support external audit requirements",
+          "order": 1,
+          "children": [
+            {
+              "id": "scope",
+              "title": "Scope",
+              "content": "## Scope\n\nThis compliance effort covers:\n\n- Financial reporting systems\n- Database systems storing financial data\n- Access control and authentication systems\n- Change management processes\n- Backup and recovery procedures\n- Segregation of duties controls",
+              "order": 1,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "itgc",
+          "title": "IT General Controls",
+          "content": "# IT General Controls (ITGCs)\n\nITGCs are the foundation of SOX compliance for IT systems.\n\n## Key Control Areas\n\n1. **Access Controls** - Logical access to systems and data\n2. **Change Management** - Control over system changes\n3. **Computer Operations** - Backup, recovery, and monitoring\n4. **System Development** - Controls over new system development",
+          "order": 2,
+          "children": []
+        },
+        {
+          "id": "testing",
+          "title": "Control Testing",
+          "content": "# Control Testing\n\nDocument control testing activities and results.\n\n## Testing Schedule\n\n(Define testing schedule here)\n\n## Test Results\n\n(Document test results here)",
+          "order": 3,
+          "children": []
+        }
+      ]
+    },
+    "policy_templates": [
+      {
+        "title": "Access Control Policy",
+        "description": "Access control requirements for financial systems",
+        "category": "Security",
+        "content": "# Access Control Policy\n\n## Purpose\n\nEnsure appropriate access controls are in place for systems supporting financial reporting.\n\n## Scope\n\nAll systems that store, process, or transmit financial data.\n\n## Requirements\n\n### 1. User Access Management\n\n- All users must have unique user IDs\n- Access must be granted based on job responsibilities\n- Access requests must be approved by management\n- Access must be reviewed quarterly\n- Terminated users must have access revoked immediately\n\n### 2. Privileged Access\n\n- Privileged access must be restricted to authorized personnel\n- Privileged actions must be logged\n- Privileged access must be reviewed monthly\n- Shared privileged accounts are prohibited\n\n### 3. Segregation of Duties\n\n- Incompatible duties must be separated\n- No single individual should have end-to-end control over financial transactions\n- Segregation of duties conflicts must be identified and mitigated\n\n### 4. Password Management\n\n- Minimum password length: 12 characters\n- Password complexity requirements must be enforced\n- Passwords must be changed every 90 days\n- Password reuse is prohibited (last 12 passwords)\n- Multi-factor authentication required for financial systems\n\n## Monitoring\n\n- Access logs must be reviewed weekly\n- Unauthorized access attempts must be investigated\n- Access violations must be reported to management"
+      },
+      {
+        "title": "Change Management Policy",
+        "description": "Change control procedures for financial systems",
+        "category": "Operations",
+        "content": "# Change Management Policy\n\n## Purpose\n\nEnsure all changes to financial systems are properly authorized, tested, and documented.\n\n## Scope\n\nAll changes to production systems supporting financial reporting.\n\n## Requirements\n\n### 1. Change Request Process\n\n- All changes must be documented in a change request\n- Change requests must include business justification\n- Changes must be approved by appropriate authority\n- Emergency changes must be documented and approved retroactively\n\n### 2. Change Approval\n\n**Standard Changes:**\n- Require approval from IT management\n- Must be reviewed by change advisory board (CAB)\n\n**High-Risk Changes:**\n- Require approval from IT management and business owner\n- Must be reviewed by CAB and senior management\n\n**Emergency Changes:**\n- Require approval from on-call manager\n- Must be reviewed by CAB within 24 hours\n\n### 3. Testing Requirements\n\n- All changes must be tested in non-production environment\n- Test results must be documented\n- User acceptance testing (UAT) required for significant changes\n- Regression testing required for system updates\n\n### 4. Implementation\n\n- Changes must be implemented during approved maintenance windows\n- Rollback procedures must be documented and tested\n- Implementation must be monitored\n- Post-implementation review required within 48 hours\n\n### 5. Documentation\n\n- Change requests must be retained for 7 years\n- Implementation documentation must be complete\n- Configuration changes must be documented\n- Version control must be maintained\n\n## Monitoring\n\n- Unauthorized changes must be detected and investigated\n- Change success rate must be tracked\n- Change-related incidents must be analyzed"
+      },
+      {
+        "title": "Backup and Recovery Policy",
+        "description": "Data backup and disaster recovery requirements",
+        "category": "Operations",
+        "content": "# Backup and Recovery Policy\n\n## Purpose\n\nEnsure financial data can be recovered in the event of system failure or disaster.\n\n## Scope\n\nAll systems containing financial data.\n\n## Requirements\n\n### 1. Backup Procedures\n\n**Frequency:**\n- Full backups: Weekly\n- Incremental backups: Daily\n- Transaction log backups: Every 4 hours (for databases)\n\n**Backup Types:**\n- Database backups\n- File system backups\n- Configuration backups\n- Application backups\n\n**Backup Storage:**\n- Backups must be stored off-site\n- Backups must be encrypted\n- Backup media must be secured\n- Backup retention: 7 years for financial data\n\n### 2. Recovery Procedures\n\n**Recovery Time Objective (RTO):**\n- Critical financial systems: 4 hours\n- Important financial systems: 24 hours\n- Standard systems: 48 hours\n\n**Recovery Point Objective (RPO):**\n- Critical financial systems: 1 hour\n- Important financial systems: 4 hours\n- Standard systems: 24 hours\n\n**Testing:**\n- Recovery procedures must be tested quarterly\n- Test results must be documented\n- Failed tests must be remediated immediately\n\n### 3. Disaster Recovery\n\n- Disaster recovery plan must be documented\n- DR plan must be tested annually\n- DR site must be maintained\n- DR procedures must be updated as systems change\n\n## Monitoring\n\n- Backup success must be verified daily\n- Failed backups must be investigated immediately\n- Backup integrity must be tested monthly"
+      }
+    ]
+  }
+}
+

@@ -1,0 +1,81 @@
+{
+  "title": "HIPAA Compliance Project",
+  "description": "Comprehensive HIPAA compliance project template with documentation and security policies",
+  "category": "HIPAA",
+  "template_data": {
+    "documentation_template": {
+      "pages": [
+        {
+          "id": "overview",
+          "title": "HIPAA Compliance Overview",
+          "content": "# HIPAA Compliance Project\n\nThis project tracks HIPAA (Health Insurance Portability and Accountability Act) compliance for software systems handling electronic Protected Health Information (ePHI).\n\n## Objectives\n\n- Ensure technical safeguards are in place\n- Implement administrative safeguards\n- Maintain physical safeguards\n- Document compliance efforts\n- Track remediation activities",
+          "order": 1,
+          "children": [
+            {
+              "id": "scope",
+              "title": "Scope",
+              "content": "## Scope\n\nThis compliance effort covers:\n\n- All systems that store, process, or transmit ePHI\n- Authentication and access control mechanisms\n- Audit logging and monitoring systems\n- Data encryption (at rest and in transit)\n- Backup and disaster recovery procedures\n- Incident response processes",
+              "order": 1,
+              "children": []
+            },
+            {
+              "id": "timeline",
+              "title": "Timeline",
+              "content": "## Timeline\n\n- **Phase 1**: Assessment and gap analysis (Weeks 1-2)\n- **Phase 2**: Technical safeguards implementation (Weeks 3-6)\n- **Phase 3**: Administrative safeguards (Weeks 7-8)\n- **Phase 4**: Documentation and training (Weeks 9-10)\n- **Phase 5**: Audit and certification (Weeks 11-12)",
+              "order": 2,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "technical-safeguards",
+          "title": "Technical Safeguards",
+          "content": "# Technical Safeguards\n\nHIPAA requires implementation of technical policies and procedures to protect ePHI and control access.\n\n## Key Requirements\n\n1. **Access Control** - Unique user identification, emergency access, automatic logoff\n2. **Audit Controls** - Hardware, software, and procedural mechanisms to record and examine activity\n3. **Integrity Controls** - Mechanisms to ensure ePHI is not improperly altered or destroyed\n4. **Transmission Security** - Technical security measures to guard against unauthorized access to ePHI during transmission",
+          "order": 2,
+          "children": []
+        },
+        {
+          "id": "administrative-safeguards",
+          "title": "Administrative Safeguards",
+          "content": "# Administrative Safeguards\n\nAdministrative actions, policies, and procedures to manage security measures.\n\n## Key Components\n\n- Security Management Process\n- Assigned Security Responsibility\n- Workforce Security\n- Information Access Management\n- Security Awareness and Training\n- Security Incident Procedures\n- Contingency Plan\n- Evaluation",
+          "order": 3,
+          "children": []
+        },
+        {
+          "id": "remediation",
+          "title": "Remediation Tracking",
+          "content": "# Remediation Tracking\n\nUse this section to track identified gaps and remediation efforts.\n\n## Current Issues\n\n(Document issues here as they are identified)\n\n## Completed Remediations\n\n(Track completed fixes here)",
+          "order": 4,
+          "children": []
+        }
+      ]
+    },
+    "policy_templates": [
+      {
+        "title": "Access Control Policy",
+        "description": "User authentication and authorization requirements for ePHI access",
+        "category": "Security",
+        "content": "# Access Control Policy\n\n## Purpose\n\nEnsure that only authorized individuals can access electronic Protected Health Information (ePHI).\n\n## Scope\n\nThis policy applies to all systems, applications, and databases that store, process, or transmit ePHI.\n\n## Requirements\n\n### 1. Unique User Identification (§164.312(a)(2)(i))\n\n- Each user must be assigned a unique user ID\n- User IDs must not be shared between individuals\n- User IDs cannot be reused after termination\n- Generic or shared accounts are prohibited for ePHI access\n\n### 2. Emergency Access Procedure (§164.312(a)(2)(ii))\n\n- Establish and document procedures for obtaining necessary ePHI during an emergency\n- Emergency access must be logged and reviewed\n- Emergency access credentials must be secured and regularly rotated\n- All emergency access events must be documented and reviewed quarterly\n\n### 3. Automatic Logoff (§164.312(a)(2)(iii))\n\n- Implement electronic procedures that terminate sessions after a predetermined time of inactivity\n- Maximum idle time: 15 minutes for workstations accessing ePHI\n- Maximum idle time: 30 minutes for administrative systems\n- Users must re-authenticate after timeout\n\n### 4. Encryption and Decryption (§164.312(a)(2)(iv))\n\n- Implement mechanisms to encrypt and decrypt ePHI as needed\n- Use industry-standard encryption algorithms (AES-256 or equivalent)\n- Encryption keys must be managed separately from encrypted data\n- Key rotation must occur at least every 90 days\n\n## Implementation\n\n- All systems must enforce strong password requirements (minimum 12 characters, complexity requirements)\n- Multi-factor authentication (MFA) is required for all ePHI access\n- Role-based access control (RBAC) must be implemented\n- Access rights must be reviewed quarterly\n- Terminated users must have access revoked within 24 hours\n\n## Monitoring and Enforcement\n\n- Access logs must be reviewed weekly\n- Unauthorized access attempts must be investigated within 24 hours\n- Policy violations will result in disciplinary action\n\n## Review\n\nThis policy must be reviewed and updated annually or when significant changes occur."
+      },
+      {
+        "title": "Audit Controls Policy",
+        "description": "System activity logging and monitoring requirements",
+        "category": "Security",
+        "content": "# Audit Controls Policy\n\n## Purpose\n\nImplement hardware, software, and procedural mechanisms to record and examine information system activity involving ePHI.\n\n## Scope\n\nAll systems that store, process, or transmit ePHI must implement comprehensive audit logging.\n\n## Requirements\n\n### 1. Audit Logging (§164.312(b))\n\n**What to Log:**\n- All ePHI access (read, write, update, delete)\n- Authentication events (login, logout, failed attempts)\n- Authorization changes (role assignments, permission modifications)\n- System configuration changes\n- Security-relevant events (firewall changes, encryption key operations)\n- Administrative actions\n\n**Log Content:**\n- Timestamp (UTC)\n- User ID\n- Action performed\n- Resource accessed\n- Source IP address\n- Success/failure status\n- Session ID\n\n### 2. Log Retention\n\n- Audit logs must be retained for a minimum of 6 years\n- Logs must be stored in a tamper-evident manner\n- Logs must be backed up regularly\n- Access to logs must be restricted to authorized personnel\n\n### 3. Log Review\n\n- Security logs must be reviewed weekly by security team\n- Anomalies must be investigated within 24 hours\n- Review activities must be documented\n- Automated alerting must be configured for critical events\n\n### 4. Log Protection\n\n- Logs must be encrypted at rest\n- Logs must be transmitted securely (TLS 1.2+)\n- Log integrity must be verified using cryptographic hashes\n- Unauthorized modification of logs is prohibited\n\n## Implementation\n\n- Centralized logging system must be implemented\n- Log aggregation and correlation tools must be used\n- Automated monitoring and alerting must be configured\n- Regular log analysis reports must be generated\n\n## Monitoring and Enforcement\n\n- Log completeness must be verified monthly\n- Missing or corrupted logs must be investigated immediately\n- Policy violations will result in disciplinary action\n\n## Review\n\nThis policy must be reviewed and updated annually."
+      },
+      {
+        "title": "Data Encryption Policy",
+        "description": "Encryption requirements for ePHI at rest and in transit",
+        "category": "Security",
+        "content": "# Data Encryption Policy\n\n## Purpose\n\nProtect electronic Protected Health Information (ePHI) through encryption mechanisms.\n\n## Scope\n\nAll ePHI, whether at rest or in transit, must be encrypted using approved methods.\n\n## Requirements\n\n### 1. Encryption at Rest (§164.312(a)(2)(iv))\n\n**Database Encryption:**\n- All databases containing ePHI must use transparent data encryption (TDE) or equivalent\n- Encryption algorithm: AES-256 or stronger\n- Encryption keys must be stored in a separate key management system\n- Database backups must also be encrypted\n\n**File System Encryption:**\n- All file systems storing ePHI must use full-disk encryption or file-level encryption\n- Encryption algorithm: AES-256 or stronger\n- Encryption keys must be protected with strong access controls\n\n**Backup Encryption:**\n- All backups containing ePHI must be encrypted\n- Backup encryption keys must be managed separately from production keys\n- Backup media must be stored securely\n\n### 2. Encryption in Transit (§164.312(e)(1))\n\n**Network Transmission:**\n- All ePHI transmitted over networks must use TLS 1.2 or higher\n- TLS 1.0 and 1.1 are prohibited\n- SSL is prohibited\n- Certificate validation must be enforced\n\n**API Communications:**\n- All API endpoints handling ePHI must use HTTPS\n- API keys and tokens must be transmitted securely\n- Mutual TLS (mTLS) should be used for service-to-service communication\n\n**Email:**\n- ePHI must not be sent via unencrypted email\n- If email is necessary, use encrypted email solutions (S/MIME, PGP)\n- Consider secure file transfer alternatives\n\n### 3. Key Management\n\n**Key Generation:**\n- Cryptographic keys must be generated using approved random number generators\n- Key length must meet or exceed industry standards (minimum 2048-bit for RSA, 256-bit for AES)\n\n**Key Storage:**\n- Encryption keys must be stored in a dedicated key management system (KMS)\n- Keys must never be stored in application code or configuration files\n- Access to keys must be logged and monitored\n\n**Key Rotation:**\n- Encryption keys must be rotated every 90 days\n- Key rotation must be automated where possible\n- Old keys must be retained for decryption of historical data\n\n**Key Destruction:**\n- Keys must be securely destroyed when no longer needed\n- Key destruction must be logged and verified\n\n### 4. Remote Access\n\n- All remote access to systems containing ePHI must use VPN with strong encryption\n- VPN must use AES-256 encryption\n- Split tunneling is prohibited\n- Remote desktop sessions must be encrypted\n\n## Implementation\n\n- Encryption must be enabled by default for all new systems\n- Existing systems must be assessed and upgraded to meet encryption requirements\n- Encryption status must be monitored continuously\n- Encryption failures must trigger immediate alerts\n\n## Monitoring and Enforcement\n\n- Encryption compliance must be verified quarterly\n- Unencrypted ePHI must be remediated immediately\n- Policy violations will result in disciplinary action\n\n## Review\n\nThis policy must be reviewed and updated annually or when cryptographic standards change."
+      },
+      {
+        "title": "Incident Response Policy",
+        "description": "Security incident detection, response, and reporting procedures",
+        "category": "Operations",
+        "content": "# Incident Response Policy\n\n## Purpose\n\nEstablish procedures to identify, respond to, and mitigate security incidents involving ePHI.\n\n## Scope\n\nThis policy applies to all security incidents that may affect the confidentiality, integrity, or availability of ePHI.\n\n## Requirements\n\n### 1. Incident Detection (§164.308(a)(6)(i))\n\n**Monitoring:**\n- Security monitoring must be active 24/7\n- Automated anomaly detection must be implemented\n- Security alerts must be triaged within 15 minutes\n- User reporting mechanism must be available\n\n**Incident Types:**\n- Unauthorized access to ePHI\n- Data breaches or suspected breaches\n- Malware infections\n- Denial of service attacks\n- Insider threats\n- Physical security breaches\n- Lost or stolen devices containing ePHI\n\n### 2. Incident Response (§164.308(a)(6)(ii))\n\n**Response Team:**\n- Incident response team must be designated\n- Team members must be trained in incident response procedures\n- Contact information must be maintained and current\n- On-call rotation must be established\n\n**Response Procedures:**\n\n**Phase 1: Identification (0-1 hour)**\n- Confirm incident is legitimate\n- Classify incident severity (Critical, High, Medium, Low)\n- Activate incident response team\n- Begin incident documentation\n\n**Phase 2: Containment (1-4 hours)**\n- Isolate affected systems\n- Prevent further unauthorized access\n- Preserve evidence for investigation\n- Implement temporary controls\n\n**Phase 3: Eradication (4-24 hours)**\n- Identify root cause\n- Remove threat from environment\n- Patch vulnerabilities\n- Verify threat elimination\n\n**Phase 4: Recovery (24-48 hours)**\n- Restore systems from clean backups\n- Verify system integrity\n- Monitor for recurrence\n- Return to normal operations\n\n**Phase 5: Lessons Learned (Within 1 week)**\n- Conduct post-incident review\n- Document findings and recommendations\n- Update procedures as needed\n- Provide training on lessons learned\n\n### 3. Breach Notification\n\n**Internal Notification:**\n- Security team must be notified immediately\n- Management must be notified within 1 hour\n- Legal and compliance teams must be notified within 2 hours\n\n**External Notification (if breach affects 500+ individuals):**\n- HHS Office for Civil Rights: Within 60 days\n- Affected individuals: Within 60 days\n- Media (if breach affects 500+ individuals in same state): Within 60 days\n\n**Breach Assessment:**\n- Determine if breach meets notification threshold\n- Assess risk to individuals\n- Document breach assessment decision\n\n### 4. Documentation\n\n**Required Documentation:**\n- Incident timeline\n- Actions taken\n- Personnel involved\n- Systems affected\n- Data compromised\n- Notification activities\n- Remediation steps\n\n**Retention:**\n- Incident records must be retained for 6 years\n- Records must be stored securely\n- Access to records must be restricted\n\n## Implementation\n\n- Incident response plan must be documented and maintained\n- Incident response drills must be conducted quarterly\n- Incident response procedures must be tested annually\n- Team members must receive annual training\n\n## Monitoring and Enforcement\n\n- Incident response metrics must be tracked and reported monthly\n- Response times must meet defined SLAs\n- Policy violations will result in disciplinary action\n\n## Review\n\nThis policy must be reviewed and updated annually or after significant incidents."
+      }
+    ]
+  }
+}
+
