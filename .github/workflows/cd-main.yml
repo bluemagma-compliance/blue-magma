@@ -1,0 +1,160 @@
+name: Publish services to ECR (main)
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  AWS_REGION: ${{ secrets.AWS_REGION }}
+
+jobs:
+  backend-publish:
+    name: Publish backend to ECR
+    runs-on: ubuntu-latest
+    env:
+      ECR_REPOSITORY: bluemagma/backend
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Tag 'previous' from current 'latest' (if exists)
+        env:
+          ECR_REPOSITORY: ${{ env.ECR_REPOSITORY }}
+        run: |
+          manifest=$(aws ecr batch-get-image --repository-name "$ECR_REPOSITORY" --image-ids imageTag=latest --query 'images[0].imageManifest' --output text || true)
+          if [ -n "$manifest" ] && [ "$manifest" != "None" ]; then
+            aws ecr put-image --repository-name "$ECR_REPOSITORY" --image-tag previous --image-manifest "$manifest"
+            echo "Retagged latest -> previous"
+          else
+            echo "No existing 'latest' tag found; skipping previous retag."
+          fi
+
+      - name: Build, tag, and push backend image
+        id: build-image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: ${{ github.sha }}
+        working-directory: services/backend
+        run: |
+          IMAGE=$ECR_REGISTRY/$ECR_REPOSITORY
+          docker build -t $IMAGE:$IMAGE_TAG .
+          docker tag $IMAGE:$IMAGE_TAG $IMAGE:latest
+          docker push $IMAGE:$IMAGE_TAG
+          docker push $IMAGE:latest
+          echo "image=$IMAGE:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+      - name: Image built successfully
+        run: echo "Backend image pushed to ECR: ${{ steps.build-image.outputs.image }}"
+
+  frontend-publish:
+    name: Publish frontend to ECR
+    runs-on: ubuntu-latest
+    env:
+      ECR_REPOSITORY: bluemagma/frontend
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Tag 'previous' from current 'latest' (if exists)
+        env:
+          ECR_REPOSITORY: ${{ env.ECR_REPOSITORY }}
+        run: |
+          manifest=$(aws ecr batch-get-image --repository-name "$ECR_REPOSITORY" --image-ids imageTag=latest --query 'images[0].imageManifest' --output text || true)
+          if [ -n "$manifest" ] && [ "$manifest" != "None" ]; then
+            aws ecr put-image --repository-name "$ECR_REPOSITORY" --image-tag previous --image-manifest "$manifest"
+            echo "Retagged latest -> previous"
+          else
+            echo "No existing 'latest' tag found; skipping previous retag."
+          fi
+
+      - name: Build, tag, and push frontend image
+        id: build-image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: ${{ github.sha }}
+        working-directory: services/frontend
+        run: |
+          IMAGE=$ECR_REGISTRY/$ECR_REPOSITORY
+          docker build -f Dockerfile --build-arg NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY }} -t $IMAGE:$IMAGE_TAG .
+          docker tag $IMAGE:$IMAGE_TAG $IMAGE:latest
+          docker push $IMAGE:$IMAGE_TAG
+          docker push $IMAGE:latest
+          echo "image=$IMAGE:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+      - name: Image built successfully
+        run: echo "Frontend image pushed to ECR: ${{ steps.build-image.outputs.image }}"
+
+  agent-publish:
+    name: Publish agent to ECR
+    runs-on: ubuntu-latest
+    env:
+      ECR_REPOSITORY: bluemagma/graphlang-agent
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Tag 'previous' from current 'latest' (if exists)
+        env:
+          ECR_REPOSITORY: ${{ env.ECR_REPOSITORY }}
+        run: |
+          manifest=$(aws ecr batch-get-image --repository-name "$ECR_REPOSITORY" --image-ids imageTag=latest --query 'images[0].imageManifest' --output text || true)
+          if [ -n "$manifest" ] && [ "$manifest" != "None" ]; then
+            aws ecr put-image --repository-name "$ECR_REPOSITORY" --image-tag previous --image-manifest "$manifest"
+            echo "Retagged latest -> previous"
+          else
+            echo "No existing 'latest' tag found; skipping previous retag."
+          fi
+
+      - name: Build, tag, and push agent image
+        id: build-image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: ${{ github.sha }}
+        working-directory: services/agent
+        run: |
+          IMAGE=$ECR_REGISTRY/$ECR_REPOSITORY
+          docker build -f Dockerfile -t $IMAGE:$IMAGE_TAG .
+          docker tag $IMAGE:$IMAGE_TAG $IMAGE:latest
+          docker push $IMAGE:$IMAGE_TAG
+          docker push $IMAGE:latest
+          echo "image=$IMAGE:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+      - name: Image built successfully
+        run: echo "Agent image pushed to ECR: ${{ steps.build-image.outputs.image }}"

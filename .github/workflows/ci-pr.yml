@@ -1,0 +1,122 @@
+name: PR CI
+
+on:
+  pull_request:
+    branches:
+      - development
+      - main
+
+jobs:
+  backend-tests:
+    name: Backend tests (Go)
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: examplepassword
+          POSTGRES_DB: testdb
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U postgres"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    env:
+      DB_HOST: localhost
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: examplepassword
+      DB_NAME: testdb
+      DB_SSLMODE: disable
+      LOG_LEVEL: debug
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.23'
+
+      - name: Install dependencies
+        run: |
+          cd services/backend
+          go mod download
+
+      - name: Run tests
+        run: |
+          cd services/backend
+          go test ./...
+
+  backend-docker-build:
+    name: Backend Docker build (validate)
+    runs-on: ubuntu-latest
+    # Only validate Docker builds for PRs targeting the main branch
+    if: github.base_ref == 'main'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Backend Docker build
+        working-directory: services/backend
+        run: docker build -t pr-validate-backend:${{ github.sha }} .
+
+  frontend-node-build:
+    name: Frontend Node build
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: services/frontend
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: services/frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build frontend
+        run: npm run build
+
+  frontend-docker-build:
+    name: Frontend Docker build (validate)
+    runs-on: ubuntu-latest
+    # Only validate Docker builds for PRs targeting the main branch
+    if: github.base_ref == 'main'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Frontend Docker build
+        working-directory: services/frontend
+        run: docker build --build-arg NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY }} -t pr-validate-frontend:${{ github.sha }} .
+
+  agent-docker-build:
+    name: Agent Docker build (validate)
+    runs-on: ubuntu-latest
+    # Only validate Docker builds for PRs targeting the main branch
+    if: github.base_ref == 'main'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Agent Docker build
+        working-directory: services/agent
+        run: docker build -f Dockerfile.dev -t pr-validate-agent:${{ github.sha }} .
