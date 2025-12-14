@@ -86,6 +86,13 @@ jobs:
           node-version: 20
           cache: npm
           cache-dependency-path: services/frontend/blue-magma/package-lock.json
+    
+      - name: Debug frontend workspace
+        run: |
+          echo "PWD:" && pwd
+          echo "LS:" && ls -la
+          echo "----- effective tsconfig (tsc) -----"
+          npx tsc --showConfig | head -n 120
 
       - name: Install dependencies
         run: npm ci
