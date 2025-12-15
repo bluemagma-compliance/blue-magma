@@ -1,0 +1,4638 @@
+[
+  {
+    "#": 1,
+    "Principle Name": "Data Privacy by Design",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Establish and maintain a comprehensive data privacy program that ensures data privacy considerations are addressed by design in the development of policies, standards, processes, systems, applications, projects and third-party contracts.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": 1,
+    "EU GDPR": "Art 32.1 Art 32.2 Art 32.3 Art 32.4",
+    "EU-US Data Privacy Framework": "Principle 2.7.a",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": [
+      "8.2.1"
+    ],
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "5.3.1",
+      "5.3.2",
+      "5.3.3",
+      "5.4",
+      "5.4.1",
+      "5.4.1.1",
+      "5.4.2",
+      "5.5",
+      "5.5.1",
+      "5.5.2",
+      "5.5.3",
+      "5.5.4",
+      "5.5.5",
+      "5.5.5.1",
+      "5.5.5.2",
+      "5.5.5.3",
+      "6.5",
+      "5.6.1",
+      "5.6.2",
+      "5.6.3",
+      "5.6.4",
+      "5.7",
+      "5.7.1",
+      "5.7.2",
+      "5.7.3",
+      "5.8",
+      "5.8.1",
+      "5.8.1",
+      "6.2",
+      "6.2.1",
+      "6.2.1.1",
+      "7.1",
+      "7.4",
+      "8.3",
+      "8.3.1",
+      "8.4",
+      "8.5.1"
+    ],
+    "ISO 29100 v2011": [
+      "5.1",
+      "5.10",
+      "5.11"
+    ],
+    "NIST SP 800-53 rev4": [
+      "AR-1"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PM-1",
+      "PM-18",
+      "PM-20",
+      "PT-1"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "GV.PO-P1",
+      "CM.PO-P1",
+      "CM.AW-P2",
+      "CT.DM-P9",
+      "CT.DM-P10",
+      "CT.PO-P2"
+    ],
+    "OECD": "",
+    "OMB A-130": [
+      "4(h)",
+      "5(f)(1)(a)",
+      "App1-3(b)",
+      "App1-3(b)(1)",
+      "App1-3(f)",
+      "App1-4(c)(2)",
+      "App1-4(e)",
+      "App1-4(e)(1)",
+      "App1-4(e)(10)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": [
+      "7001",
+      "7001(w)",
+      "7002(a)(1)",
+      "7002(a)(2)",
+      "7002(b)",
+      "7002(b)(1)",
+      "7002(b)(2)",
+      "7002(b)(3)",
+      "7002(b)(4)",
+      "7002(b)(5)",
+      "7002(c)(1)",
+      "7002(c)(2)",
+      "7002(c)(3)",
+      "7004(a)",
+      "7010(a)",
+      "7010(b)",
+      "7010(e)",
+      "7011(a)",
+      "7011(b)",
+      "7011(c)",
+      "7011(d)",
+      "7011(e)(1)",
+      "7011(e)(1)(A)",
+      "7011(e)(1)(B)",
+      "7011(e)(1)(C)",
+      "7011(e)(1)(D)",
+      "7011(e)(1)(E)",
+      "7011(e)(1)(F)",
+      "7011(e)(1)(G)",
+      "7011(e)(1)(H)",
+      "7011(e)(1)(I)",
+      "7011(e)(1)(J)",
+      "7011(e)(1)(K)",
+      "7011(e)(2)",
+      "7011(e)(2)(A)",
+      "7011(e)(2)(B)",
+      "7011(e)(2)(C)",
+      "7011(e)(2)(D)",
+      "7011(e)(2)(E)",
+      "7011(e)(2)(F)",
+      "7011(e)(3)",
+      "7011(e)(3)(A)",
+      "7011(e)(3)(B)",
+      "7011(e)(3)(C)",
+      "7011(e)(3)(D)",
+      "7011(e)(3)(E)",
+      "7011(e)(3)(F)",
+      "7011(e)(3)(G)",
+      "7011(e)(3)(H)",
+      "7011(e)(3)(I)",
+      "7011(e)(3)(J)",
+      "7011(e)(4)",
+      "7011(e)(5)",
+      "7012(a)",
+      "7012(b)",
+      "7012(c)",
+      "7012(c)(1)",
+      "7012(c)(2)",
+      "7012(c)(3)",
+      "7012(c)(4)",
+      "7012(c)(5)",
+      "7012(d)",
+      "7012(e)(1)",
+      "7012(e)(2)",
+      "7012(e)(3)",
+      "7012(e)(4)",
+      "7012(e)(5)",
+      "7012(e)(6)",
+      "7012(f)",
+      "7012(g)",
+      "7012(g)(1)",
+      "7012(g)(2)",
+      "7012(g)(3)(A)",
+      "7012(g)(3)(B)",
+      "7012(g)(3)(C)",
+      "7012(h)",
+      "7012(i)",
+      "7102(a)(1)(A)",
+      "7102(a)(1)(B)",
+      "7102(a)(1)(C)",
+      "7102(a)(1)(D)",
+      "7102(a)(1)(E)",
+      "7102(a)(1)(F)",
+      "7102(a)(2)",
+      "7102(b)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "GOV-01",
+      "PRI-01",
+      "PRI-01.3"
+    ]
+  },
+  {
+    "#": 1.1,
+    "Principle Name": "Assigned Responsibilities",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Assign accountability through documented roles and responsibilities to qualified data subjects, including key internal and external stakeholders, for maintaining compliance with all applicable data privacy requirements that involves appropriately monitoring and documenting the data privacy program.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 35.2 Art 37.1 Art 37.2 Art 37.3 Art 37.4 Art 37.5 Art 37.6 Art 37.7 Art 38.1 Art 38.2 Art 38.3 Art 38.4 Art 38.5 Art 38.6 Art 39.1 Art 39.2",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "Accountability & Auditing",
+    "FIPPs (OMB)": "Accountability",
+    "GAPP": [
+      "1.1.0",
+      "1.1.2",
+      "1.2.1",
+      "1.2.2",
+      "1.2.8",
+      "1.2.9",
+      "2.1.0",
+      "4.2.3",
+      "8.2.1"
+    ],
+    "HIPAA Privacy Rule": [
+      "164.530(a)(1)"
+    ],
+    "ISO 27701  v2019": [
+      "6.15.1.4",
+      "8.5"
+    ],
+    "ISO 29100 v2011": 5.1,
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": [
+      "PM-19"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CM.PO-P2",
+      "CT.PO-P2"
+    ],
+    "OECD": "",
+    "OMB A-130": [
+      "4(h)",
+      "5(c)(6)",
+      "5(f)(1)(b)",
+      "App1-4(e)"
+    ],
+    "PIPEDA": 1,
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-01.1",
+      "PRI-01.4"
+    ]
+  },
+  {
+    "#": 1.2,
+    "Principle Name": "Data Classification",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Classify data according to the sensitivity and type of personal data as defined by appropriate statutory, regulatory and contractual contexts.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 4 Art 9",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "6.5.2.1"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": [
+      "PT-7",
+      "PT-7(1)",
+      "PT-7(2)"
+    ],
+    "NIST Privacy Framework v1.0": "",
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "DCH-02",
+      "PRI-05.7"
+    ]
+  },
+  {
+    "#": 1.3,
+    "Principle Name": "Registering Databases",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Register applicable databases containing personal data with the appropriate Data Authority, when required.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 30.4",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": "",
+    "NIST Privacy Framework v1.0": "",
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-15"
+    ]
+  },
+  {
+    "#": 1.4,
+    "Principle Name": "Resource Planning",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Identify and plan for resources needed to operate a data privacy program and include data privacy requirements in solicitations for technology solutions and services.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 32.1 Art 32.2",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "6.3.1.5"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": "",
+    "NIST Privacy Framework v1.0": "",
+    "OECD": "",
+    "OMB A-130": [
+      "5(a)(3)(e)(ii)",
+      "5(d)(3)(e)",
+      "App1-4(b)(1)",
+      "App1-4(b)(2)",
+      "App1-4(b)(4)",
+      "App1-4(e)(6)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRM-01"
+    ]
+  },
+  {
+    "#": 1.5,
+    "Principle Name": "Inventory of Personal Data",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Maintain an inventory of both the type of personal data and specific data element, as well as the systems, applications and processes that collect, create, use, disseminate, maintain, and/or disclose that personal data.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 4 Art 5.2 Art 9",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": [
+      "7.2.2"
+    ],
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "SE-1"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PM-5(1)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "ID.IM-P1",
+      "ID.IM-P3",
+      "ID.IM-P6"
+    ],
+    "OECD": "",
+    "OMB A-130": [
+      "5(a)(1)(a)(ii)",
+      "5(f)(1)(e)",
+      "App1-4(j)(2)(c)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-05.5",
+      "PRI-05.6"
+    ]
+  },
+  {
+    "#": 1.6,
+    "Principle Name": "Data Privacy Training",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Provide recurring data privacy awareness and training for all employees and contractors.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": [
+      "1.1.1",
+      "1.2.10"
+    ],
+    "HIPAA Privacy Rule": [
+      "164.504",
+      "164.530"
+    ],
+    "ISO 27701  v2019": [
+      "6.4.2.2"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "AR-5",
+      "AT-3(4)",
+      "AT-4"
+    ],
+    "NIST SP 800-53 rev5": [
+      "AT-1",
+      "AT-2",
+      "AT-2(1)",
+      "AT-2(5)",
+      "AT-3",
+      "AT-3(3)",
+      "AT-3(5)",
+      "AT-4",
+      "PM-13"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "GV.PO-P1",
+      "GV.AT-P1",
+      "GV.AT-P2",
+      "GV.AT-P3",
+      "GV.AT-P4"
+    ],
+    "OECD": "",
+    "OMB A-130": [
+      "App1-4(h)(1)",
+      "App1-4(h)(2)",
+      "App1-4(h)(3)",
+      "App1-4(h)(4)",
+      "App1-4(h)(5)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": [
+      "7100(a)",
+      "7100(b)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "SAT-01",
+      "SAT-02",
+      "SAT-02.1",
+      "SAT-03",
+      "SAT-03.1",
+      "SAT-03.2",
+      "SAT-03.3",
+      "SAT-04"
+    ]
+  },
+  {
+    "#": 1.7,
+    "Principle Name": "Personal Data Categories",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Define and implement data handling and protection requirements for specific categories of sensitive Personal Data (PD).",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": "",
+    "NIST Privacy Framework v1.0": "",
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": [
+      "7002(f)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-05.7"
+    ]
+  },
+  {
+    "#": 1.8,
+    "Principle Name": "Data Subject Communications",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Craft disclosures and communications to data subjects so the material is readily accessible and written in a manner that is concise, unambiguous and understandable by a reasonable person.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": "",
+    "NIST Privacy Framework v1.0": "",
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": [
+      "7003(a)",
+      "7003(b)(1)",
+      "7003(b)(2)",
+      "7003(b)(3)",
+      "7011(c)",
+      "7102(a)(2)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-17"
+    ]
+  },
+  {
+    "#": 1.9,
+    "Principle Name": "Conspicuous Link To Data Privacy Notice",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Design websites and mobile applications to include a conspicuous link to the organization's data privacy notice.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": "",
+    "NIST Privacy Framework v1.0": "",
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": [
+      "7003(c)",
+      "7003(d)",
+      "7010(d)",
+      "7010(e)",
+      "7011(d)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-17.1"
+    ]
+  },
+  {
+    "#": 1.1,
+    "Principle Name": "Notice of Financial Incentive",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Provide data subjects with a Notice of Financial Incentive that explains the material terms of a financial incentive, price or service difference so the data subject can make an informed decision about whether to participate.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": "",
+    "NIST Privacy Framework v1.0": "",
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": [
+      "7010(d)",
+      "7013(a)",
+      "7013(b)",
+      "7013(c)",
+      "7013(d)",
+      "7013(e)",
+      "7013(e)(1)",
+      "7013(e)(2)",
+      "7013(e)(3)",
+      "7013(e)(3)(A)",
+      "7013(e)(3)(B)",
+      "7013(f)(1)",
+      "7013(f)(2)",
+      "7013(g)(1)",
+      "7013(g)(1)",
+      "7013(h)",
+      "7080(a)",
+      "7080(b)",
+      "7080(c)",
+      "7080(d)(1)",
+      "7080(d)(2)",
+      "7080(d)(3)",
+      "7080(d)(4)",
+      "7080(e)",
+      "7080(f)",
+      "7080(g)",
+      "7081(a)",
+      "7081(a)(1)",
+      "7081(a)(2)",
+      "7081(a)(3)",
+      "7081(a)(4)",
+      "7081(a)(5)",
+      "7081(a)(6)",
+      "7081(a)(7)",
+      "7081(a)(8)",
+      "7081(b)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-17.2"
+    ]
+  },
+  {
+    "#": 2,
+    "Principle Name": "Data Subject Participation",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "data subjects are directly involved in the decision-making process regarding the fair and lawful processing of the individual’s personal data and, to the extent practicable, directly-engaged to receive explicit permission to use their personal data.",
+    "AICPA TSC SOC 2 (2017)": [
+      "P2.1",
+      "P3.2"
+    ],
+    "APEC": 5,
+    "EU GDPR": "Art 6.1 Art 7.1 Art 7.2 Art 7.3 Art 7.4 Art 8.1 Art 8.2 Art 12.6 Art 14.3",
+    "EU-US Data Privacy Framework": "Principle 2.2.a(i) Principle 2.2.a(ii) Principle 2.2.b Principle 2.2.c Principle 2.2.c(i) Principle 2.2.c(ii) Principle 2.7 Principle 2.7.a.i Principle 2.7.a.ii Principle 2.7.a.iii Principle 2.7.b Principle 2.7.c Principle 2.7.d",
+    "FIPPs (DHS)": "Individual Participation",
+    "FIPPs (OMB)": "Individual Participation",
+    "GAPP": [
+      "3.2.1",
+      "3.2.2",
+      "3.2.3",
+      "3.2.4"
+    ],
+    "HIPAA Privacy Rule": [
+      "164.506",
+      "164.508"
+    ],
+    "ISO 27701  v2019": [
+      "7.2.3",
+      "7.2.4",
+      "7.3.4",
+      "7.3.5",
+      "8.5.7"
+    ],
+    "ISO 29100 v2011": 5.2,
+    "NIST SP 800-53 rev4": [
+      "IP-1",
+      "IP-1(1)"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PT-4"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CT.PO-P1",
+      "CT.PO-P3"
+    ],
+    "OECD": 7,
+    "OMB A-130": "",
+    "PIPEDA": 3,
+    "US-California CPRA": [
+      "7002(e)",
+      "7002(f)",
+      "7004(a)",
+      "7004(a)(1)",
+      "7004(a)(2)",
+      "7004(a)(2)(a)",
+      "7004(a)(2)(b)",
+      "7004(a)(2)(c)",
+      "7004(a)(3)",
+      "7004(a)(3)(a)",
+      "7004(a)(3)(b)",
+      "7004(a)(3)(c)",
+      "7004(a)(4)",
+      "7004(a)(4)(a)",
+      "7004(a)(4)(b)",
+      "7004(a)(5)",
+      "7004(a)(5)(a)",
+      "7004(a)(5)(b)",
+      "7004(a)(5)(c)",
+      "7004(b)",
+      "7004(c)",
+      "7010(c)",
+      "7010(d)",
+      "7015(a)",
+      "7015(b)",
+      "7015(c)(1)",
+      "7015(c)(2)",
+      "7028(a)",
+      "7028(b)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-03"
+    ]
+  },
+  {
+    "#": 2.1,
+    "Principle Name": "Clear Choices",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Provide clear and conspicuous choices that enable an individual, or a person authorized by the individual, to permit or prohibit the collection, creation, use, dissemination, maintenance, retention, and/or disclosure of the individual’s personal data. This is also referred to as the right to \"opt out.\"",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 7.1 Art 7.2 Art 7.3 Art 7.4 Art 12.2 Art 12.3 Art 12.4 Art 22.1 Art 22.2 Art 22.3 Art 22.4",
+    "EU-US Data Privacy Framework": "Principle 2.2.a(i) Principle 2.2.a(ii) Principle 2.2.b Principle 2.2.c Principle 2.2.c(i) Principle 2.2.c(ii)",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": [
+      "164.508(a-c)",
+      "164.510",
+      "(a)",
+      "and",
+      "(b)"
+    ],
+    "ISO 27701  v2019": [
+      "7.3.4"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "TR-1",
+      "TR-1(1)"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PM-20(1)",
+      "PT-5"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CT.PO-P3"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": 3,
+    "US-California CPRA": [
+      "7002(e)",
+      "7002(f)",
+      "7004(a)",
+      "7004(a)(1)",
+      "7004(a)(2)",
+      "7004(a)(2)(a)",
+      "7004(a)(2)(b)",
+      "7004(a)(2)(c)",
+      "7004(a)(3)",
+      "7004(a)(3)(a)",
+      "7004(a)(3)(b)",
+      "7004(a)(3)(c)",
+      "7004(a)(4)",
+      "7004(a)(4)(a)",
+      "7004(a)(4)(b)",
+      "7004(a)(5)",
+      "7004(a)(5)(a)",
+      "7004(a)(5)(b)",
+      "7004(a)(5)(c)",
+      "7004(b)",
+      "7004(c)",
+      "7010(c)",
+      "7028(a)",
+      "7028(b)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-03"
+    ]
+  },
+  {
+    "#": 2.2,
+    "Principle Name": "Initial Consent",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Prior to the collection, creation, use, dissemination, maintenance, retention, and/or disclosure of the individual’s personal data, the knowledge and consent of the individual are required.",
+    "AICPA TSC SOC 2 (2017)": [
+      "P2.1",
+      "P3.2"
+    ],
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "Principle 2.2.a(i) Principle 2.2.a(ii) Principle 2.2.b Principle 2.2.c Principle 2.2.c(i) Principle 2.2.c(ii)",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": [
+      "3.2.1",
+      "3.2.2",
+      "3.2.3",
+      "3.2.4"
+    ],
+    "HIPAA Privacy Rule": [
+      "164.506(c)(1-4)",
+      "164.510",
+      "(a)(2)",
+      "164.510",
+      "(b)"
+    ],
+    "ISO 27701  v2019": [
+      "7.2.3",
+      "7.2.4",
+      "7.3.4",
+      "7.3.5",
+      "8.5.7"
+    ],
+    "ISO 29100 v2011": 5.2,
+    "NIST SP 800-53 rev4": [
+      "IP-1",
+      "IP-1(1)"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PT-4"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CT.PO-P1",
+      "CT.PO-P3"
+    ],
+    "OECD": 7,
+    "OMB A-130": "",
+    "PIPEDA": 3,
+    "US-California CPRA": [
+      "7002(e)",
+      "7002(f)",
+      "7004(a)",
+      "7004(a)(1)",
+      "7004(a)(2)",
+      "7004(a)(2)(a)",
+      "7004(a)(2)(b)",
+      "7004(a)(2)(c)",
+      "7004(a)(3)",
+      "7004(a)(3)(a)",
+      "7004(a)(3)(b)",
+      "7004(a)(3)(c)",
+      "7004(a)(4)",
+      "7004(a)(4)(a)",
+      "7004(a)(4)(b)",
+      "7004(a)(5)",
+      "7004(a)(5)(a)",
+      "7004(a)(5)(b)",
+      "7004(a)(5)(c)",
+      "7004(b)",
+      "7004(c)",
+      "7010(c)",
+      "7028(a)",
+      "7028(b)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-03"
+    ]
+  },
+  {
+    "#": 2.3,
+    "Principle Name": "Updated Consent",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Based on changes to data privacy practices that affect the parameters of an individual's initial consent, updated consent of the individual is required to continue the collection, creation, use, dissemination, maintenance, retention, and/or disclosure of the individual’s personal data. This is also referred to as the right to revoke or \"opt out\" at any time after the initial consent was provided.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 7.1 Art 7.2 Art 7.3 Art 7.4 Art 8.1 Art 8.2 Art 12.2 Art 12.3 Art 12.4 Art 13.3 Art 14.3 Art 21.4",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "7.3.4"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": [
+      "PT-4(2)",
+      "PT-5(1)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CT.PO-P1",
+      "CT.PO-P3"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": 3,
+    "US-California CPRA": [
+      "7002(f)",
+      "7015(a)",
+      "7015(b)",
+      "7015(c)(1)",
+      "7015(c)(2)",
+      "7028(a)",
+      "7028(b)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-03.2",
+      "PRI-03.4"
+    ]
+  },
+  {
+    "#": 2.4,
+    "Principle Name": "Equal Service & Price",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Implement business processes to protect the right of data subjects to equal service and price, even if they exercise their data privacy rights.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": [
+      "164.524(c)"
+    ],
+    "ISO 27701  v2019": [
+      "6.15",
+      "6.15.1",
+      "6.15.1.1"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": [
+      "PL-1",
+      "PM-8"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "GV.MT-P3"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": [
+      "7010(a)",
+      "7016(a)",
+      "7016(b)",
+      "7016(c)",
+      "7016(d)",
+      "7016(d)(1)",
+      "7016(d)(2)",
+      "7016(d)(3)",
+      "7016(d)(4)",
+      "7016(d)(5)",
+      "7016(d)(5)(A)",
+      "7016(d)(5)(B)",
+      "7080(a)",
+      "7080(b)",
+      "7080(c)",
+      "7080(d)(1)",
+      "7080(d)(2)",
+      "7080(d)(3)",
+      "7080(d)(4)",
+      "7080(e)",
+      "7080(f)",
+      "7080(g)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "CPL-01"
+    ]
+  },
+  {
+    "#": 2.5,
+    "Principle Name": "Prohibit The Sale of Personal Data",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Provide a clear and conspicuous link on the organization's Internet-based homepage, titled “Do Not Sell My Personal Data” that enables a consumer, or a person authorized by the consumer, to opt-out of the sale of the consumer’s personal data.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "7.3.4"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "TR-1",
+      "TR-1(1)"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PT-4(1)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CT.PO-P3"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": 3,
+    "US-California CPRA": [
+      "7010(d)",
+      "7013(a)",
+      "7013(b)",
+      "7013(c)",
+      "7013(d)",
+      "7013(e)",
+      "7013(e)(1)",
+      "7013(e)(2)",
+      "7013(e)(3)",
+      "7013(e)(3)(A)",
+      "7013(e)(3)(B)",
+      "7013(f)(1)",
+      "7013(f)(2)",
+      "7013(g)(1)",
+      "7013(g)(1)",
+      "7013(h)",
+      "7014(a)",
+      "7014(b)",
+      "7014(c)",
+      "7014(d)",
+      "7014(e)",
+      "7014(e)(1)",
+      "7014(e)(2)",
+      "7014(f)(1)",
+      "7014(f)(2)",
+      "7014(g)(1)",
+      "7014(g)(2)",
+      "7014(h)",
+      "7026(a)",
+      "7026(a)(1)",
+      "7026(a)(2)",
+      "7026(a)(3)",
+      "7026(a)(4)",
+      "7026(b)",
+      "7026(c)",
+      "7026(d)",
+      "7026(e)",
+      "7026(f)(1)",
+      "7026(f)(2)",
+      "7026(g)",
+      "7026(h)",
+      "7026(i)",
+      "7026(j)",
+      "7026(k)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-03.1",
+      "PRI-03.3"
+    ]
+  },
+  {
+    "#": 2.6,
+    "Principle Name": "Authorized Agent (Proxy)",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Allow data subjects to authorize another person or entity, acting on the data subject's behalf, to make Personal Data (PD) processing decisions.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": "",
+    "NIST Privacy Framework v1.0": "",
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": [
+      "7063(a)",
+      "7063(a)(1)",
+      "7063(a)(2)",
+      "7063(b)",
+      "7063(c)",
+      "7063(d)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-03.6"
+    ]
+  },
+  {
+    "#": 2.7,
+    "Principle Name": "Global Privacy Control (GPC)",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Enable automated mechanisms to provide data subjects with functionality to automatically exercise pre-selected opt-out preferences (e.g., opt-out signal).",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": "",
+    "NIST Privacy Framework v1.0": "",
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": [
+      "7025(a)",
+      "7025(b)(1)",
+      "7025(b)(2)",
+      "7025(c)(1)",
+      "7025(c)(2)",
+      "7025(c)(3)",
+      "7025(c)(4)",
+      "7025(c)(5)",
+      "7025(c)(6)",
+      "7025(c)(7)(A)",
+      "7025(c)(7)(B)",
+      "7025(c)(7)(C)",
+      "7025(c)(7)(D)",
+      "7025(c)(7)(E)",
+      "7025(d)",
+      "7025(e)",
+      "7025(f)(1)",
+      "7025(f)(2)",
+      "7025(f)(3)",
+      "7025(g)(1)",
+      "7025(g)(2)(A)",
+      "7025(g)(2)(B)",
+      "7025(g)(2)(C)",
+      "7025(g)(2)(D)",
+      "7025(g)(3)",
+      "7025(g)(3)(A)",
+      "7025(g)(3)(B)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-03.8"
+    ]
+  },
+  {
+    "#": 3,
+    "Principle Name": "Limited Collection & Use",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Ensure that the design of data collection and use are consistent with the intended use of the information and the need for new information is balanced against any data privacy risks.",
+    "AICPA TSC SOC 2 (2017)": [
+      "P3.1"
+    ],
+    "APEC": 3,
+    "EU GDPR": "Art 5.1",
+    "EU-US Data Privacy Framework": "Principle 2.5.a Principle 2.5.b",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": [
+      "4.1.2",
+      "9.2.2"
+    ],
+    "HIPAA Privacy Rule": 164.506,
+    "ISO 27701  v2019": [
+      "7.2.2",
+      "7.3.1",
+      "7.3.2",
+      "7.4.1",
+      "8.2.1"
+    ],
+    "ISO 29100 v2011": 5.4,
+    "NIST SP 800-53 rev4": [
+      "AP-1"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PT-2"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CT.PO-P1",
+      "CT.DM-P1"
+    ],
+    "OECD": 1,
+    "OMB A-130": "",
+    "PIPEDA": 4,
+    "US-California CPRA": [
+      "7010(d)",
+      "7070(a)",
+      "7070(a)(1)",
+      "7070(a)(2)(A)",
+      "7070(a)(2)(B)",
+      "7070(a)(2)(C)",
+      "7070(a)(2)(D)",
+      "7070(a)(2)(E)",
+      "7070(a)(2)(F)",
+      "7070(b)",
+      "7070(c)",
+      "7071(a)",
+      "7071(b)",
+      "7072(a)",
+      "7072(b)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-04"
+    ]
+  },
+  {
+    "#": 3.1,
+    "Principle Name": "Authority to Collect",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Identify the lawful basis given to collect, create, use, disseminate, maintain, and/or disclose an individual’s personal data. Document this authority in the organization's publicly-facing data privacy notice.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 5.1",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "Authority",
+    "GAPP": [
+      "1.2.5",
+      "1.2.11",
+      "4.2.2"
+    ],
+    "HIPAA Privacy Rule": [
+      "164.520(a)"
+    ],
+    "ISO 27701  v2019": [
+      "7.2.2",
+      "7.3.1",
+      "7.3.2",
+      "7.5",
+      "7.5.1",
+      "7.5.2",
+      "8.1",
+      "8.2",
+      "8.2.1",
+      "8.5.1",
+      "8.5.7"
+    ],
+    "ISO 29100 v2011": 5.4,
+    "NIST SP 800-53 rev4": [
+      "AP-1"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PT-2"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CT.DP-P4"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": [
+      "7002(a)",
+      "7002(e)",
+      "7002(f)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-04.1"
+    ]
+  },
+  {
+    "#": 3.2,
+    "Principle Name": "Data Minimization",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Take steps to minimize the collection, creation, use, dissemination, maintenance, retention, and/or disclosure of the individual’s personal data to what is directly relevant and necessary to accomplish a legally authorized purpose.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 5.1 Art 35.1 Art 35.2 Art 35.3 Art 35.6 Art 35.8 Art 35.9 Art 35.11",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "Data Minimization",
+    "FIPPs (OMB)": "Data Minimization",
+    "GAPP": "",
+    "HIPAA Privacy Rule": [
+      "164.502",
+      "164.514"
+    ],
+    "ISO 27701  v2019": [
+      "7.4.4"
+    ],
+    "ISO 29100 v2011": 5.5,
+    "NIST SP 800-53 rev4": [
+      "DM-1",
+      "DM-3",
+      "DM-3(1)"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PM-25",
+      "SI-12(2)",
+      "SA-8(33)",
+      "SA-15(12)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CT.DP-P4"
+    ],
+    "OECD": "",
+    "OMB A-130": [
+      "5(f)(1)(f)"
+    ],
+    "PIPEDA": 4,
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "DCH-18.2"
+    ]
+  },
+  {
+    "#": 3.3,
+    "Principle Name": "Internal Use",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Restrict the internal use of personal data to only authorized purpose(s) that are consistent with the stated data privacy notice.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 5.1 Art 9.1 Art 9.2 Art 10 Art 11.1 Art 18.1 Art 18.2 Art 35.1 Art 35.2 Art 35.3 Art 35.6 Art 35.8 Art 35.9 Art 35.11",
+    "EU-US Data Privacy Framework": "Principle 2.5.a Principle 2.5.b",
+    "FIPPs (DHS)": "Use Limitation",
+    "FIPPs (OMB)": "Purpose Specification & Use Limitation",
+    "GAPP": [
+      "4.1.2",
+      "5.2.1",
+      "7.2.2",
+      "9.2.1",
+      "9.2.2"
+    ],
+    "HIPAA Privacy Rule": [
+      "164.502",
+      "164.504",
+      "164.510",
+      "164.512",
+      "164.514",
+      "164.532"
+    ],
+    "ISO 27701  v2019": [
+      "7.4.2",
+      "7.4.4",
+      "8.2.3"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "DM-3",
+      "DM-3(1)",
+      "UL-1"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PM-25",
+      "PT-2",
+      "SI-12(1)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CT.DM-P8",
+      "CT.PO-P2",
+      "CT.DP-P4"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": 5,
+    "US-California CPRA": [
+      "7002(d)",
+      "7002(d)(1)",
+      "7002(d)(2)",
+      "7002(d)(3)",
+      "7027(a)",
+      "7027(b)",
+      "7027(b)(1)",
+      "7027(b)(2)",
+      "7027(b)(3)",
+      "7027(b)(4)",
+      "7027(c)",
+      "7027(d)",
+      "7027(e)",
+      "7027(f)",
+      "7027(g)(1)",
+      "7027(g)(2)",
+      "7027(g)(3)",
+      "7027(h)",
+      "7027(i)",
+      "7027(j)",
+      "7027(k)",
+      "7027(l)",
+      "7027(m)",
+      "7027(m)(1)",
+      "7027(m)(2)",
+      "7027(m)(3)",
+      "7027(m)(4)",
+      "7027(m)(5)",
+      "7027(m)(6)",
+      "7027(m)(7)",
+      "7027(m)(8)"
+    ],
+    "US-Nevada SB220": [
+      "Sec2.3"
+    ],
+    "Secure Controls Framework (SCF)": [
+      "DCH-18.1",
+      "PRI-05.1",
+      "PRI-05.4"
+    ]
+  },
+  {
+    "#": 4,
+    "Principle Name": "Transparency",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Provide a transparent notice to the public about data privacy practices through a clear and conspicuous notice on all organizational websites, mobile applications and other digital services regarding the collection, creation, use, dissemination, maintenance, retention, and/or disclosure of the personal data.",
+    "AICPA TSC SOC 2 (2017)": [
+      "P1.1"
+    ],
+    "APEC": 2,
+    "EU GDPR": "Art 11.2 Art 12.1 Art 13.1 Art 13.2 Art 13.3 Art 14.1 Art 14.2 Art 14.3 Art 26.1 Art 26.2",
+    "EU-US Data Privacy Framework": "Principle 2.1.a.i Principle 2.1.a.ii Principle 2.1.a.iii Principle 2.1.a.iv Principle 2.1.a.v Principle 2.1.a.vi Principle 2.1.a.vii Principle 2.1.a.viii Principle 2.1.a.ix Principle 2.1.a.x Principle 2.1.a.xi Principle 2.1.a.xii Principle 2.1.a.xii Principle 2.1.b",
+    "FIPPs (DHS)": "Transparency",
+    "FIPPs (OMB)": "Transparency",
+    "GAPP": [
+      "2.1.1",
+      "2.2.1",
+      "2.2.2",
+      "2.2.3",
+      "3.1.0",
+      "3.1.1",
+      "3.1.2",
+      "4.1.0",
+      "4.1.1",
+      "4.2.4",
+      "5.1.0",
+      "5.1.1",
+      "6.1.0",
+      "7.1.0",
+      "7.1.1",
+      "8.1.0",
+      "8.1.1",
+      "9.1.0",
+      "9.1.1",
+      "10.1.0",
+      "10.1.1",
+      "10.2.3"
+    ],
+    "HIPAA Privacy Rule": 164.52,
+    "ISO 27701  v2019": [
+      "7.3",
+      "7.3.1",
+      "7.3.2",
+      "8.2.2",
+      "8.2.3",
+      "8.5.1",
+      "8.5.2",
+      "8.5.6"
+    ],
+    "ISO 29100 v2011": [
+      "5.2",
+      "5.8"
+    ],
+    "NIST SP 800-53 rev4": [
+      "DI-2(1)",
+      "TR-1",
+      "TR-1(1)",
+      "TR-2",
+      "TR-3"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PM-20(1)",
+      "PT-5",
+      "PT-5(2)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CM.AW-P1",
+      "CM.PO-P1"
+    ],
+    "OECD": 6,
+    "OMB A-130": [
+      "5(f)(1)(j)"
+    ],
+    "PIPEDA": 8,
+    "US-California CPRA": [
+      "7001(w)",
+      "7002(a)(1)",
+      "7002(a)(2)",
+      "7002(b)",
+      "7002(b)(1)",
+      "7002(b)(2)",
+      "7002(b)(3)",
+      "7002(b)(4)",
+      "7002(b)(5)",
+      "7002(c)(1)",
+      "7002(c)(2)",
+      "7002(c)(3)",
+      "7010(a)",
+      "7010(b)",
+      "7010(e)",
+      "7011(a)",
+      "7011(b)",
+      "7011(c)",
+      "7011(d)",
+      "7011(e)(1)",
+      "7011(e)(1)(A)",
+      "7011(e)(1)(B)",
+      "7011(e)(1)(C)",
+      "7011(e)(1)(D)",
+      "7011(e)(1)(E)",
+      "7011(e)(1)(F)",
+      "7011(e)(1)(G)",
+      "7011(e)(1)(H)",
+      "7011(e)(1)(I)",
+      "7011(e)(1)(J)",
+      "7011(e)(1)(K)",
+      "7011(e)(2)",
+      "7011(e)(2)(A)",
+      "7011(e)(2)(B)",
+      "7011(e)(2)(C)",
+      "7011(e)(2)(D)",
+      "7011(e)(2)(E)",
+      "7011(e)(2)(F)",
+      "7011(e)(3)",
+      "7011(e)(3)(A)",
+      "7011(e)(3)(B)",
+      "7011(e)(3)(C)",
+      "7011(e)(3)(D)",
+      "7011(e)(3)(E)",
+      "7011(e)(3)(F)",
+      "7011(e)(3)(G)",
+      "7011(e)(3)(H)",
+      "7011(e)(3)(I)",
+      "7011(e)(3)(J)",
+      "7011(e)(4)",
+      "7011(e)(5)",
+      "7012(a)",
+      "7012(b)",
+      "7012(c)",
+      "7012(c)(1)",
+      "7012(c)(2)",
+      "7012(c)(3)",
+      "7012(c)(4)",
+      "7012(c)(5)",
+      "7012(d)",
+      "7012(e)(1)",
+      "7012(e)(2)",
+      "7012(e)(3)",
+      "7012(e)(4)",
+      "7012(e)(5)",
+      "7012(e)(6)",
+      "7012(f)",
+      "7012(g)",
+      "7012(g)(1)",
+      "7012(g)(2)",
+      "7012(g)(3)(A)",
+      "7012(g)(3)(B)",
+      "7012(g)(3)(C)",
+      "7012(h)",
+      "7012(i)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-01.2",
+      "PRI-02",
+      "PRI-14.2"
+    ]
+  },
+  {
+    "#": 4.1,
+    "Principle Name": "Data Privacy Notice & Purpose Specification",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Provide notice of the specific purpose(s) for which personal data is collected, created, used, disseminated, maintained, retained and/or disclosed.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 13.1 Art 14.1 Art 14.2",
+    "EU-US Data Privacy Framework": "Principle 2.1.a.i Principle 2.1.a.ii Principle 2.1.a.iii Principle 2.1.a.iv Principle 2.1.a.v Principle 2.1.a.vi Principle 2.1.a.vii Principle 2.1.a.viii Principle 2.1.a.ix Principle 2.1.a.x Principle 2.1.a.xi Principle 2.1.a.xii Principle 2.1.a.xii Principle 2.1.b",
+    "FIPPs (DHS)": "Purpose Specification",
+    "FIPPs (OMB)": "Purpose Specification & Use Limitation",
+    "GAPP": [
+      "4.2.1"
+    ],
+    "HIPAA Privacy Rule": 164.52,
+    "ISO 27701  v2019": [
+      "7.2",
+      "7.2.1",
+      "8.2.2",
+      "8.5.1"
+    ],
+    "ISO 29100 v2011": 5.3,
+    "NIST SP 800-53 rev4": [
+      "AP-2",
+      "DI-2(1)",
+      "TR-1",
+      "TR-1(1)"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PT-3"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CM.PO-P1"
+    ],
+    "OECD": 3,
+    "OMB A-130": [
+      "5(f)(1)(d)"
+    ],
+    "PIPEDA": 2,
+    "US-California CPRA": [
+      "7002(a)(1)",
+      "7002(a)(2)",
+      "7002(b)",
+      "7002(b)(1)",
+      "7002(b)(2)",
+      "7002(b)(3)",
+      "7002(b)(4)",
+      "7002(b)(5)",
+      "7002(c)(1)",
+      "7002(c)(2)",
+      "7002(c)(3)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-02.1",
+      "PRI-14.2"
+    ]
+  },
+  {
+    "#": 5,
+    "Principle Name": "Data Lifecycle Management",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Limit the collection, creation, use, dissemination, maintenance, retention, and/or disclosure of personal data to that which is legally authorized, relevant and deemed \"reasonably necessary\" for the proper performance of business functions.",
+    "AICPA TSC SOC 2 (2017)": [
+      "P2.1",
+      "P4.1",
+      "P4.2",
+      "P4.3"
+    ],
+    "APEC": 4,
+    "EU GDPR": "Art 5.1 Art 18.1 Art 18.2 Art 21.1 Art 21.2 Art 21.3 Art 32.1 Art 32.2",
+    "EU-US Data Privacy Framework": "Principle 2.5.a Principle 2.5.b",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": [
+      "4.1.2",
+      "5.2.2",
+      "5.2.3"
+    ],
+    "HIPAA Privacy Rule": [
+      "164.502",
+      "164.504"
+    ],
+    "ISO 27701  v2019": [
+      "6.5.2",
+      "6.5.3.3",
+      "7.4.2",
+      "7.4.8",
+      "8.2.3",
+      "8.4.2"
+    ],
+    "ISO 29100 v2011": 5.6,
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": [
+      "AC-23",
+      "MP-1",
+      "PM-24",
+      "PM-25",
+      "PT-2",
+      "PT-2(2)",
+      "PT-3(1)",
+      "PT-3(2)",
+      "SI-18"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CT.DM-P5",
+      "CT.DM-P7"
+    ],
+    "OECD": 4,
+    "OMB A-130": [
+      "4(g)",
+      "5(a)(1)(c)(i)",
+      "5(b)(4)",
+      "App1-4(b)(2)"
+    ],
+    "PIPEDA": 5,
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "DCH-01",
+      "PRI-02.2",
+      "PRI-05",
+      "PRI-11"
+    ]
+  },
+  {
+    "#": 5.1,
+    "Principle Name": "Processing Records",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Maintain a record of processing activities that documents the organization's necessary records to support its obligations for the processing of sensitive/regulated data.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "7.2.8",
+      "8.2.6",
+      "8.5.3"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": [
+      "SA-4(12)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CM.AW-P4",
+      "CM.AW-P6"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-09"
+    ]
+  },
+  {
+    "#": 5.2,
+    "Principle Name": "Data Flow Mapping",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Maintain a record of processing activities that documents the flow of personal data that includes:  - Geographic locations and third-parties involved in the storage, transmission and/or processing of personal data;  - Contact details of the controller(s) involved in the storage, transmission and/or processing of personal data;  - The purposes of the storage, transmission and processing;  - A description of the categories of data subjects and personal data;  - Where possible, the time limits for erasure of the different categories of data; and  - Where possible, a description of the cybersecurity & data privacy measures of the data controller.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 30.1 Art 30.2 Art 30.3 Art 30.4 Art 30.5",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "UL-2"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PL-2",
+      "SA-4(1)",
+      "SA-4(2)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "ID.IM-P1",
+      "ID.IM-P4"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": [
+      "7101(a)",
+      "7101(b)",
+      "7101(c)",
+      "7101(d)",
+      "7101(e)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "AST-04",
+      "CFG-08.1",
+      "DCH-01.3",
+      "PRI-11"
+    ]
+  },
+  {
+    "#": 5.3,
+    "Principle Name": "Data Custodians",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Identify the owners or operators of systems/products/services that process data, or with which data subjects are interacting.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "6.5.1.2"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": [
+      "CM-8(4)",
+      "PT-3(1)",
+      "SA-4(12)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CT.DM-P7",
+      "ID.IM-P2"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "AST-03",
+      "AST-03.1"
+    ]
+  },
+  {
+    "#": 5.4,
+    "Principle Name": "Retention of Personal Data",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Ensure that all records containing personal data are maintained in accordance with the organization's records retention schedule and comply with applicable statutory, regulatory and contractual obligations.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 5.1",
+    "EU-US Data Privacy Framework": "Principle 2.5.b",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "6.5.3",
+      "6.15.1.3",
+      "7.4.7"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "DM-2"
+    ],
+    "NIST SP 800-53 rev5": [
+      "MP-7",
+      "SI-12"
+    ],
+    "NIST Privacy Framework v1.0": "",
+    "OECD": "",
+    "OMB A-130": [
+      "5(f)(1)(h)"
+    ],
+    "PIPEDA": 5,
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "DCH-18",
+      "PRI-05"
+    ]
+  },
+  {
+    "#": 5.5,
+    "Principle Name": "Secure Destruction of Personal Data",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Utilize secure methods to dispose of or destroy both physical and digital media that contains personal data.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 5.1",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "7.4.8"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "DM-2"
+    ],
+    "NIST SP 800-53 rev5": [
+      "MP-6",
+      "MP-6(3)",
+      "SI-12(3)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CT.DM-P5"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": 5,
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "DCH-09.3",
+      "DCH-21"
+    ]
+  },
+  {
+    "#": 5.6,
+    "Principle Name": "Geolocation Restrictions",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Restrict the location of processing, storage and service locations to comply with the data privacy notice, as well as applicable statutory, regulatory and contractual obligations.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 6.1 Art 26.1 Art 26.2 Art 27.3 Art 28.1 Art 28.2 Art 28.3 Art 28.4 Art 28.5 Art 28.6 Art 28.9 Art 28.10 Art 29 Art 44 Art 45.1 Art 45.2 Art 46.1 Art 46.2 Art 46.3 Art 47.1 Art 47.2 Art 48 Art 49.1 Art 49.2 Art 49.6",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": [
+      "CM-12",
+      "PE-23",
+      "SA-9(5)",
+      "SC-36"
+    ],
+    "NIST Privacy Framework v1.0": "",
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "DCH-24",
+      "DCH-25",
+      "SEA-15",
+      "TPM-04.4"
+    ]
+  },
+  {
+    "#": 5.7,
+    "Principle Name": "Data Portability",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Provide the functionality to export personal data in a structured, commonly-used and machine-readable format that can be transferred to another controller without hindrance.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 20.1 Art 20.2 Art 20.3 Art 20.4",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": "",
+    "NIST Privacy Framework v1.0": [
+      "ID.DE-P4",
+      "CT.DM-P2",
+      "CT.DM-P6"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-06.6",
+      "PRI-06.7"
+    ]
+  },
+  {
+    "#": 5.8,
+    "Principle Name": "Record of Disclosures",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Develop and maintain an accounting of personal data disclosures that upon request can be made available to the individual whose personal data was disclosed.",
+    "AICPA TSC SOC 2 (2017)": [
+      "P6.2",
+      "P6.3"
+    ],
+    "APEC": "",
+    "EU GDPR": "Art 30.1 Art 30.2 Art 30.3 Art 30.4 Art 30.5",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": [
+      "7.2.1",
+      "7.2.4"
+    ],
+    "HIPAA Privacy Rule": [
+      "164.502",
+      "164.504",
+      "164.506",
+      "164.508",
+      "164.528"
+    ],
+    "ISO 27701  v2019": [
+      "7.2.8",
+      "7.5.3",
+      "7.5.4"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "AR-6"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PM-21"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CM.AW-P4"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": [
+      "7101(a)",
+      "7101(b)",
+      "7101(c)",
+      "7101(d)",
+      "7101(e)",
+      "7102(a)(1)(A)",
+      "7102(a)(1)(B)",
+      "7102(a)(1)(C)",
+      "7102(a)(1)(D)",
+      "7102(a)(1)(E)",
+      "7102(a)(1)(F)",
+      "7102(a)(2)",
+      "7102(b)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-14",
+      "PRI-14.1"
+    ]
+  },
+  {
+    "#": 5.9,
+    "Principle Name": "Integrity Protections",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Maintain the accuracy and relevance of personal data across the information lifecycle as personal data is collected, created, used, disseminated, maintained, retained and/or disclosed.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 5.1",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "Data Quality & Integrity",
+    "FIPPs (OMB)": "Quality & Integrity",
+    "GAPP": [
+      "9.2.1"
+    ],
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "7.4.3"
+    ],
+    "ISO 29100 v2011": 5.7,
+    "NIST SP 800-53 rev4": [
+      "DI-2"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PM-24"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "PR.DS-P6",
+      "PR.DS-P8"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": 6,
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "GOV-10",
+      "PRI-05.2"
+    ]
+  },
+  {
+    "#": 5.1,
+    "Principle Name": "De-Identification",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Process personal data in such a manner that it is not attributable to a data subject through technical or organizational measures (e.g., anonymization, pseudonymization or data minimization).",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 4.5 Art 5.1 Art 6.4 Art 32.1",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": [
+      "164.514(a)",
+      "164.514(b)"
+    ],
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": [
+      "SI-19",
+      "SI-19(4)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CT.DP-P1",
+      "CT.DP-P2",
+      "CT.DP-P3",
+      "CT.DP-P5"
+    ],
+    "OECD": "",
+    "OMB A-130": [
+      "5(f)(1)(f)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "DCH-23",
+      "PRI-05.3"
+    ]
+  },
+  {
+    "#": 5.11,
+    "Principle Name": "Quality Management",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Maintain quality assurances throughout the information lifecycle with such accuracy, relevance, timeliness and completeness as is reasonably necessary to ensure fairness to the individual.",
+    "AICPA TSC SOC 2 (2017)": [
+      "P7.1"
+    ],
+    "APEC": 6,
+    "EU GDPR": "Art 5.1 Art 21.5 Art 22",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "Data Quality & Integrity",
+    "FIPPs (OMB)": "Quality & Integrity",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "7.4.3"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "PT-3(2)"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PM-22",
+      "PM-23",
+      "PM-24"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CT.DM-P8",
+      "CT.PO-P4"
+    ],
+    "OECD": 2,
+    "OMB A-130": "",
+    "PIPEDA": 6,
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-10",
+      "PRI-10.1"
+    ]
+  },
+  {
+    "#": 5.12,
+    "Principle Name": "Secure Data Processing",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Implement secure data processing practices so that the confidentiality, integrity and pertinent attributes of sensitive/regulated data is maintained throughout the data lifecycle.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "6.3.1.5",
+      "6.11",
+      "6.11.1",
+      "6.11.2",
+      "6.11.2.1",
+      "6.11.2.2",
+      "6.11.2.5",
+      "7.4",
+      "8.4"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "AR-7",
+      "SA-8",
+      "SA-13",
+      "SC-1",
+      "SC-7(18)",
+      "SI-1"
+    ],
+    "NIST SP 800-53 rev5": [
+      "CA-2",
+      "PM-11",
+      "PT-1",
+      "RA-9",
+      "SA-3",
+      "SA-3(1)",
+      "SA-8",
+      "SA-8(30)",
+      "SA-15(5)",
+      "SC-1",
+      "SC-7(18)",
+      "SI-1"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CM.AW-P3",
+      "CT.PO-P1",
+      "CT.DM-P7",
+      "CT.DM-P8",
+      "CT.PO-P4",
+      "ID.DE-P4",
+      "ID.IM-P5",
+      "PR.PP-P3",
+      "PR.PP-P4",
+      "PR.PP-P5"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRM-04",
+      "PRM-05",
+      "PRM-06",
+      "PRM-07",
+      "PRM-08",
+      "SEA-01",
+      "TDA-06"
+    ]
+  },
+  {
+    "#": 5.13,
+    "Principle Name": "Data Lineage",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Maintain records of the inputs, entities, systems, applications and processes that influence data of interest, providing a historical record of the data and its origins.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "PL-2"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PL-2"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "ID.IM-P7",
+      "ID.IM-P8",
+      "ID.BE-P3",
+      "IN.AW-P6"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "IAO-03"
+    ]
+  },
+  {
+    "#": 5.14,
+    "Principle Name": "Updated Use Permissions",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Implement data management processes to adjust data that is able to be collected, created, used, disseminated, maintained, retained and/or disclosed, based on updated data subject authorization(s).",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "7.3.4"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": [
+      "PT-4(2)",
+      "PT-5(1)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CT.PO-P1",
+      "CT.PO-P3"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": [
+      "7002(f)",
+      "7028(a)",
+      "7028(b)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-03.2"
+    ]
+  },
+  {
+    "#": 5.15,
+    "Principle Name": "Flaw Remediation with Personal Data",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Identify and correct flaws related to personal data as it is collected, created, used, disseminated, maintained, retained and/or disclosed.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 5.1",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "6.9.6",
+      "6.9.6.1"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": [
+      "SI-18(4)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CM.AW-P5"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": 6,
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "DCH-22.1",
+      "VPM-04.2"
+    ]
+  },
+  {
+    "#": 5.16,
+    "Principle Name": "Analytical Biases",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Understand and evaluate data analytic inputs and outputs for potential bias.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": "",
+    "NIST Privacy Framework v1.0": [
+      "ID.RA-P2"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-10.2"
+    ]
+  },
+  {
+    "#": 6,
+    "Principle Name": "Data Subject Rights",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Provide data subjects with appropriate access to their personal data.",
+    "AICPA TSC SOC 2 (2017)": [
+      "P5.1",
+      "P6.7"
+    ],
+    "APEC": 8,
+    "EU GDPR": "Art 12.1 Art 12.2 Art 13.2 Art 14.2 Art 15.1 Art 15.2 Art 15.3 Art 15.4 Art 16 Art 26.3",
+    "EU-US Data Privacy Framework": "Principle 2.6.a Principle 3.8.c.i Principle 3.8.c.ii Principle 3.8.e.i Principle 3.8.e.i.1 Principle 3.8.e.i.2 Principle 3.8.e.i.3 Principle 3.8.e.i.4 Principle 3.8.e.i.5 Principle 3.8.c.ii Principle 3.8.f.i Principle 3.8.f.ii Principle 3.8.f.iii Principle 3.8.g.i Principle 3.8.h.i",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "Access & Amendment",
+    "GAPP": [
+      "6.2.1",
+      "6.2.2",
+      "6.2.3",
+      "6.2.4",
+      "6.2.5",
+      "6.2.6"
+    ],
+    "HIPAA Privacy Rule": [
+      "164.502",
+      "164.522",
+      "164.524"
+    ],
+    "ISO 27701  v2019": [
+      "7.3.6",
+      "8.2.5"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "IP-2"
+    ],
+    "NIST SP 800-53 rev5": [
+      "AC-3(14)",
+      "SI-18(4)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CT.DM-P1"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": 9,
+    "US-California CPRA": [
+      "7023(h)",
+      "7024(a)",
+      "7024(b)",
+      "7024(c)",
+      "7024(c)(1)",
+      "7024(c)(2)",
+      "7024(c)(3)",
+      "7024(c)(4)",
+      "7024(d)",
+      "7024(e)",
+      "7024(f)",
+      "7024(g)",
+      "7024(h)",
+      "7024(i)",
+      "7024(j)",
+      "7024(k)",
+      "7024(k)(1)",
+      "7024(k)(2)",
+      "7024(k)(3)",
+      "7024(k)(4)",
+      "7024(k)(5)",
+      "7024(k)(6)",
+      "7024(l)"
+    ],
+    "US-Nevada SB220": [
+      "Sec2.1"
+    ],
+    "Secure Controls Framework (SCF)": [
+      "PRI-06",
+      "PRI-07.4"
+    ]
+  },
+  {
+    "#": 6.1,
+    "Principle Name": "Inquiry Management",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Maintain a capability to receive and respond to data privacy-related requests, complaints, concerns or questions from data subjects.",
+    "AICPA TSC SOC 2 (2017)": [
+      "P8.1"
+    ],
+    "APEC": "",
+    "EU GDPR": "Art 18.1 Art 18.2 Art 18.3 Art 19 Art 21.1 Art 21.6 Art 22 Art 26.3",
+    "EU-US Data Privacy Framework": "Principle 3.8.c.i Principle 3.8.c.ii Principle 3.8.e.i Principle 3.8.e.i.1 Principle 3.8.e.i.2 Principle 3.8.e.i.3 Principle 3.8.e.i.4 Principle 3.8.e.i.5 Principle 3.8.c.ii Principle 3.8.f.i Principle 3.8.f.ii Principle 3.8.f.iii Principle 3.8.g.i Principle 3.8.h.i",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": [
+      "6.2.5",
+      "6.2.6",
+      "7.1.2",
+      "10.2.1",
+      "10.2.2"
+    ],
+    "HIPAA Privacy Rule": 164.522,
+    "ISO 27701  v2019": [
+      "7.3.9"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "IP-4"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PM-26",
+      "SI-18(4)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CM.AW-P2",
+      "CT.DM-P1",
+      "GV.MT-P4",
+      "GV.MT-P7"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": 10,
+    "US-California CPRA": [
+      "7020(a)",
+      "7020(b)",
+      "7020(c)",
+      "7020(e)",
+      "7020(f)",
+      "7020(g)",
+      "7020(h)",
+      "7021(a)",
+      "7021(b)",
+      "7023(h)",
+      "7060(a)",
+      "7060(b)",
+      "7060(c)(1)",
+      "7060(c)(2)",
+      "7060(c)(3)(A)",
+      "7060(c)(3)(B)",
+      "7060(c)(3)(C)",
+      "7060(c)(3)(D)",
+      "7060(c)(3)(E)",
+      "7060(c)(3)(F)",
+      "7060(d)",
+      "7060(e)",
+      "7060(f)",
+      "7060(g)",
+      "7060(h)",
+      "7061(a)",
+      "7061(b)",
+      "7062(a)",
+      "7062(b)",
+      "7062(c)",
+      "7062(d)",
+      "7062(e)",
+      "7062(e)(1)",
+      "7062(e)(2)",
+      "7062(f)",
+      "7062(g)"
+    ],
+    "US-Nevada SB220": [
+      "Sec2.1",
+      "Sec2.2",
+      "Sec2.4"
+    ],
+    "Secure Controls Framework (SCF)": [
+      "DCH-22.1",
+      "PRI-06.4",
+      "PRI-07.4"
+    ]
+  },
+  {
+    "#": 6.2,
+    "Principle Name": "Updating Personal Data",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Provide data subjects with appropriate opportunity to correct or amend their personal data.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 5.1",
+    "EU-US Data Privacy Framework": "Principle 2.6.a",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": 164.526,
+    "ISO 27701  v2019": [
+      "7.3.6",
+      "7.4.3",
+      "8.2.5"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": [
+      "SI-18(4)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CT.DM-P1",
+      "CT.DM-P3"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": [
+      "Sec2.3"
+    ],
+    "Secure Controls Framework (SCF)": [
+      "DCH-22.1",
+      "PRI-12"
+    ]
+  },
+  {
+    "#": 6.3,
+    "Principle Name": "Redress",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Provide data subjects with appropriate opportunity to challenge the organization's compliance with its data privacy principles.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 12.3 Art 14.2 Art 16 Art 18.1 Art 26.3",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "Access & Amendment",
+    "GAPP": [
+      "6.2.5",
+      "6.2.6",
+      "10.2.1",
+      "10.2.2"
+    ],
+    "HIPAA Privacy Rule": 164.522,
+    "ISO 27701  v2019": [
+      "7.3.6"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "IP-3"
+    ],
+    "NIST SP 800-53 rev5": [
+      "SI-18(5)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CT.DM-P3"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": 10,
+    "US-California CPRA": [
+      "7023(a)",
+      "7023(b)",
+      "7023(b)(1)",
+      "7023(b)(1)(A)",
+      "7023(b)(1)(B)",
+      "7023(b)(1)(C)",
+      "7023(b)(2)",
+      "7023(c)",
+      "7023(d)(1)",
+      "7023(d)(2)",
+      "7023(d)(2)(A)",
+      "7023(d)(2)(B)",
+      "7023(d)(2)(C)",
+      "7023(d)(2)(D)",
+      "7023(d)(3)",
+      "7023(d)(4)",
+      "7023(e)",
+      "7023(f)",
+      "7023(f)(1)",
+      "7023(f)(2)",
+      "7023(f)(3)",
+      "7023(f)(4)",
+      "7023(g)",
+      "7023(h)",
+      "7023(i)",
+      "7023(j)",
+      "7023(k)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-06.1"
+    ]
+  },
+  {
+    "#": 6.4,
+    "Principle Name": "Notice of Correction or Amendment",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Notify affected data subjects and applicable third-parties when personal data is corrected or amended.",
+    "AICPA TSC SOC 2 (2017)": [
+      "P5.2"
+    ],
+    "APEC": 8,
+    "EU GDPR": "Art 12.3 Art 18.3 Art 19 Art 26.3",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": 164.526,
+    "ISO 27701  v2019": [
+      "8.5.8"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": [
+      "SI-18(5)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CM.AW-P1",
+      "CM.AW-P5",
+      "CM.AW-P7",
+      "CM.PO-P1",
+      "CT.PO-P4"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": [
+      "7022(c)(3)",
+      "7022(c)(4)",
+      "7023(j)",
+      "7050(a)(1)",
+      "7050(a)(2)",
+      "7050(a)(3)",
+      "7050(a)(3)(A)",
+      "7050(a)(3)(B)",
+      "7050(a)(4)",
+      "7050(a)(5)",
+      "7050(b)",
+      "7050(b)(1)",
+      "7050(b)(2)",
+      "7050(c)",
+      "7050(d)",
+      "7050(e)",
+      "7050(f)",
+      "7050(g)",
+      "7051(a)(1)",
+      "7051(a)(2)",
+      "7051(a)(3)",
+      "7051(a)(4)",
+      "7051(a)(5)",
+      "7051(a)(6)",
+      "7051(a)(7)",
+      "7051(a)(8)",
+      "7051(a)(9)",
+      "7051(a)(10)",
+      "7051(b)",
+      "7051(c)",
+      "7052(a)",
+      "7052(b)",
+      "7053(a)(1)",
+      "7053(a)(2)",
+      "7053(a)(3)",
+      "7053(a)(4)",
+      "7053(a)(5)",
+      "7053(a)(6)",
+      "7053(b)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-06.2",
+      "PRI-07.3"
+    ]
+  },
+  {
+    "#": 6.5,
+    "Principle Name": "Appeal",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Provide data subjects with appropriate opportunity to appeal an adverse decision to have incorrect personal data amended.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 21.1 Art 21.2 Art 21.3 Art 26.3",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": 164.526,
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": [
+      "PM-26"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CM.AW-P8"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-06.3"
+    ]
+  },
+  {
+    "#": 6.6,
+    "Principle Name": "Right to Erasure",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Provide data subjects with appropriate opportunity to request the deletion of personal data where it is used, disseminated, maintained, retained and/or disclosed, including where the personal data is stored or processed by third-parties.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 17.1 Art 17.2 Art 17.3",
+    "EU-US Data Privacy Framework": "Principle 2.6.a",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "7.3.6"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": "",
+    "NIST Privacy Framework v1.0": [
+      "CT.DM-P4"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": [
+      "7022(a)",
+      "7022(b)(1)",
+      "7022(b)(2)",
+      "7022(b)(3)",
+      "7022(c)(1)",
+      "7022(c)(2)",
+      "7022(c)(3)",
+      "7022(c)(4)",
+      "7022(d)",
+      "7022(e)",
+      "7022(f)(1)",
+      "7022(f)(2)",
+      "7022(f)(3)",
+      "7022(f)(4)",
+      "7022(g)",
+      "7022(h)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-06.5"
+    ]
+  },
+  {
+    "#": 7,
+    "Principle Name": "Cybersecurity by Design",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Establish administrative, technical and physical safeguards to protect sensitive/regulated data commensurate with the risk and magnitude of the harm that would result from its unauthorized access, use, modification, loss or dissemination. Selected practices are in accordance with industry-leading practices (e.g., ISO 27002, NIST 800-53, Secure Controls Framework (SCF), etc.).",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 5.2 Art 24.1 Art 24.2 Art 24.3 Art 25.1 Art 25.2 Art 25.3 Art 32.1 Art 32.2 Art 40.2",
+    "EU-US Data Privacy Framework": "Principle 2.4.a",
+    "FIPPs (DHS)": "Security",
+    "FIPPs (OMB)": "Security",
+    "GAPP": [
+      "8.2.2"
+    ],
+    "HIPAA Privacy Rule": [
+      "164.502",
+      "164.504",
+      "164.530"
+    ],
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "AU-1",
+      "AU-2",
+      "PL-1",
+      "PL-9",
+      "SA-1",
+      "SA-11"
+    ],
+    "NIST SP 800-53 rev5": [
+      "AC-1",
+      "AU-1",
+      "AU-2",
+      "PL-1",
+      "PL-9",
+      "SA-1",
+      "SA-11",
+      "SA-23"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "GV.PO-P4",
+      "PC.AC-P1",
+      "PC.AC-P2",
+      "PC.AC-P3",
+      "PC.AC-P4",
+      "PC.AC-P5",
+      "PC.AC-P6",
+      "PR.PO-P1",
+      "PR.PO-P2",
+      "PR.PO-P3",
+      "PR.PO-P4",
+      "PR.PO-P5",
+      "PR.PO-P6",
+      "PR.PO-P7",
+      "PR.PO-P8",
+      "PR.PO-P10"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": 7,
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "GOV-15",
+      "GOV-15.1",
+      "GOV-15.2",
+      "GOV-15.3",
+      "GOV-15.4",
+      "GOV-15.5",
+      "IAC-01",
+      "MON-01",
+      "MON-02",
+      "PRI-01.6",
+      "SEA-01.1",
+      "TDA-01",
+      "TDA-09"
+    ]
+  },
+  {
+    "#": 7.1,
+    "Principle Name": "Cybersecurity Considerations",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Incorporate data privacy requirements into enterprise architecture to ensure that risk is addressed so systems, applications and services achieve the necessary levels of trustworthiness, protection and resilience.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": 7,
+    "EU GDPR": "Art 5.2 Art 24.1 Art 24.2 Art 24.3 Art 25.1 Art 25.2 Art 25.3 Art 32.1 Art 32.2 Art 40.2",
+    "EU-US Data Privacy Framework": "Principle 2.4.a",
+    "FIPPs (DHS)": "Security",
+    "FIPPs (OMB)": "Security",
+    "GAPP": [
+      "4.2.3",
+      "6.2.2",
+      "7.2.2",
+      "7.2.3"
+    ],
+    "HIPAA Privacy Rule": [
+      "164.504",
+      "164.530"
+    ],
+    "ISO 27701  v2019": [
+      "6.11.2.5",
+      "7.4",
+      "8.4"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "AR-7",
+      "CM-4",
+      "PL-8",
+      "PM-7",
+      "SA-8",
+      "SA-13",
+      "SC-1",
+      "SC-7(18)",
+      "SI-1"
+    ],
+    "NIST SP 800-53 rev5": [
+      "CM-4",
+      "PL-8",
+      "PM-7",
+      "PT-1",
+      "SA-8",
+      "SC-1",
+      "SC-7(18)",
+      "SI-1",
+      "SA-15(5)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CM.AW-P3",
+      "CT.PO-P1",
+      "CT.DM-P7",
+      "CT.DM-P8",
+      "ID.DE-P4",
+      "PR.DS-P3",
+      "PR.DS-P4",
+      "PR.DS-P5",
+      "PR.DS-P7",
+      "PR.MA-P1",
+      "PR.MA-P2",
+      "PR.PP-P3",
+      "PR.PP-P4",
+      "PR.PP-P5",
+      "PR.PT-P1",
+      "PR.PT-P2",
+      "PR.PT-P3",
+      "PR.PT-P4"
+    ],
+    "OECD": 5,
+    "OMB A-130": [
+      "App1-4(b)(5)"
+    ],
+    "PIPEDA": 7,
+    "US-California CPRA": 7001,
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "GOV-15",
+      "GOV-15.1",
+      "GOV-15.2",
+      "GOV-15.3",
+      "GOV-15.4",
+      "GOV-15.5",
+      "CHG-03",
+      "PRI-01.6",
+      "SEA-01",
+      "SEA-02"
+    ]
+  },
+  {
+    "#": 7.2,
+    "Principle Name": "Cryptographic Protections",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Ensure personal data is encrypted both at rest and in transit.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 5.1",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": [
+      "164.502",
+      "164.504",
+      "164.530"
+    ],
+    "ISO 27701  v2019": [
+      "6.7",
+      "6.7.1",
+      "6.7.1.1",
+      "6.10.2.3"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "SC-8",
+      "SC-8(2)",
+      "SC-13",
+      "SC-13(1)",
+      "SC-28(2)",
+      "SI-7(6)"
+    ],
+    "NIST SP 800-53 rev5": [
+      "SC-8",
+      "SC-8(2)",
+      "SC-13",
+      "SC-28(2)",
+      "SI-7(6)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "PR.DS-P1",
+      "PR.DS-P2"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "CRY-01",
+      "CRY-03",
+      "CRY-05"
+    ]
+  },
+  {
+    "#": 7.3,
+    "Principle Name": "Physical Protections",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Ensure physical security and environmental controls provide appropriate protection for environments where personal data is stored, transmitted and/or processed.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 32.1 Art 32.2",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "Security",
+    "FIPPs (OMB)": "Security",
+    "GAPP": [
+      "8.2.3",
+      "8.2.4"
+    ],
+    "HIPAA Privacy Rule": [
+      "164.504",
+      "164.530"
+    ],
+    "ISO 27701  v2019": [
+      "6.8.1.4",
+      "6.15.1.4"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "PE-1"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PE-1",
+      "PE-23"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "PR.AC-P2"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": 7,
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PES-01"
+    ]
+  },
+  {
+    "#": 7.4,
+    "Principle Name": "Embedded Technology",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Facilitate the secure implementation of embedded technologies so sensors minimize the collection of personal data and alert data subjects to the personal data collected by those sensors.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 5.1 Art 5.2 Art 32.1 Art 32.2",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "Transparency",
+    "FIPPs (OMB)": "Transparency",
+    "GAPP": "",
+    "HIPAA Privacy Rule": [
+      "164.504",
+      "164.530"
+    ],
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": [
+      "PM-25",
+      "SA-8(33)",
+      "SC-42(2)",
+      "SC-42(5)"
+    ],
+    "NIST Privacy Framework v1.0": "",
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "EMB-01",
+      "END-13.1",
+      "END-13.2",
+      "END-13.3"
+    ]
+  },
+  {
+    "#": 7.5,
+    "Principle Name": "Retire Outdated Systems",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": [
+      "Upgrade,",
+      "replace,",
+      "or",
+      "retire",
+      "any",
+      "system,",
+      "application",
+      "or",
+      "service",
+      "for",
+      "which",
+      "appropriate",
+      "protections,",
+      "commensurate",
+      "with",
+      "risk,",
+      "cannot",
+      "be",
+      "effectively",
+      "implemented."
+    ],
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": [
+      "164.504",
+      "164.530"
+    ],
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "SA-22"
+    ],
+    "NIST SP 800-53 rev5": [
+      "SA-22"
+    ],
+    "NIST Privacy Framework v1.0": "",
+    "OECD": "",
+    "OMB A-130": [
+      "App1-4(b)(3)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "TDA-17"
+    ]
+  },
+  {
+    "#": 7.6,
+    "Principle Name": "Personnel Security",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Implement personnel management practices, covering employees, contractors and other entities, that ensures appropriate vetting and clearance to systems, applications and/or services that contain, store or transmit personal data.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 32.1 Art 32.2 Art 32.4",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": [
+      "164.504",
+      "164.530"
+    ],
+    "ISO 27701  v2019": [
+      "6.4.2.2"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "AT-1",
+      "PM-13"
+    ],
+    "NIST SP 800-53 rev5": [
+      "AT-1",
+      "PM-13"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "GV.PO-P1",
+      "PR.PO-P9"
+    ],
+    "OECD": "",
+    "OMB A-130": [
+      "5(c)(2)",
+      "App1-4(h)(1)-(2)",
+      "App1-(4)-(7)"
+    ],
+    "PIPEDA": 7,
+    "US-California CPRA": [
+      "7100(a)",
+      "7100(b)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "SAT-01"
+    ]
+  },
+  {
+    "#": 7.7,
+    "Principle Name": "Rules of Behavior",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Require employees and contractors to read and agree to abide by the organization's rules of behavior, prior to being granted access to systems, applications and/or services that store, transmit or process personal data, including social media.",
+    "AICPA TSC SOC 2 (2017)": [
+      "CC1.1"
+    ],
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": [
+      "164.504",
+      "164.530"
+    ],
+    "ISO 27701  v2019": [
+      "6.4.2.1",
+      "6.5.1.3"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "PL-4",
+      "PL-4(1)"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PL-4",
+      "PL-4(1)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "PR.PO-P9"
+    ],
+    "OECD": "",
+    "OMB A-130": [
+      "App1-4(h)(6)",
+      "App1-4(h)(7)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "HRS-05.1",
+      "HRS-05.2"
+    ]
+  },
+  {
+    "#": 7.8,
+    "Principle Name": "Employee Sanctions",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Utilize employee sanctions to hold personnel accountable for complying with the organization's data privacy policies and processes.",
+    "AICPA TSC SOC 2 (2017)": [
+      "CC1.5"
+    ],
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": [
+      "164.504",
+      "164.530"
+    ],
+    "ISO 27701  v2019": [
+      "6.4.2.3"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "PS-8"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PS-8"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "PR.PO-P9"
+    ],
+    "OECD": "",
+    "OMB A-130": [
+      "App1-3(b)(9)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "HRS-07"
+    ]
+  },
+  {
+    "#": 7.9,
+    "Principle Name": "Workforce Management",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Respond to changing mission requirements and maintain workforce skills in a rapidly-developing technology environment through recruiting and retaining the talent needed to support the organization's mission.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 32.1 Art 32.2 Art 32.4",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": [
+      "164.504",
+      "164.530"
+    ],
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "PS-1"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PS-1"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "PR.PO-P9"
+    ],
+    "OECD": "",
+    "OMB A-130": [
+      "5(c)(1)",
+      "5(c)(7)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "HRS-01"
+    ]
+  },
+  {
+    "#": 7.1,
+    "Principle Name": "Professional Competency",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Develop and enforce data privacy competency requirements for staff members involved in the acquisition, management, maintenance and use of information resources, to ensure they have the appropriate knowledge and skill.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 32.1 Art 32.2 Art 32.4",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": [
+      "164.504",
+      "164.530"
+    ],
+    "ISO 27701  v2019": [
+      "6.4",
+      "6.4.1",
+      "6.4.1.1"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "PS-3"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PS-3"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "PR.PO-P9"
+    ],
+    "OECD": "",
+    "OMB A-130": [
+      "5(c)(1)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "HRS-04"
+    ]
+  },
+  {
+    "#": 7.11,
+    "Principle Name": "Cybersecurity & Data Privacy Control Validation",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Develop and enforce an Information Assurance (IA) capability that provides a mechanism to perform pre-production control testing to ensure applicable cybersecurity & data privacy controls exist and are functioning. Systems, applications and service are prohibited from \"going live\" without security authorization, following the results of pre-production control testing.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "CA-1",
+      "CA-6",
+      "PM-10",
+      "SA-11"
+    ],
+    "NIST SP 800-53 rev5": [
+      "CA-1",
+      "CA-6",
+      "CA-7(4)",
+      "PM-10",
+      "SA-11"
+    ],
+    "NIST Privacy Framework v1.0": "",
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "IAO-01",
+      "IAO-07",
+      "RSK-11",
+      "TDA-09"
+    ]
+  },
+  {
+    "#": 7.12,
+    "Principle Name": "Secure Configuration Management",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Implement secure configuration management throughout the System Development Life Cycle (SDLC) to ensure systems, applications and/or services are configured according to industry-recognized secure practices.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "CM-1",
+      "SA-11"
+    ],
+    "NIST SP 800-53 rev5": [
+      "CM-1",
+      "SA-11"
+    ],
+    "NIST Privacy Framework v1.0": "",
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "CFG-01",
+      "TDA-09"
+    ]
+  },
+  {
+    "#": 7.13,
+    "Principle Name": "Situational Awareness",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Correlate logs from across the organization with a Security Incident Event Manager (SIEM), or similar automated tool, to maintain situational awareness of events for potential cybersecurity & data privacy incidents.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": [
+      "IR-4(4)"
+    ],
+    "NIST Privacy Framework v1.0": "",
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "MON-02",
+      "MON-02.1"
+    ]
+  },
+  {
+    "#": 8,
+    "Principle Name": "Incident Response",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Maintain and test incident response plans, capabilities and training for employees and third-party stakeholders on how to report and respond to incidents.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 33.1 Art 33.2 Art 33.3 Art 33.4 Art 33.5",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": [
+      "1.2.7",
+      "7.2.4"
+    ],
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "6.13",
+      "6.13.1",
+      "6.13.1.1",
+      "6.13.1.5"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "IR-1",
+      "IR-3",
+      "IR-7",
+      "IR-8",
+      "SE-2"
+    ],
+    "NIST SP 800-53 rev5": [
+      "IR-1",
+      "IR-3",
+      "IR-7",
+      "IR-8",
+      "IR-8(1)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "GV.MT-P4",
+      "GV.MT-P5",
+      "PR.PO-P7"
+    ],
+    "OECD": "",
+    "OMB A-130": [
+      "App1-4(b)(3)",
+      "App1-4(f)(1)",
+      "App1-4(f)(3)",
+      "App1-4(f)(4)",
+      "App1-4(f)(5)",
+      "App1-4(f)(6)",
+      "App1-4(f)(7)",
+      "App1-4(f)(8)",
+      "App1-4(f)(9)",
+      "App1-4(f)(10)",
+      "App1-4(j)(2)(e)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "IRO-01",
+      "IRO-04",
+      "IRO-04.1",
+      "IRO-06",
+      "IRO-11"
+    ]
+  },
+  {
+    "#": 8.1,
+    "Principle Name": "Coordinated Response",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Respond to incidents in a coordinated and structed manner to ensure the appropriate steps are taken to identify and respond to potential incidents.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "6.13.1.4"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "IR-10"
+    ],
+    "NIST SP 800-53 rev5": [
+      "IR-4(11)"
+    ],
+    "NIST Privacy Framework v1.0": "",
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "IRO-07"
+    ]
+  },
+  {
+    "#": 8.2,
+    "Principle Name": "Breach Notification",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Report data breaches involving personal data to relevant regulators, law enforcement and affected parties in accordance with applicable statutory, regulatory and contractual obligations for breach notification.",
+    "AICPA TSC SOC 2 (2017)": [
+      "P6.6"
+    ],
+    "APEC": "",
+    "EU GDPR": "Art 33.1 Art 33.2 Art 33.3 Art 33.4 Art 33.5 Art 34.1 Art 34.2 Art 34.3 Art 34.4",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": [
+      "1.2.7"
+    ],
+    "HIPAA Privacy Rule": [
+      "164.400",
+      "164.402",
+      "164.404",
+      "164.406",
+      "164.408",
+      "164.410",
+      "164.412",
+      "164.414"
+    ],
+    "ISO 27701  v2019": [
+      "6.13.1.2",
+      "6.13.1.3"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "IR-6",
+      "IR-7(2)"
+    ],
+    "NIST SP 800-53 rev5": [
+      "IR-6",
+      "IR-7(2)"
+    ],
+    "NIST Privacy Framework v1.0": "",
+    "OECD": "",
+    "OMB A-130": [
+      "App1-4(b)(3)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "IRO-10",
+      "IRO-11.2"
+    ]
+  },
+  {
+    "#": 9,
+    "Principle Name": "Risk Management",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Implement a risk management framework to ensure that risks are identified, evaluated and addressed to achieve necessary levels of trustworthiness, protection and resilience.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 32.1 Art 32.2",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "6.8.1.4"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "PM-9",
+      "RA-1"
+    ],
+    "NIST SP 800-53 rev5": [
+      "CA-7(4)",
+      "PM-9",
+      "PM-29",
+      "RA-1"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "GV.MT-P1",
+      "GV.PO-P4",
+      "GV.RM-P1",
+      "GV.RM-P2",
+      "GV.RM-P3",
+      "ID.DE-P1"
+    ],
+    "OECD": "",
+    "OMB A-130": [
+      "4(i)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "RSK-01",
+      "RSK-11"
+    ]
+  },
+  {
+    "#": 9.1,
+    "Principle Name": "Evaluate Risks",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Utilize appropriate risk analysis methods to evaluate the likelihood and magnitude of harm, from unauthorized access, use, disclosure, disruption, modification or destruction of personal data where it is stored, transmitted and/or processed.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 35.1 Art 35.2 Art 35.3 Art 35.6 Art 35.8 Art 35.9 Art 35.11",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": [
+      "1.2.4"
+    ],
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "5.4.1.2",
+      "6.8.1.2"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "RA-3"
+    ],
+    "NIST SP 800-53 rev5": [
+      "RA-3"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "GV.MT-P1",
+      "ID.DE-P1",
+      "ID.DE-P5"
+    ],
+    "OECD": "",
+    "OMB A-130": [
+      "5(d)(3)",
+      "5(d)(4)(b)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "RSK-04"
+    ]
+  },
+  {
+    "#": 9.2,
+    "Principle Name": "Assess Supply Chain Risk",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Assess supply chain risks associated with systems, system components and services for data privacy implications.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 35.1 Art 35.2 Art 35.3 Art 35.6 Art 35.8 Art 35.9 Art 35.11 Art 36.3",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "SA-12"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PM-29",
+      "PM-30",
+      "RA-3(1)",
+      "SR-2",
+      "SR-7"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "GV.MT-P1",
+      "ID.DE-P2",
+      "ID.DE-P3",
+      "ID.DE-P5"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "RSK-08",
+      "RSK-09",
+      "RSK-09.1"
+    ]
+  },
+  {
+    "#": 9.3,
+    "Principle Name": "Risk Awareness",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Maintain a current and accurate register of risk (e.g., Plan of Action & Milestones (POA&M), risk register, etc.).",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 35.1",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "CA-5",
+      "PM-4"
+    ],
+    "NIST SP 800-53 rev5": [
+      "CA-5",
+      "CA-7(4)",
+      "PM-4"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "ID.DE-P1"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "IAO-05",
+      "RSK-04.1",
+      "RSK-11"
+    ]
+  },
+  {
+    "#": 9.4,
+    "Principle Name": "Risk Response",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Responses to identified risks are appropriately identified, categorized and prioritized.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": [
+      "RA-7"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "ID.DE-P1",
+      "ID.RA-P5",
+      "RS.MI-P3"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "RSK-06.1"
+    ]
+  },
+  {
+    "#": 9.5,
+    "Principle Name": "Data Protection Impact Assessment (DPIA)",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Utilize Data Protection Impact Assessments (DPIAs) to effectively identify and reduce data privacy risks to an acceptable level.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 35.1 Art 35.2 Art 35.3 Art 35.6 Art 35.7 Art 35.8 Art 35.9 Art 35.11 Art 36.1  Art 36.2 Art 36.3",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": [
+      "1.2.4",
+      "4.2.3"
+    ],
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "7.2.5"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "AR-2"
+    ],
+    "NIST SP 800-53 rev5": [
+      "RA-8"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "GV.MT-P1",
+      "GV.MT-P4",
+      "GV.MT-P5",
+      "ID.IM-P7",
+      "ID.RA-P1",
+      "ID.RA-P2",
+      "ID.RA-P3",
+      "ID.RA-P4",
+      "ID.RA-P5",
+      "ID.DE-P2",
+      "ID.DE-P3"
+    ],
+    "OECD": "",
+    "OMB A-130": [
+      "5(f)(1)(i)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "RSK-10"
+    ]
+  },
+  {
+    "#": 10,
+    "Principle Name": "Third-Party Management",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Provide data privacy oversight of third-parties with access to personal data, so that only trusted third-parties are contracted with.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 28.1 Art 28.2 Art 28.3 Art 28.4 Art 28.5 Art 28.6 Art 28.9 Art 28.10 Art 32.1 Art 32.2",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": 164.514,
+    "ISO 27701  v2019": [
+      "6.12",
+      "6.12.1",
+      "6.12.1.1"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "SA-4",
+      "SA-9"
+    ],
+    "NIST SP 800-53 rev5": [
+      "SA-4",
+      "SA-9",
+      "SR-1"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "GV.PO-P4"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "TPM-01",
+      "TPM-04"
+    ]
+  },
+  {
+    "#": 10.1,
+    "Principle Name": "Supply Chain Protections",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Govern the disclosure of personal data to ensure it is only provided to trusted third-parties that can store, process and/or transmit it in a secure manner.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 28.1 Art 28.2 Art 28.3 Art 28.4 Art 28.5 Art 28.6 Art 28.9 Art 28.10",
+    "EU-US Data Privacy Framework": "Principle 2.3.b(i) Principle 2.3.b(ii) Principle 2.3.b(iii) Principle 2.3.b(iv) Principle 2.3.b(v) Principle 2.3.b(vi) Principle 2.7.a.i Principle 2.7.a.ii Principle 2.7.a.iii Principle 2.7.b Principle 2.7.c Principle 2.7.d Principle 3.10.a.i Principle 3.10.a.ii Principle 3.10.a.ii.1 Principle 3.10.a.ii.2 Principle 3.10.a.ii.3 Principle 3.10.a.iii Principle 3.10.b.i Principle 3.10.c.i",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "6.12.1.3"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "SA-9",
+      "SA-12"
+    ],
+    "NIST SP 800-53 rev5": [
+      "SA-9",
+      "SR-2",
+      "SR-2(1)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "GV.PO-P4"
+    ],
+    "OECD": "",
+    "OMB A-130": [
+      "App1-4(j)(2)(b)",
+      "App1-4(j)(3)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "TPM-03",
+      "TPM-04"
+    ]
+  },
+  {
+    "#": 10.2,
+    "Principle Name": "Secure Disclosure To Third-Parties",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Govern third-party use of personal data to ensure data privacy requirements are enforced when a third-party stores, processes or transmits personal data on behalf of the organization.",
+    "AICPA TSC SOC 2 (2017)": [
+      "P6.1"
+    ],
+    "APEC": "",
+    "EU GDPR": "Art 6.1 Art 6.4 Art 15.2 Art 20.2 Art 26.1 Art 26.2 Art 26.3 Art 44 Art 45.1 Art 45.2 Art 46.1 Art 46.2 Art 46.3 Art 47.1 Art 47.2 Art 48 Art 49.1 Art 49.2 Art 49.6",
+    "EU-US Data Privacy Framework": "Principle 2.3.a Principle 2.3.b(i) Principle 2.3.b(ii) Principle 2.3.b(iii) Principle 2.3.b(iv) Principle 2.3.b(v) Principle 2.3.b(vi) Principle 2.7.a.i Principle 2.7.a.ii Principle 2.7.a.iii Principle 2.7.b Principle 2.7.c Principle 2.7.d Principle 3.10.a.i Principle 3.10.a.ii Principle 3.10.a.ii.1 Principle 3.10.a.ii.2 Principle 3.10.a.ii.3 Principle 3.10.a.iii Principle 3.10.b.i Principle 3.10.c.i",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": [
+      "7.2.1",
+      "7.2.2",
+      "7.2.3"
+    ],
+    "HIPAA Privacy Rule": [
+      "164.502",
+      "164.504"
+    ],
+    "ISO 27701  v2019": [
+      "7.4.9",
+      "7.5",
+      "8.4.3",
+      "8.5.1",
+      "8.5.7"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "UL-2"
+    ],
+    "NIST SP 800-53 rev5": [
+      "AC-21"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CT.PO-P2"
+    ],
+    "OECD": "",
+    "OMB A-130": [
+      "5(e)(1)(b)",
+      "5(e)(1)(c)",
+      "5(e)(1)(d)",
+      "5(e)(7)(h)",
+      "App1-3(c)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": [
+      "7012(g)",
+      "7012(g)(1)",
+      "7012(g)(2)",
+      "7012(g)(3)(A)",
+      "7012(g)(3)(B)",
+      "7012(g)(3)(C)",
+      "7022(c)(3)",
+      "7022(c)(4)",
+      "7050(a)(1)",
+      "7050(a)(2)",
+      "7050(a)(3)",
+      "7050(a)(3)(A)",
+      "7050(a)(3)(B)",
+      "7050(a)(4)",
+      "7050(a)(5)",
+      "7050(b)",
+      "7050(b)(1)",
+      "7050(b)(2)",
+      "7050(c)",
+      "7050(d)",
+      "7050(e)",
+      "7050(f)",
+      "7050(g)",
+      "7051(a)(1)",
+      "7051(a)(2)",
+      "7051(a)(3)",
+      "7051(a)(4)",
+      "7051(a)(5)",
+      "7051(a)(6)",
+      "7051(a)(7)",
+      "7051(a)(8)",
+      "7051(a)(9)",
+      "7051(a)(10)",
+      "7051(b)",
+      "7051(c)",
+      "7052(a)",
+      "7052(b)",
+      "7053(a)(1)",
+      "7053(a)(2)",
+      "7053(a)(3)",
+      "7053(a)(4)",
+      "7053(a)(5)",
+      "7053(a)(6)",
+      "7053(b)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-07"
+    ]
+  },
+  {
+    "#": 10.3,
+    "Principle Name": "Contractual Obligations for Third-Parties",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Require terms and conditions in contracts and other agreements to cover the collection, creation, use, dissemination, maintenance, retention, and/or disclosure of personal data.",
+    "AICPA TSC SOC 2 (2017)": [
+      "P6.4",
+      "P6.5"
+    ],
+    "APEC": "",
+    "EU GDPR": "Art 6.1 Art 6.4 Art 26.1 Art 26.2 Art 26.3 Art 28.1 Art 28.2 Art 28.3 Art 28.4 Art 28.5 Art 28.6 Art 28.9 Art 28.10 Art 29",
+    "EU-US Data Privacy Framework": "Principle 2.3.a Principle 2.3.b(i) Principle 2.3.b(ii) Principle 2.3.b(iii) Principle 2.3.b(iv) Principle 2.3.b(v) Principle 2.3.b(vi) Principle 2.7.a.i Principle 2.7.a.ii Principle 2.7.a.iii Principle 2.7.b Principle 2.7.c Principle 2.7.d Principle 3.10.a.i Principle 3.10.a.ii Principle 3.10.a.ii.1 Principle 3.10.a.ii.2 Principle 3.10.a.ii.3 Principle 3.10.a.iii Principle 3.10.b.i Principle 3.10.c.i",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": [
+      "4.2.3",
+      "7.2.4"
+    ],
+    "HIPAA Privacy Rule": [
+      "164.502",
+      "164.504",
+      "164.514"
+    ],
+    "ISO 27701  v2019": [
+      "6.10.2.4",
+      "6.12.1.2",
+      "7.2.6",
+      "8.2.5",
+      "8.5.8"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "AR-3",
+      "SA-9(3)"
+    ],
+    "NIST SP 800-53 rev5": [
+      "SA-9(3)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "ID.DE-P3"
+    ],
+    "OECD": "",
+    "OMB A-130": [
+      "5(a)(1)(b)(ii)",
+      "5(d)(1)(j)",
+      "App1-3(d)",
+      "App1-4(j)(1)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": [
+      "7012(g)",
+      "7012(g)(1)",
+      "7012(g)(2)",
+      "7012(g)(3)(A)",
+      "7012(g)(3)(B)",
+      "7012(g)(3)(C)",
+      "7050(a)(1)",
+      "7050(a)(2)",
+      "7050(a)(3)",
+      "7050(a)(3)(A)",
+      "7050(a)(3)(B)",
+      "7050(a)(4)",
+      "7050(a)(5)",
+      "7050(b)",
+      "7050(b)(1)",
+      "7050(b)(2)",
+      "7050(c)",
+      "7050(d)",
+      "7050(e)",
+      "7050(f)",
+      "7050(g)",
+      "7051(a)(1)",
+      "7051(a)(2)",
+      "7051(a)(3)",
+      "7051(a)(4)",
+      "7051(a)(5)",
+      "7051(a)(6)",
+      "7051(a)(7)",
+      "7051(a)(8)",
+      "7051(a)(9)",
+      "7051(a)(10)",
+      "7051(b)",
+      "7051(c)",
+      "7052(a)",
+      "7052(b)",
+      "7053(a)(1)",
+      "7053(a)(2)",
+      "7053(a)(3)",
+      "7053(a)(4)",
+      "7053(a)(5)",
+      "7053(a)(6)",
+      "7053(b)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-07.1",
+      "TPM-05"
+    ]
+  },
+  {
+    "#": 10.4,
+    "Principle Name": "Third-Party Compliance",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Validate that data privacy controls for systems, applications and services used or operated by third-parties are effectively-implemented and align with industry-recognized secure practices, as well as comply with applicable statutory, regulatory and contractual obligations.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 32.1 Art 32.2",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": [
+      "1.2.6",
+      "10.2.3",
+      "10.2.4",
+      "10.2.5"
+    ],
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "6.15.2.2",
+      "6.15.2.3"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "AR-4",
+      "SA-9"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PM-14",
+      "SA-9"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "GV.PO-P4"
+    ],
+    "OECD": "",
+    "OMB A-130": [
+      "App1-4(j)(2)(b)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRI-08",
+      "TPM-04"
+    ]
+  },
+  {
+    "#": 11,
+    "Principle Name": "Business Environment",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "The organization's mission, objectives, stakeholders and activities are understood and prioritized to provide resourcing and guidance for data privacy roles, responsibilities and risk management decisions.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "6.12",
+      "6.12.1",
+      "6.12.1.1"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "PM-3",
+      "SA-4"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PM-3",
+      "SA-4",
+      "SR-1"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "GV.PO-P2",
+      "GV.PO-P3",
+      "GV.PO-P4"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "PRM-02",
+      "TPM-01"
+    ]
+  },
+  {
+    "#": 11.1,
+    "Principle Name": "Data Privacy Protections Context",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Identify and document the organization's role as a controller and/or processor of sensitive/regulated data, including instances involving more than one party.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": [
+      "7.2.7",
+      "7.4.9",
+      "8.4.3",
+      "8.5.7"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": "",
+    "NIST Privacy Framework v1.0": [
+      "ID.IM-P5",
+      "ID.BE-P1",
+      "ID.BE-P2"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": [
+      "7012(g)",
+      "7012(g)(1)",
+      "7012(g)(2)",
+      "7012(g)(3)(A)",
+      "7012(g)(3)(B)",
+      "7012(g)(3)(C)",
+      "7050(a)(1)",
+      "7050(a)(2)",
+      "7050(a)(3)",
+      "7050(a)(3)(A)",
+      "7050(a)(3)(B)",
+      "7050(a)(4)",
+      "7050(a)(5)",
+      "7050(b)",
+      "7050(b)(1)",
+      "7050(b)(2)",
+      "7050(c)",
+      "7050(d)",
+      "7050(e)",
+      "7050(f)",
+      "7050(g)",
+      "7051(a)(1)",
+      "7051(a)(2)",
+      "7051(a)(3)",
+      "7051(a)(4)",
+      "7051(a)(5)",
+      "7051(a)(6)",
+      "7051(a)(7)",
+      "7051(a)(8)",
+      "7051(a)(9)",
+      "7051(a)(10)",
+      "7051(b)",
+      "7051(c)",
+      "7052(a)",
+      "7052(b)",
+      "7053(a)(1)",
+      "7053(a)(2)",
+      "7053(a)(3)",
+      "7053(a)(4)",
+      "7053(a)(5)",
+      "7053(a)(6)",
+      "7053(b)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "GOV-08",
+      "PRI-07.2"
+    ]
+  },
+  {
+    "#": 11.2,
+    "Principle Name": [
+      "Policies,",
+      "Standards",
+      "&",
+      "Procedures"
+    ],
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Ensure appropriate policies, standards and procedures exist to operationalize the data privacy program.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 32.1 Art 32.2 Art 32.3 Art 32.4",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": [
+      "8.2.1"
+    ],
+    "HIPAA Privacy Rule": [
+      "164.530(h)(1)"
+    ],
+    "ISO 27701  v2019": [
+      "6.2",
+      "6.2.1",
+      "6.2.1.1"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "PM-1"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PM-1",
+      "PM-20"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CM.PO-P1",
+      "CT.PO-P1",
+      "CT.PO-P2",
+      "CT.PO-P3",
+      "GV.PO-P1",
+      "GV.MT-P3",
+      "GV.MT-P4",
+      "GV.MT-P5",
+      "GV.MT-P6",
+      "GV.MT-P7",
+      "PR.PO-P4"
+    ],
+    "OECD": "",
+    "OMB A-130": [
+      "App1-4(j)(2)(a)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": [
+      "7001(w)",
+      "7002(a)(1)",
+      "7002(a)(2)",
+      "7002(b)",
+      "7002(b)(1)",
+      "7002(b)(2)",
+      "7002(b)(3)",
+      "7002(b)(4)",
+      "7002(b)(5)",
+      "7002(c)(1)",
+      "7002(c)(2)",
+      "7002(c)(3)",
+      "7010(a)",
+      "7010(b)",
+      "7010(e)",
+      "7011(a)",
+      "7011(b)",
+      "7011(c)",
+      "7011(d)",
+      "7011(e)(1)",
+      "7011(e)(1)(A)",
+      "7011(e)(1)(B)",
+      "7011(e)(1)(C)",
+      "7011(e)(1)(D)",
+      "7011(e)(1)(E)",
+      "7011(e)(1)(F)",
+      "7011(e)(1)(G)",
+      "7011(e)(1)(H)",
+      "7011(e)(1)(I)",
+      "7011(e)(1)(J)",
+      "7011(e)(1)(K)",
+      "7011(e)(2)",
+      "7011(e)(2)(A)",
+      "7011(e)(2)(B)",
+      "7011(e)(2)(C)",
+      "7011(e)(2)(D)",
+      "7011(e)(2)(E)",
+      "7011(e)(2)(F)",
+      "7011(e)(3)",
+      "7011(e)(3)(A)",
+      "7011(e)(3)(B)",
+      "7011(e)(3)(C)",
+      "7011(e)(3)(D)",
+      "7011(e)(3)(E)",
+      "7011(e)(3)(F)",
+      "7011(e)(3)(G)",
+      "7011(e)(3)(H)",
+      "7011(e)(3)(I)",
+      "7011(e)(3)(J)",
+      "7011(e)(4)",
+      "7011(e)(5)",
+      "7012(a)",
+      "7012(b)",
+      "7012(c)",
+      "7012(c)(1)",
+      "7012(c)(2)",
+      "7012(c)(3)",
+      "7012(c)(4)",
+      "7012(c)(5)",
+      "7012(d)",
+      "7012(e)(1)",
+      "7012(e)(2)",
+      "7012(e)(3)",
+      "7012(e)(4)",
+      "7012(e)(5)",
+      "7012(e)(6)",
+      "7012(f)",
+      "7012(g)",
+      "7012(g)(1)",
+      "7012(g)(2)",
+      "7012(g)(3)(A)",
+      "7012(g)(3)(B)",
+      "7012(g)(3)(C)",
+      "7012(h)",
+      "7012(i)",
+      "7102(a)(1)(A)",
+      "7102(a)(1)(B)",
+      "7102(a)(1)(C)",
+      "7102(a)(1)(D)",
+      "7102(a)(1)(E)",
+      "7102(a)(1)(F)",
+      "7102(a)(2)",
+      "7102(b)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "GOV-02",
+      "PRI-01.3"
+    ]
+  },
+  {
+    "#": 11.3,
+    "Principle Name": "Periodic Review",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "At planned intervals or after significant changes, review policies, standards and procedures to ensure the continuing suitability, adequacy and effectiveness to meet the organization's applicable statutory, regulatory and contractual needs.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 5.2 Art 32.1 Art 32.2 Art 32.3 Art 32.4",
+    "EU-US Data Privacy Framework": "Principle 3.4.a Principle 3.4.b Principle 3.6.a Principle 3.6.b Principle 3.6.b.i Principle 3.6.b.ii Principle 3.6.b.iii Principle 3.6.b.iii.1 Principle 3.6.b.iii.2 Principle 3.6.b.iv Principle 3.6.b.iv.1 Principle 3.6.b.iv.2 Principle 3.6.b.v Principle 3.6.b.vi Principle 3.6.b.vii Principle 3.6.b.viii Principle 3.6.c Principle 3.6.d Principle 3.6.e Principle 3.6.f Principle 3.6.g Principle 3.6.h Principle 3.7.a Principle 3.7.b Principle 3.7.c Principle 3.7.d Principle 3.7.e",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": [
+      "8.2.1",
+      "10.2.4"
+    ],
+    "HIPAA Privacy Rule": [
+      "164.530(h)(2)"
+    ],
+    "ISO 27701  v2019": [
+      "6.2.1.2"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "CA-2",
+      "PM-1"
+    ],
+    "NIST SP 800-53 rev5": [
+      "CA-2",
+      "PM-1"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "GV.MT-P1",
+      "GV.MT-P2"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "GOV-03",
+      "CPL-03"
+    ]
+  },
+  {
+    "#": 11.4,
+    "Principle Name": "Oversight",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Provide oversight of data privacy controls throughout the lifecycle of systems, applications and services to ensure that in a timely manner, senior leaders with the organization are made aware of data privacy-related risks that are not appropriately remediated.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 5.1 Art 5.2 Art 30.1 Art 30.2 Art 30.3 Art 30.4 Art 30.5",
+    "EU-US Data Privacy Framework": "Principle 3.4.a Principle 3.4.b Principle 3.6.a Principle 3.6.b Principle 3.6.b.i Principle 3.6.b.ii Principle 3.6.b.iii Principle 3.6.b.iii.1 Principle 3.6.b.iii.2 Principle 3.6.b.iv Principle 3.6.b.iv.1 Principle 3.6.b.iv.2 Principle 3.6.b.v Principle 3.6.b.vi Principle 3.6.b.vii Principle 3.6.b.viii Principle 3.6.c Principle 3.6.d Principle 3.6.e Principle 3.6.f Principle 3.6.g Principle 3.6.h Principle 3.7.a Principle 3.7.b Principle 3.7.c Principle 3.7.d Principle 3.7.e",
+    "FIPPs (DHS)": "Accountability & Auditing",
+    "FIPPs (OMB)": "Accountability & Auditing",
+    "GAPP": [
+      "8.2.7"
+    ],
+    "HIPAA Privacy Rule": [
+      "164.530(c)(1)"
+    ],
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "CA-7",
+      "CA-7(1)",
+      "PM-14"
+    ],
+    "NIST SP 800-53 rev5": [
+      "CA-7",
+      "CA-7(1)",
+      "PM-14",
+      "PM-23",
+      "PM-24"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CT.DM-P8",
+      "GV.MT-P4",
+      "PR.PO-P5"
+    ],
+    "OECD": "",
+    "OMB A-130": [
+      "App1-3(a)",
+      "App1-3(b)(4)",
+      "App1-3(f)",
+      "App1-3(g)",
+      "App1-4(b)(2)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "CPL-02",
+      "PRI-13"
+    ]
+  },
+  {
+    "#": 11.5,
+    "Principle Name": "Metrics & Trends",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Provide performance metrics and trend analysis to enable management visibility and coordinate data privacy efforts across the organization.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": 9,
+    "EU GDPR": "Art 31",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": [
+      "10.2.3",
+      "10.2.5"
+    ],
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "AR-6",
+      "PM-6"
+    ],
+    "NIST SP 800-53 rev5": [
+      "PM-6",
+      "PM-27"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "CM.AW-P4",
+      "CM.AW-P6",
+      "CM.AW-P7"
+    ],
+    "OECD": 8,
+    "OMB A-130": [
+      "5(a)(1)(c)(ii)",
+      "App1-3(b)(10)",
+      "App1-4(1)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": [
+      "7101(a)",
+      "7101(b)",
+      "7101(c)",
+      "7101(d)",
+      "7101(e)",
+      "7102(a)(1)(A)",
+      "7102(a)(1)(B)",
+      "7102(a)(1)(C)",
+      "7102(a)(1)(D)",
+      "7102(a)(1)(E)",
+      "7102(a)(1)(F)",
+      "7102(a)(2)",
+      "7102(b)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "GOV-01.2",
+      "GOV-05",
+      "PRI-14"
+    ]
+  },
+  {
+    "#": 11.6,
+    "Principle Name": "Compliance",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Oversee the execution of data privacy controls to create appropriate evidence of due diligence and due care, demonstrating compliance with all applicable statutory, regulatory and contractual obligations, including age-based restrictions.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "Art 1.2 Art 2.1 Art 2.2 Art 3.1 Art 3.2 Art 3.3 Art 6.1 Art 17.3 Art 20.3 Art 23.1 Art 23.2 Art 24.1 Art 24.2 Art 24.3 Art 25.1 Art 25.2 Art 25.3 Art 27.1 Art 27.2 Art 27.3 Art 27.4 Art 27.5 Art 32.1 Art 32.2 Art 32.3 Art 32.4 Art 40.1 Art 40.2 Art 42.2 Art 43 Art 50",
+    "EU-US Data Privacy Framework": "Principle 3.5.b Principle 3.5.b.i Principle 3.5.b.ii Principle 3.5.b.iii Principle 3.6.a Principle 3.6.b Principle 3.6.b.i Principle 3.6.b.ii Principle 3.6.b.iii Principle 3.6.b.iii.1 Principle 3.6.b.iii.2 Principle 3.6.b.iv Principle 3.6.b.iv.1 Principle 3.6.b.iv.2 Principle 3.6.b.v Principle 3.6.b.vi Principle 3.6.b.vii Principle 3.6.b.viii Principle 3.6.c Principle 3.6.d Principle 3.6.e Principle 3.6.f Principle 3.6.g Principle 3.6.h Principle 3.7.a Principle 3.7.b Principle 3.7.c Principle 3.7.d Principle 3.7.e",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": [
+      "164.530(c)(1)",
+      "164.500",
+      "164.501",
+      "164.502(a-j)"
+    ],
+    "ISO 27701  v2019": [
+      "6.15",
+      "6.15.1",
+      "6.15.1.1"
+    ],
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "AU-11",
+      "PL-1",
+      "PM-8"
+    ],
+    "NIST SP 800-53 rev5": [
+      "AU-11",
+      "PL-1",
+      "PM-8",
+      "PT-6",
+      "PT-6(1)",
+      "PT-6(2)",
+      "PT-8"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "GV.MT-P3",
+      "GV.PO-P4"
+    ],
+    "OECD": "",
+    "OMB A-130": [
+      "4(g)",
+      "5(e)(1)(d)",
+      "5(f)(1)(a)",
+      "5(f)(1)(c)",
+      "5(f)(1)(g)",
+      "App1-3(a)",
+      "App1-3(b)(4)",
+      "App1-3(f)",
+      "App1-3(g)",
+      "App1-4(j)(3)"
+    ],
+    "PIPEDA": "",
+    "US-California CPRA": [
+      "7010(a)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "CPL-01",
+      "MON-10",
+      "PRI-02.3",
+      "PRI-02.4",
+      "PRI-02.5",
+      "PRI-02.6"
+    ]
+  },
+  {
+    "#": 11.7,
+    "Principle Name": "Critical Business Functions",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Ensure systems/products/services that support organizational priorities are assessed so that critical assets are identified and key functional requirements communicated.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": [
+      "CP-2(8)",
+      "SA-14"
+    ],
+    "NIST SP 800-53 rev5": [
+      "CP-2(8)",
+      "PM-30(1)",
+      "RA-9",
+      "SA-15(3)"
+    ],
+    "NIST Privacy Framework v1.0": [
+      "ID.BE-P3"
+    ],
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": "",
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "BCD-02",
+      "TDA-06.1",
+      "TPM-02"
+    ]
+  },
+  {
+    "#": 11.8,
+    "Principle Name": "Status Reporting To Governing Body",
+    "SCF Data Privacy Management Principle (SCF-DPMP) Description": "Provide governance oversight reporting and recommendations to those entrusted to make executive decisions about matters considered material to the organization's cybersecurity & data privacy program.",
+    "AICPA TSC SOC 2 (2017)": "",
+    "APEC": "",
+    "EU GDPR": "",
+    "EU-US Data Privacy Framework": "",
+    "FIPPs (DHS)": "",
+    "FIPPs (OMB)": "",
+    "GAPP": "",
+    "HIPAA Privacy Rule": "",
+    "ISO 27701  v2019": "",
+    "ISO 29100 v2011": "",
+    "NIST SP 800-53 rev4": "",
+    "NIST SP 800-53 rev5": "",
+    "NIST Privacy Framework v1.0": "",
+    "OECD": "",
+    "OMB A-130": "",
+    "PIPEDA": "",
+    "US-California CPRA": [
+      "7102(a)(1)(A)",
+      "7102(a)(1)(B)",
+      "7102(a)(1)(C)",
+      "7102(a)(1)(D)",
+      "7102(a)(1)(E)",
+      "7102(a)(1)(F)",
+      "7102(a)(2)",
+      "7102(b)"
+    ],
+    "US-Nevada SB220": "",
+    "Secure Controls Framework (SCF)": [
+      "GOV-01.2"
+    ]
+  }
+]

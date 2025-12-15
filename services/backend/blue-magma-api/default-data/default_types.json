@@ -1,0 +1,32 @@
+[  {
+      "object_id": "backend",
+      "name": "backend",
+      "description": "backend codebase, including APIs, agents and other backend components",
+      "category": "codebase"
+    },
+    {
+      "object_id": "frontend",
+      "name": "frontend",
+      "description": "some frontend codebase, including web and mobile components",
+      "category": "codebase"
+    },
+    {
+        "object_id": "application",
+        "name": "application",
+        "description": "application codebase, including business logic and application-specific components",
+        "category": "codebase"
+    },
+    {
+        "object_id": "database",
+        "name": "database",
+        "description": "database codebase, including schemas, migrations and other database components",
+        "category": "dataset"
+    },
+    {
+        "object_id": "infrastructure",
+        "name": "infrastructure",
+        "description": "infrastructure codebase, including deployment scripts, configuration and other infrastructure components",
+        "category": "infrastructure"
+    }
+    
+]

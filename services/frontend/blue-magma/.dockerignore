@@ -1,0 +1,59 @@
+# Dependencies
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Next.js build output (host)
+.next
+out
+
+# Generic build output
+dist
+build
+
+# Env files (don’t send secrets to the build context)
+.env
+.env.*
+!.env.example
+
+# VCS / IDE
+.git
+.gitignore
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS cruft
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Docker metadata (optional to ignore)
+Dockerfile
+Dockerfile.dev
+.dockerignore
+
+# Logs / coverage / caches
+logs
+*.log
+coverage
+.npm
+.eslintcache
+.cache
+.parcel-cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+.serverless
+.dynamodb/
+.tern-port
+
+# (Optional) TypeScript cache
+*.tsbuildinfo

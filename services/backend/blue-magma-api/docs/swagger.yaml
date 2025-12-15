@@ -1,0 +1,4733 @@
+basePath: /
+definitions:
+  fiber.Error:
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+    type: object
+  fiber.Map:
+    additionalProperties: true
+    type: object
+  gorm.DeletedAt:
+    properties:
+      time:
+        type: string
+      valid:
+        description: Valid is true if Time is not NULL
+        type: boolean
+    type: object
+  handlers.APIKeyRequest:
+    properties:
+      enabled:
+        type: boolean
+      key_name:
+        type: string
+    type: object
+  handlers.AcceptInvitationRequest:
+    properties:
+      first_name:
+        type: string
+      last_name:
+        type: string
+      password:
+        minLength: 8
+        type: string
+      phone:
+        type: string
+      token:
+        type: string
+    required:
+    - first_name
+    - last_name
+    - password
+    - token
+    type: object
+  handlers.AcceptInvitationResponse:
+    properties:
+      message:
+        type: string
+      success:
+        type: boolean
+      user_id:
+        type: string
+    type: object
+  handlers.AddCreditsRequest:
+    properties:
+      credits:
+        minimum: 1
+        type: integer
+    type: object
+  handlers.AskCodebaseVersionRequest:
+    properties:
+      codebase_version_id:
+        type: string
+      question:
+        type: string
+    type: object
+  handlers.AssignableRolesResponse:
+    properties:
+      roles:
+        items:
+          $ref: '#/definitions/handlers.RoleInfo'
+        type: array
+    type: object
+  handlers.ChangeRoleRequest:
+    properties:
+      role:
+        type: string
+    required:
+    - role
+    type: object
+  handlers.CodeScanReportRequest:
+    properties:
+      branch_name:
+        type: string
+      codebase_version_id:
+        type: string
+      commit_hash:
+        type: string
+      repo_url:
+        type: string
+    type: object
+  handlers.CodeScanReportResponse:
+    properties:
+      codebase_id:
+        type: string
+      codebase_version_id:
+        type: string
+    type: object
+  handlers.CodebaseRequest:
+    properties:
+      codebase_description:
+        type: string
+      codebase_name:
+        type: string
+      codebase_repo_url:
+        type: string
+      codebase_type:
+        description: Optional field for codebase type
+        type: string
+      github_installation_id:
+        type: integer
+      github_repo_id:
+        type: integer
+      source_type:
+        description: GitHub integration fields
+        type: string
+    type: object
+  handlers.CodebaseResponse:
+    properties:
+      api_key:
+        type: string
+      codebase_description:
+        type: string
+      codebase_name:
+        type: string
+      codebase_repo_url:
+        type: string
+      codebase_type:
+        description: Optional field for codebase type
+        type: string
+      object_id:
+        type: string
+      organization_id:
+        type: string
+      versions:
+        items:
+          $ref: '#/definitions/handlers.serviceVersionResponse'
+        type: array
+    type: object
+  handlers.CodebaseVersionRequest:
+    properties:
+      branch_name:
+        type: string
+      codebase_id:
+        type: string
+      commit_hash:
+        type: string
+      status:
+        type: string
+      summary:
+        type: string
+    type: object
+  handlers.ComplianceTemplateJSON:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+      sections:
+        items:
+          $ref: '#/definitions/handlers.ComplianceTemplateSectionJSON'
+        type: array
+      source:
+        type: string
+      version:
+        type: string
+    type: object
+  handlers.ComplianceTemplateResponse:
+    properties:
+      active:
+        type: boolean
+      description:
+        type: string
+      name:
+        type: string
+      object_id:
+        type: string
+      sections:
+        description: Reuse existing TemplateSectionResponse
+        items:
+          $ref: '#/definitions/handlers.TemplateSectionResponse'
+        type: array
+      source:
+        description: Extracted from rules' Source
+        type: string
+      version:
+        description: Extracted from rules' PolicyVersion
+        type: string
+    type: object
+  handlers.ComplianceTemplateRuleJSON:
+    properties:
+      name:
+        type: string
+      rule:
+        type: string
+      scope:
+        type: string
+      tags:
+        items:
+          type: string
+        type: array
+    type: object
+  handlers.ComplianceTemplateSectionJSON:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+      rules:
+        items:
+          $ref: '#/definitions/handlers.ComplianceTemplateRuleJSON'
+        type: array
+    type: object
+  handlers.CreateManyQuestionsRequest:
+    properties:
+      questions:
+        items:
+          $ref: '#/definitions/handlers.QuestionRequest'
+        type: array
+      ruling_id:
+        type: string
+    type: object
+  handlers.CreatePropertyRequest:
+    properties:
+      codebase_version_id:
+        type: string
+      file_path:
+        type: string
+      property_key:
+        type: string
+      property_type:
+        type: string
+      property_value:
+        type: string
+      property_value_vector:
+        allOf:
+        - $ref: '#/definitions/pgvector.Vector'
+        description: Vector representation of the property value
+      reasoning:
+        type: string
+      version_hash:
+        description: Hash of the codebase version for consistency checks
+        type: string
+    required:
+    - codebase_version_id
+    - property_key
+    - property_type
+    - property_value
+    type: object
+  handlers.ExchangeCodeRequest:
+    properties:
+      code:
+        type: string
+      state:
+        type: string
+    required:
+    - code
+    - state
+    type: object
+  handlers.FoundPropertyRequest:
+    properties:
+      is_issue:
+        type: boolean
+      issue_severity:
+        description: Severity of the issue (e.g., "critical", "high", "medium", "low")
+        type: string
+      key:
+        description: The key of the found property
+        type: string
+      property_name:
+        type: string
+      property_type:
+        type: string
+      question_id:
+        description: ID of the question this found property is associated with
+        type: string
+      value:
+        type: string
+    type: object
+  handlers.FoundPropertyResponse:
+    properties:
+      is_issue:
+        description: Indicates if the found property is an issue
+        type: boolean
+      issue_severity:
+        description: Severity of the issue (e.g., "critical", "high", "medium", "low")
+        type: string
+      key:
+        description: The key of the found property
+        type: string
+      object_id:
+        type: string
+      organization_id:
+        description: ID of the organization this found property
+        type: string
+      property_type:
+        description: Type of the property (e.g., "string", "integer", "boolean")
+        type: string
+      question_id:
+        description: ID of the question this found property is associated with
+        type: string
+      value:
+        description: The value of the found property
+        type: string
+    type: object
+  handlers.GetLastHashRequest:
+    properties:
+      branch_name:
+        type: string
+      repo_url:
+        type: string
+    type: object
+  handlers.GetLastHashResponse:
+    properties:
+      last_commit_hash:
+        type: string
+    type: object
+  handlers.GoogleExchangeCodeRequest:
+    properties:
+      action:
+        description: '"login" or "link"'
+        type: string
+      code:
+        type: string
+      state:
+        type: string
+    type: object
+  handlers.GoogleOAuthCallbackResponse:
+    properties:
+      access_token:
+        type: string
+      expires_in:
+        type: integer
+      message:
+        type: string
+      organization_id:
+        type: string
+      refresh_token:
+        type: string
+      scope:
+        type: string
+      success:
+        type: boolean
+      user_id:
+        type: string
+    type: object
+  handlers.GoogleStartOAuthRequest:
+    properties:
+      action:
+        description: '"login" or "link"'
+        type: string
+      return_url:
+        type: string
+    type: object
+  handlers.GoogleStartOAuthResponse:
+    properties:
+      oauth_url:
+        type: string
+      state:
+        type: string
+    type: object
+  handlers.InitChatResponse:
+    properties:
+      chat_memory:
+        description: JSON string for storing chat history
+        type: string
+    type: object
+  handlers.InstallSessionRequest:
+    properties:
+      return_url:
+        type: string
+    type: object
+  handlers.InstallSessionResponse:
+    properties:
+      install_url:
+        type: string
+      state:
+        type: string
+    type: object
+  handlers.ManyFoundPropertiesRequest:
+    properties:
+      found_properties:
+        items:
+          $ref: '#/definitions/handlers.FoundPropertyRequest'
+        type: array
+      question_id:
+        description: ID of the question this found property is associated with
+        type: string
+    type: object
+  handlers.OAuthCallbackResponse:
+    properties:
+      access_token:
+        type: string
+      expires_in:
+        type: integer
+      message:
+        type: string
+      organization_id:
+        type: string
+      refresh_token:
+        type: string
+      scope:
+        type: string
+      success:
+        type: boolean
+      user_id:
+        type: string
+    type: object
+  handlers.OrganizationResponse:
+    properties:
+      billing_email:
+        type: string
+      credits:
+        type: integer
+      current_plan:
+        type: string
+      monthly_cost:
+        type: number
+      next_billing_date:
+        type: string
+      object_id:
+        type: string
+      organization_address:
+        type: string
+      organization_city:
+        type: string
+      organization_country:
+        type: string
+      organization_description:
+        type: string
+      organization_name:
+        type: string
+      organization_postal_code:
+        type: string
+      organization_state:
+        type: string
+      stripe_customer_id:
+        type: string
+      stripe_payment_method_id:
+        type: string
+      stripe_subscription_id:
+        type: string
+      subscription_status:
+        type: string
+    type: object
+  handlers.PatchOrganizationRequest:
+    properties:
+      billing_email:
+        type: string
+      current_plan:
+        type: string
+      monthly_cost:
+        minimum: 0
+        type: number
+      next_billing_date:
+        type: string
+      organization_address:
+        type: string
+      organization_city:
+        type: string
+      organization_country:
+        type: string
+      organization_description:
+        type: string
+      organization_name:
+        type: string
+      organization_postal_code:
+        type: string
+      organization_state:
+        type: string
+      stripe_customer_id:
+        type: string
+      stripe_payment_method_id:
+        type: string
+      stripe_subscription_id:
+        type: string
+      subscription_status:
+        type: string
+    type: object
+  handlers.QuestionRequest:
+    properties:
+      answer:
+        type: string
+      question:
+        type: string
+      ruling_id:
+        type: string
+    type: object
+  handlers.QuestionResponse:
+    properties:
+      answer:
+        description: The answer text
+        type: string
+      found_properties:
+        description: List of found properties related to the question
+        items:
+          $ref: '#/definitions/handlers.FoundPropertyResponse'
+        type: array
+      object_id:
+        type: string
+      organization_id:
+        description: Foreign key to Organization
+        type: string
+      question:
+        description: The question text
+        type: string
+    type: object
+  handlers.ReportGenerationRequest:
+    properties:
+      template_id:
+        type: string
+    type: object
+  handlers.ReportGenerationResponse:
+    properties:
+      message:
+        type: string
+      report_id:
+        type: string
+    type: object
+  handlers.ReportRequest:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+      status:
+        description: Status of the report (e.g., "draft", "finalized")
+        type: string
+      template_id:
+        description: Foreign key to ReportTemplate
+        type: string
+    type: object
+  handlers.ReportResponse:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+      object_id:
+        type: string
+      sections:
+        description: List of sections associated with the report
+        items:
+          $ref: '#/definitions/handlers.ReportSectionResponse'
+        type: array
+      status:
+        description: Status of the report (e.g., "draft", "finalized")
+        type: string
+      template_id:
+        description: Foreign key to ReportTemplate
+        type: string
+    type: object
+  handlers.ReportSectionRequest:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+      report_id:
+        description: Foreign key to Report
+        type: string
+    type: object
+  handlers.ReportSectionResponse:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+      object_id:
+        type: string
+      report_id:
+        description: Foreign key to Report
+        type: string
+      rulings:
+        description: List of rulings associated with the report section
+        items:
+          $ref: '#/definitions/handlers.RulingResponse'
+        type: array
+    type: object
+  handlers.ReportTemplateRequest:
+    properties:
+      active:
+        description: Indicates if the template is active or not
+        type: boolean
+      codebases:
+        items:
+          type: string
+        type: array
+      description:
+        type: string
+      name:
+        type: string
+    type: object
+  handlers.ReportTemplateResponse:
+    properties:
+      active:
+        description: Indicates if the template is active or not
+        type: boolean
+      codebases:
+        items:
+          $ref: '#/definitions/handlers.CodebaseResponse'
+        type: array
+      description:
+        type: string
+      name:
+        type: string
+      object_id:
+        type: string
+      organization_id:
+        type: string
+      sections:
+        description: List of section responses
+        items:
+          $ref: '#/definitions/handlers.TemplateSectionResponse'
+        type: array
+    type: object
+  handlers.RevokeTokenRequest:
+    properties:
+      refresh_token:
+        type: string
+    type: object
+  handlers.RoleInfo:
+    properties:
+      description:
+        type: string
+      display_name:
+        type: string
+      hierarchy_level:
+        type: integer
+      name:
+        type: string
+    type: object
+  handlers.RuleRequest:
+    properties:
+      description:
+        type: string
+      evidence_schema:
+        type: string
+      name:
+        type: string
+      policy_name:
+        type: string
+      policy_version:
+        type: string
+      public:
+        type: boolean
+      rule:
+        type: string
+      scope:
+        type: string
+      section:
+        description: Optional section for categorization
+        type: string
+      severity:
+        description: e.g., "critical", "high", "medium", "low"
+        type: string
+      source:
+        type: string
+      tags:
+        type: string
+    type: object
+  handlers.RuleResponse:
+    properties:
+      description:
+        type: string
+      evidence_schema:
+        type: string
+      name:
+        type: string
+      object_id:
+        type: string
+      policy_name:
+        type: string
+      policy_version:
+        type: string
+      public:
+        type: boolean
+      rule:
+        type: string
+      scope:
+        type: string
+      section:
+        description: Optional section for categorization
+        type: string
+      severity:
+        description: e.g., "critical", "high", "medium", "low"
+        type: string
+      source:
+        type: string
+      tags:
+        type: string
+    type: object
+  handlers.RulingRequest:
+    properties:
+      codebase_version_id:
+        description: Foreign key to CodebaseVersion
+        type: string
+      decision:
+        description: '"compliant" | "non-compliant" | "warning"'
+        type: string
+      reasoning:
+        type: string
+      report_section_id:
+        description: Foreign key to ReportSection
+        type: string
+      rule_id:
+        type: string
+      status:
+        description: '"pending" | "completed" | "failed"'
+        type: string
+    type: object
+  handlers.RulingResponse:
+    properties:
+      decision:
+        description: '"compliant" | "non-compliant" | "warning"'
+        type: string
+      level:
+        description: e.g., "critical", "high
+        type: string
+      object_id:
+        type: string
+      organization_id:
+        description: Foreign key to Organization
+        type: string
+      questions:
+        description: List of questions related to the ruling
+        items:
+          $ref: '#/definitions/handlers.QuestionResponse'
+        type: array
+      reasoning:
+        type: string
+      rule_id:
+        description: FK column in Ruling table
+        type: string
+      status:
+        description: '"pending" | "completed" | "failed"'
+        type: string
+    type: object
+  handlers.SeekProperty:
+    properties:
+      name:
+        type: string
+      path:
+        type: string
+      property:
+        type: string
+      type:
+        type: string
+    type: object
+  handlers.SeekResponse:
+    properties:
+      props:
+        items:
+          $ref: '#/definitions/handlers.SeekProperty'
+        type: array
+      summary:
+        type: string
+    type: object
+  handlers.SendInvitationRequest:
+    properties:
+      email:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      role:
+        type: string
+    required:
+    - email
+    - role
+    type: object
+  handlers.SendInvitationResponse:
+    properties:
+      message:
+        type: string
+      success:
+        type: boolean
+      user_id:
+        type: string
+    type: object
+  handlers.SignupResponse:
+    properties:
+      access_token:
+        type: string
+      expires_in:
+        type: integer
+      message:
+        type: string
+      organization_id:
+        type: string
+      refresh_token:
+        type: string
+      scope:
+        type: string
+      success:
+        type: boolean
+      user_id:
+        type: string
+    type: object
+  handlers.StartOAuthRequest:
+    properties:
+      action:
+        description: '"login" or "link"'
+        type: string
+      return_url:
+        type: string
+    type: object
+  handlers.StartOAuthResponse:
+    properties:
+      oauth_url:
+        type: string
+      state:
+        type: string
+    type: object
+  handlers.SubtractCreditsRequest:
+    properties:
+      credits:
+        minimum: 1
+        type: integer
+    type: object
+  handlers.TemplateSectionRequest:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+      rules:
+        description: List of rule object IDs
+        items:
+          type: string
+        type: array
+      template_id:
+        type: string
+    type: object
+  handlers.TemplateSectionResponse:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+      object_id:
+        type: string
+      rules:
+        description: List of rule object IDs
+        items:
+          $ref: '#/definitions/handlers.RuleResponse'
+        type: array
+      template_id:
+        type: string
+    type: object
+  handlers.TokenRequest:
+    properties:
+      grant_type:
+        type: string
+      password:
+        type: string
+      refresh_token:
+        type: string
+      username:
+        type: string
+    type: object
+  handlers.TokenResponse:
+    properties:
+      access_token:
+        type: string
+      expires_in:
+        type: integer
+      organization_id:
+        type: string
+      refresh_token:
+        type: string
+      scope:
+        type: string
+      token_type:
+        type: string
+    type: object
+  handlers.UpdateCreditsRequest:
+    properties:
+      credits:
+        minimum: 0
+        type: integer
+    required:
+    - credits
+    type: object
+  handlers.UpdateOrganizationRequestPUT:
+    properties:
+      billing_email:
+        type: string
+      current_plan:
+        type: string
+      monthly_cost:
+        minimum: 0
+        type: number
+      next_billing_date:
+        type: string
+      organization_address:
+        type: string
+      organization_city:
+        type: string
+      organization_country:
+        type: string
+      organization_description:
+        type: string
+      organization_name:
+        type: string
+      organization_postal_code:
+        type: string
+      organization_state:
+        type: string
+      stripe_customer_id:
+        type: string
+      stripe_payment_method_id:
+        type: string
+      stripe_subscription_id:
+        type: string
+      subscription_status:
+        type: string
+    required:
+    - billing_email
+    - current_plan
+    - monthly_cost
+    - next_billing_date
+    - organization_address
+    - organization_city
+    - organization_country
+    - organization_description
+    - organization_name
+    - organization_postal_code
+    - organization_state
+    - stripe_customer_id
+    - stripe_payment_method_id
+    - stripe_subscription_id
+    - subscription_status
+    type: object
+  handlers.UserInfo:
+    properties:
+      accepted_at:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      hierarchy_level:
+        type: integer
+      id:
+        type: integer
+      invitation_status:
+        description: pending, accepted, expired
+        type: string
+      invited_at:
+        type: string
+      is_active:
+        type: boolean
+      last_name:
+        type: string
+      object_id:
+        type: string
+      role:
+        type: string
+      username:
+        type: string
+    type: object
+  handlers.UserListResponse:
+    properties:
+      users:
+        items:
+          $ref: '#/definitions/handlers.UserInfo'
+        type: array
+    type: object
+  handlers.ValidateInvitationResponse:
+    properties:
+      email:
+        type: string
+      expires_at:
+        type: string
+      inviter_name:
+        type: string
+      message:
+        type: string
+      organization_name:
+        type: string
+      role:
+        type: string
+      valid:
+        type: boolean
+    type: object
+  handlers.serviceVersionResponse:
+    properties:
+      branch_name:
+        type: string
+      commit_hash:
+        type: string
+      object_id:
+        type: string
+      summary:
+        description: Optional field for summary
+        type: string
+    type: object
+  handlers.signupRequest:
+    properties:
+      email:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+    type: object
+  models.APIKey:
+    properties:
+      created_at:
+        description: Timestamp
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      enabled:
+        description: Whether the API key is enabled
+        type: boolean
+      id:
+        type: integer
+      key:
+        description: API key
+        type: string
+      name:
+        description: Name of the API key
+        type: string
+      object_id:
+        description: UUID
+        type: string
+      organization_id:
+        description: Foreign key to Organization                               //
+          UUID
+        type: integer
+      updatedAt:
+        type: string
+    type: object
+  models.CodebaseVersion:
+    properties:
+      branch_name:
+        description: The branch name of the service version
+        type: string
+      codebase_id:
+        description: Foreign key to Codebase
+        type: integer
+      commit_hash:
+        description: The commit hash of the service version
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      id:
+        type: integer
+      ingest_status:
+        description: The status of the ingestion process (e.g., pending, completed,
+          failed)
+        type: string
+      object_id:
+        type: string
+      organization_id:
+        description: Foreign key to Organization
+        type: integer
+      summary:
+        description: A summary of the codebase version
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  models.CodebaseVersionProperty:
+    properties:
+      codebase_version_id:
+        description: Foreign key to CodebaseVersion
+        type: integer
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      file_path:
+        description: Path to the file where the property was found
+        type: string
+      id:
+        type: integer
+      object_id:
+        type: string
+      organization_id:
+        description: Foreign key to Organization
+        type: integer
+      property_key:
+        description: The key of the property
+        type: string
+      property_type:
+        type: string
+      property_value:
+        description: The value of the property
+        type: string
+      reasoning:
+        description: Reasoning for the property, if applicable
+        type: string
+      updatedAt:
+        type: string
+      version_hash:
+        type: string
+    type: object
+  models.GithubInstallation:
+    properties:
+      account_id:
+        type: integer
+      account_login:
+        type: string
+      account_type:
+        description: '"Organization"|"User"'
+        type: string
+      app_slug:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      id:
+        type: integer
+      installation_id:
+        type: integer
+      last_baseline_at:
+        type: string
+      object_id:
+        type: string
+      organization_id:
+        type: integer
+      permissions_json:
+        type: string
+      repo_selection:
+        description: '"all"|"selected"'
+        type: string
+      suspended_at:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  models.GithubRepository:
+    properties:
+      archived:
+        type: boolean
+      createdAt:
+        type: string
+      default_branch:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      disabled:
+        type: boolean
+      etag:
+        type: string
+      full_name:
+        type: string
+      id:
+        type: integer
+      installation_id:
+        type: integer
+      last_synced_at:
+        type: string
+      name:
+        type: string
+      object_id:
+        type: string
+      owner:
+        type: string
+      private:
+        type: boolean
+      repo_id:
+        type: integer
+      updatedAt:
+        type: string
+      visibility:
+        type: string
+    type: object
+  models.SubjectType:
+    properties:
+      category:
+        description: Category of the subject type (e.g., "service", "codebase", "codebase_version")
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      description:
+        description: Description of the subject type
+        type: string
+      id:
+        type: integer
+      name:
+        description: Name of the subject type
+        type: string
+      object_id:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  pgvector.Vector:
+    type: object
+host: localhost:80
+info:
+  contact: {}
+  description: API for blue magma auth and data
+  title: Bluemagma API
+  version: "1.0"
+paths:
+  /api/v1/integrations/github/setup:
+    get:
+      consumes:
+      - application/json
+      description: Handles the callback from GitHub after app installation
+      parameters:
+      - description: Installation ID
+        in: query
+        name: installation_id
+        required: true
+        type: integer
+      - description: State parameter
+        in: query
+        name: state
+        required: true
+        type: string
+      - description: Setup action
+        in: query
+        name: setup_action
+        type: string
+      produces:
+      - application/json
+      responses:
+        "302":
+          description: Redirect to frontend
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      summary: Complete GitHub App installation
+      tags:
+      - github
+  /api/v1/integrations/github/webhook:
+    post:
+      consumes:
+      - application/json
+      description: Processes GitHub webhook events
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      summary: Handle GitHub webhook
+      tags:
+      - github
+  /api/v1/org/{org_id}:
+    delete:
+      description: Delete organization by organization ID (owner only, cascades to
+        all users)
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      responses:
+        "204":
+          description: No Content
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Delete organization
+      tags:
+      - organization
+    get:
+      description: Get organization details by organization ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.OrganizationResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Get organization details
+      tags:
+      - organization
+    patch:
+      consumes:
+      - application/json
+      description: Partially update organization details by organization ID (owner
+        only, credits field is read-only). Only provided fields will be updated.
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Organization partial update data
+        in: body
+        name: organization
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.PatchOrganizationRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.OrganizationResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Partially update organization details
+      tags:
+      - organization
+    put:
+      consumes:
+      - application/json
+      description: Update organization details by organization ID (owner only, credits
+        field is read-only). All fields are required for PUT requests.
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Organization update data (all fields required)
+        in: body
+        name: organization
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.UpdateOrganizationRequestPUT'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.OrganizationResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Update organization details (PUT - all fields required)
+      tags:
+      - organization
+  /api/v1/org/{org_id}/api_key:
+    post:
+      consumes:
+      - application/json
+      description: Create a new API key for an organization
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: API Key data
+        in: body
+        name: api_key
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.APIKeyRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.APIKey'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Create a new API key
+      tags:
+      - api_key
+  /api/v1/org/{org_id}/api_key/{api_key_id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an API key by ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: API Key ID
+        in: path
+        name: api_key_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Delete an API key by ID
+      tags:
+      - api_key
+    get:
+      consumes:
+      - application/json
+      description: Get an API key by ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: API Key ID
+        in: path
+        name: api_key_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.APIKey'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Get an API key by ID
+      tags:
+      - api_key
+    put:
+      consumes:
+      - application/json
+      description: Update an API key by ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: API Key ID
+        in: path
+        name: api_key_id
+        required: true
+        type: string
+      - description: API Key data
+        in: body
+        name: api_key
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.APIKeyRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.APIKey'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Update an API key by ID
+      tags:
+      - api_key
+  /api/v1/org/{org_id}/codebase:
+    get:
+      description: Get all codebases for an organization
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/handlers.CodebaseResponse'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Get all codebases
+      tags:
+      - codebase
+    post:
+      consumes:
+      - application/json
+      description: Create a new codebase
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Service data
+        in: body
+        name: codebase
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.CodebaseRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handlers.CodebaseResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Create a new codebase
+      tags:
+      - codebase
+  /api/v1/org/{org_id}/codebase/{service_id}:
+    delete:
+      description: Delete a codebase by ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Codebase ID
+        in: path
+        name: service_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Delete a codebase by ID
+      tags:
+      - codebase
+    get:
+      description: Get a codebase by ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Codebase ID
+        in: path
+        name: service_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.CodebaseResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Get a codebase by ID
+      tags:
+      - codebase
+    put:
+      consumes:
+      - application/json
+      description: Update a codebase by ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Codebase ID
+        in: path
+        name: service_id
+        required: true
+        type: string
+      - description: Codebase data
+        in: body
+        name: codebase
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.CodebaseRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.CodebaseResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Update a codebase by ID
+      tags:
+      - codebase
+  /api/v1/org/{org_id}/codebase_version:
+    post:
+      consumes:
+      - application/json
+      description: Create a new codebase version
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: CodebaseVersion data
+        in: body
+        name: codebaseVersion
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.CodebaseVersionRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.CodebaseVersion'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      tags:
+      - codebase_version
+  /api/v1/org/{org_id}/codebase_version/{codebase_version_id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a codebase version by ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Codebase Version ID
+        in: path
+        name: codebase_version_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      tags:
+      - codebase_version
+    get:
+      consumes:
+      - application/json
+      description: Get a codebase version by ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Codebase Version ID
+        in: path
+        name: codebase_version_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CodebaseVersion'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      tags:
+      - codebase_version
+    put:
+      consumes:
+      - application/json
+      description: Update a codebase version by ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Codebase Version ID
+        in: path
+        name: codebase_version_id
+        required: true
+        type: string
+      - description: CodebaseVersion data
+        in: body
+        name: codebaseVersion
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.CodebaseVersionRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CodebaseVersion'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      tags:
+      - codebase_version
+  /api/v1/org/{org_id}/compliance-template:
+    get:
+      description: Get all compliance templates for an organization
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/handlers.ComplianceTemplateResponse'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Get all compliance templates
+      tags:
+      - compliance-template
+  /api/v1/org/{org_id}/compliance-template/{template_id}:
+    delete:
+      description: Delete a compliance template and all its sections and rules
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Compliance Template ID
+        in: path
+        name: template_id
+        required: true
+        type: string
+      responses:
+        "204":
+          description: No Content
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Delete compliance template
+      tags:
+      - compliance-template
+    get:
+      description: Get a single compliance template by its ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Compliance Template ID
+        in: path
+        name: template_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.ComplianceTemplateResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Get compliance template by ID
+      tags:
+      - compliance-template
+  /api/v1/org/{org_id}/compliance-template/import:
+    post:
+      consumes:
+      - application/json
+      description: Import a compliance template from JSON format
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Compliance Template JSON
+        in: body
+        name: template
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.ComplianceTemplateJSON'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handlers.ComplianceTemplateResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Create compliance template from JSON
+      tags:
+      - compliance-template
+  /api/v1/org/{org_id}/credits:
+    patch:
+      consumes:
+      - application/json
+      description: Update only the credits field for an organization by organization
+        ID (admin only)
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Credits update data
+        in: body
+        name: credits
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.UpdateCreditsRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.OrganizationResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Update organization credits
+      tags:
+      - organization
+  /api/v1/org/{org_id}/credits/add:
+    patch:
+      consumes:
+      - application/json
+      description: Add credits to an organization's existing balance by organization
+        ID (admin only)
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Credits to add
+        in: body
+        name: credits
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.AddCreditsRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.OrganizationResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Add credits to organization
+      tags:
+      - organization
+  /api/v1/org/{org_id}/credits/subtract:
+    patch:
+      consumes:
+      - application/json
+      description: Subtract credits from an organization's balance by organization
+        ID (admin only). Credits cannot go below 0.
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Credits to subtract
+        in: body
+        name: credits
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.SubtractCreditsRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.OrganizationResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Subtract credits from organization
+      tags:
+      - organization
+  /api/v1/org/{org_id}/found-property:
+    post:
+      consumes:
+      - application/json
+      description: Create a new found property for a given organization
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Found Property
+        in: body
+        name: found_property
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.FoundPropertyRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handlers.FoundPropertyResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Error'
+      security:
+      - Bearer: []
+      summary: Create a new found property
+      tags:
+      - FoundProperties
+  /api/v1/org/{org_id}/found-property/{found_property_id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a found property by its ID for a given organization
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Found Property ID
+        in: path
+        name: found_property_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Error'
+      security:
+      - Bearer: []
+      summary: Delete a found property by ID
+      tags:
+      - FoundProperties
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a found property by its ID for a given organization
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Found Property ID
+        in: path
+        name: found_property_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.FoundPropertyResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Error'
+      security:
+      - Bearer: []
+      summary: Get a found property by ID
+      tags:
+      - FoundProperties
+    put:
+      consumes:
+      - application/json
+      description: Update an existing found property for a given organization
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Found Property ID
+        in: path
+        name: found_property_id
+        required: true
+        type: string
+      - description: Found Property
+        in: body
+        name: found_property
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.FoundPropertyRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.FoundPropertyResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Error'
+      security:
+      - Bearer: []
+      summary: Update an existing found property
+      tags:
+      - FoundProperties
+  /api/v1/org/{org_id}/found-property/many:
+    post:
+      consumes:
+      - application/json
+      description: Create multiple found properties for a given organization
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Found Properties
+        in: body
+        name: found_properties
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.ManyFoundPropertiesRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            items:
+              $ref: '#/definitions/handlers.FoundPropertyResponse'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Error'
+      security:
+      - Bearer: []
+      summary: Create multiple found properties
+      tags:
+      - FoundProperties
+  /api/v1/org/{org_id}/integrations/github/install/session:
+    post:
+      consumes:
+      - application/json
+      description: Creates a session for GitHub App installation
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Installation request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.InstallSessionRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.InstallSessionResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      summary: Start GitHub App installation
+      tags:
+      - github
+  /api/v1/org/{org_id}/integrations/github/installations:
+    get:
+      consumes:
+      - application/json
+      description: Lists all GitHub installations for the organization
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.GithubInstallation'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      summary: List GitHub installations
+      tags:
+      - github
+  /api/v1/org/{org_id}/integrations/github/installations/{installation_id}:
+    delete:
+      consumes:
+      - application/json
+      description: Removes a GitHub installation and associated data
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Installation ID
+        in: path
+        name: installation_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      summary: Delete GitHub installation
+      tags:
+      - github
+  /api/v1/org/{org_id}/integrations/github/installations/{installation_id}/baseline:
+    post:
+      consumes:
+      - application/json
+      description: Triggers a baseline operation for a GitHub installation
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Installation ID
+        in: path
+        name: installation_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      summary: Trigger baseline
+      tags:
+      - github
+  /api/v1/org/{org_id}/integrations/github/repos:
+    get:
+      consumes:
+      - application/json
+      description: Lists repositories for a GitHub installation
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Installation ID filter
+        in: query
+        name: installation_id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.GithubRepository'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      summary: List GitHub repositories
+      tags:
+      - github
+  /api/v1/org/{org_id}/property/code/:
+    get:
+      consumes:
+      - application/json
+      description: Get all properties for an org, optional filter by codebase version
+        ID, path, valueVector, type or key
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Codebase Version ID
+        in: query
+        name: codebase_version_id
+        type: string
+      - description: File Path
+        in: query
+        name: path
+        type: string
+      - description: Property Value Vector
+        in: query
+        name: value_vector
+        type: string
+      - description: Property Type
+        in: query
+        name: type
+        type: string
+      - description: Property Key
+        in: query
+        name: key
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.CodebaseVersionProperty'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Get all properties for an org
+      tags:
+      - Properties
+    post:
+      consumes:
+      - application/json
+      description: Create a new property for a codebase version
+      parameters:
+      - description: Create Property Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.CreatePropertyRequest'
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.CodebaseVersionProperty'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Create a new property for a codebase version
+      tags:
+      - Properties
+  /api/v1/org/{org_id}/property/code/{property_id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a property by ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Property ID
+        in: path
+        name: property_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Delete a property by ID
+      tags:
+      - Properties
+    get:
+      consumes:
+      - application/json
+      description: Get a property by ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Property ID
+        in: path
+        name: property_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CodebaseVersionProperty'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Get a property by ID
+      tags:
+      - Properties
+    put:
+      consumes:
+      - application/json
+      description: Edit a property by ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Property ID
+        in: path
+        name: property_id
+        required: true
+        type: string
+      - description: Edit Property Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.CreatePropertyRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CodebaseVersionProperty'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Edit a property by ID
+      tags:
+      - Properties
+  /api/v1/org/{org_id}/question:
+    post:
+      consumes:
+      - application/json
+      description: Create a new question in the database
+      parameters:
+      - description: Question Request
+        in: body
+        name: question
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.QuestionRequest'
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handlers.QuestionResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Create a new question
+      tags:
+      - question
+  /api/v1/org/{org_id}/question/{question_id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a question by ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Question ID
+        in: path
+        name: question_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Delete a question by ID
+      tags:
+      - question
+    get:
+      consumes:
+      - application/json
+      description: Get a question by ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Question ID
+        in: path
+        name: question_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.QuestionResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Get a question by ID
+      tags:
+      - question
+    put:
+      consumes:
+      - application/json
+      description: Update a question by ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Question ID
+        in: path
+        name: question_id
+        required: true
+        type: string
+      - description: Question Request
+        in: body
+        name: question
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.QuestionRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.QuestionResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Update a question by ID
+      tags:
+      - question
+  /api/v1/org/{org_id}/question/many:
+    post:
+      consumes:
+      - application/json
+      description: Create multiple questions in the database
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Create Many Questions Request
+        in: body
+        name: questions
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.CreateManyQuestionsRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            items:
+              $ref: '#/definitions/handlers.QuestionResponse'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Create multiple questions
+      tags:
+      - question
+  /api/v1/org/{org_id}/report:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve all reports for a specific organization
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/handlers.ReportResponse'
+            type: array
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Error'
+      security:
+      - Bearer: []
+      summary: Get all reports for an organization
+      tags:
+      - Report
+    post:
+      consumes:
+      - application/json
+      description: Create a new report for a specific organization
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Report data
+        in: body
+        name: report
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.ReportRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handlers.ReportResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Error'
+      security:
+      - Bearer: []
+      summary: Create a new report
+      tags:
+      - Report
+  /api/v1/org/{org_id}/report-section:
+    post:
+      consumes:
+      - application/json
+      description: Create a new report section for a specific organization
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Report Section Request
+        in: body
+        name: report_section
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.ReportSectionRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handlers.ReportSectionResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Error'
+      security:
+      - Bearer: []
+      summary: Create a new report section
+      tags:
+      - ReportSection
+  /api/v1/org/{org_id}/report-section/{section_id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a report section by its object ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Report Section ID
+        in: path
+        name: section_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Error'
+      security:
+      - Bearer: []
+      summary: Delete a report section
+      tags:
+      - ReportSection
+    get:
+      consumes:
+      - application/json
+      description: Get a report section by its object ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Report Section ID
+        in: path
+        name: section_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.ReportSectionResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Error'
+      security:
+      - Bearer: []
+      summary: Get a report section by ID
+      tags:
+      - ReportSection
+    put:
+      consumes:
+      - application/json
+      description: Update an existing report section with the provided details
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Report Section ID
+        in: path
+        name: section_id
+        required: true
+        type: string
+      - description: Report Section Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.ReportSectionRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.ReportSectionResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Error'
+      security:
+      - Bearer: []
+      summary: Update a report section
+      tags:
+      - ReportSection
+  /api/v1/org/{org_id}/report-template:
+    get:
+      description: Retrieve all report templates for an organization.
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/handlers.ReportTemplateResponse'
+            type: array
+        "404":
+          description: Organization not found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Failed to retrieve report templates
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Get all report templates for an organization
+      tags:
+      - ReportTemplate
+    post:
+      consumes:
+      - application/json
+      description: Create a new report template for an organization.
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Report Template Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.ReportTemplateRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handlers.ReportTemplateResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Organization not found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Failed to create report template
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Create a new report template
+      tags:
+      - ReportTemplate
+  /api/v1/org/{org_id}/report-template/{report_template_id}:
+    delete:
+      description: Delete a report template by its object ID.
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Template object ID
+        in: path
+        name: report_template_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: Report template deleted successfully
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Report template not found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Failed to delete report template
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Delete a report template
+      tags:
+      - ReportTemplate
+    get:
+      description: Retrieve a specific report template by its object ID.
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Template object ID
+        in: path
+        name: report_template_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.ReportTemplateResponse'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Report template not found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Failed to retrieve report template
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Get a report template by object ID
+      tags:
+      - ReportTemplate
+    put:
+      consumes:
+      - application/json
+      description: Update an existing report template.
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Template object ID
+        in: path
+        name: report_template_id
+        required: true
+        type: string
+      - description: Report Template Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.ReportTemplateRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.ReportTemplateResponse'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Report template not found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Failed to update report template
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Update a report template
+      tags:
+      - ReportTemplate
+  /api/v1/org/{org_id}/report/{report_id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a report for a specific organization
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Report Object ID
+        in: path
+        name: report_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Error'
+      security:
+      - Bearer: []
+      summary: Delete a report by its object ID
+      tags:
+      - Report
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a report by its object ID for a specific organization
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Report Object ID
+        in: path
+        name: report_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.ReportResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Error'
+      security:
+      - Bearer: []
+      summary: Get a report by its object ID
+      tags:
+      - Report
+    put:
+      consumes:
+      - application/json
+      description: Update a report's details for a specific organization
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Report Object ID
+        in: path
+        name: report_id
+        required: true
+        type: string
+      - description: Report data
+        in: body
+        name: report
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.ReportRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.ReportResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Error'
+      security:
+      - Bearer: []
+      summary: Update a report by its object ID
+      tags:
+      - Report
+  /api/v1/org/{org_id}/roles/assignable:
+    get:
+      consumes:
+      - application/json
+      description: Get list of roles that the current user can assign to other users
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.AssignableRolesResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - Bearer: []
+      summary: Get assignable roles
+      tags:
+      - Role Management
+  /api/v1/org/{org_id}/roles/permissions:
+    get:
+      consumes:
+      - application/json
+      description: Get the current user's role management permissions
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - Bearer: []
+      summary: Get user permissions
+      tags:
+      - Role Management
+  /api/v1/org/{org_id}/rpc/ask-seeker-agent/:
+    post:
+      consumes:
+      - application/json
+      description: Ask a question to the seeker agent
+      parameters:
+      - description: Ask Codebase Version Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.AskCodebaseVersionRequest'
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.SeekResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      tags:
+      - rpc
+  /api/v1/org/{org_id}/rpc/generate-report/:
+    post:
+      consumes:
+      - application/json
+      description: Create a report from a template
+      parameters:
+      - description: Report Generation Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.ReportGenerationRequest'
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.ReportGenerationResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      tags:
+      - rpc
+  /api/v1/org/{org_id}/rpc/get-last-commit-hash/:
+    post:
+      consumes:
+      - application/json
+      description: Get last commit hash for a repo and branch
+      parameters:
+      - description: Get Last Hash Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.GetLastHashRequest'
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.GetLastHashResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      tags:
+      - rpc
+  /api/v1/org/{org_id}/rpc/initialize-chat/{user_id}:
+    get:
+      consumes:
+      - application/json
+      description: Initialize a chat session for the user
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: User ID
+        in: path
+        name: user_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.InitChatResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      tags:
+      - rpc
+  /api/v1/org/{org_id}/rpc/initiate-code-scan-report/:
+    post:
+      consumes:
+      - application/json
+      description: Initiate a code scan report
+      parameters:
+      - description: Code Scan Data
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.CodeScanReportRequest'
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.CodeScanReportResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      tags:
+      - rpc
+  /api/v1/org/{org_id}/rule:
+    get:
+      description: Get all rules for an organization
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/handlers.RuleResponse'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Get all rules
+      tags:
+      - rules
+    post:
+      consumes:
+      - application/json
+      description: Create a new rule
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Rule data
+        in: body
+        name: rule
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.RuleRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handlers.RuleResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Create a new rule
+      tags:
+      - rules
+  /api/v1/org/{org_id}/rule/{rule_id}:
+    delete:
+      description: Delete a rule by ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Rule ID
+        in: path
+        name: rule_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Delete a rule
+      tags:
+      - rules
+    get:
+      description: Get a rule by ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Rule ID
+        in: path
+        name: rule_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.RuleResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Get a rule
+      tags:
+      - rules
+    put:
+      consumes:
+      - application/json
+      description: Update a rule by ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Rule ID
+        in: path
+        name: rule_id
+        required: true
+        type: string
+      - description: Rule data
+        in: body
+        name: rule
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.RuleRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.RuleResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Update a rule
+      tags:
+      - rules
+  /api/v1/org/{org_id}/ruling:
+    post:
+      consumes:
+      - application/json
+      description: Create a new ruling in the database
+      parameters:
+      - description: Ruling Request
+        in: body
+        name: ruling
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.RulingRequest'
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handlers.RulingResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Create a new ruling
+      tags:
+      - ruling
+  /api/v1/org/{org_id}/ruling/{ruling_id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a ruling by ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Ruling ID
+        in: path
+        name: ruling_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Delete a ruling by ID
+      tags:
+      - ruling
+    get:
+      consumes:
+      - application/json
+      description: Get a ruling by ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Ruling ID
+        in: path
+        name: ruling_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.RulingResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Get a ruling by ID
+      tags:
+      - ruling
+    put:
+      consumes:
+      - application/json
+      description: Update a ruling by ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Ruling ID
+        in: path
+        name: ruling_id
+        required: true
+        type: string
+      - description: Ruling Request
+        in: body
+        name: ruling
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.RulingRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.RulingResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Update a ruling by ID
+      tags:
+      - ruling
+  /api/v1/org/{org_id}/template-section:
+    post:
+      consumes:
+      - application/json
+      description: Create a new template section with the provided details
+      parameters:
+      - description: Template Section Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.TemplateSectionRequest'
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handlers.TemplateSectionResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Create a new template section
+      tags:
+      - TemplateSection
+  /api/v1/org/{org_id}/template-section/{section_id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a template section by its ID
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Template Section ID
+        in: path
+        name: section_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Delete a template section
+      tags:
+      - TemplateSection
+    put:
+      consumes:
+      - application/json
+      description: Edit an existing template section with the provided details
+      parameters:
+      - description: Template Section Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.TemplateSectionRequest'
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Template Section ID
+        in: path
+        name: section_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.TemplateSectionResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      security:
+      - Bearer: []
+      summary: Edit an existing template section
+      tags:
+      - TemplateSection
+  /api/v1/org/{org_id}/users:
+    get:
+      consumes:
+      - application/json
+      description: Get list of all users in the organization
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.UserListResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - Bearer: []
+      summary: List organization users
+      tags:
+      - User Management
+  /api/v1/org/{org_id}/users/{user_id}:
+    delete:
+      consumes:
+      - application/json
+      description: Remove a user from the organization
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: User ID
+        in: path
+        name: user_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - Bearer: []
+      summary: Remove user
+      tags:
+      - User Management
+  /api/v1/org/{org_id}/users/{user_id}/role:
+    put:
+      consumes:
+      - application/json
+      description: Change the role of a specific user
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: User ID
+        in: path
+        name: user_id
+        required: true
+        type: string
+      - description: Role change request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.ChangeRoleRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - Bearer: []
+      summary: Change user role
+      tags:
+      - User Management
+  /api/v1/org/{org_id}/users/invite:
+    post:
+      consumes:
+      - application/json
+      description: Send an invitation email to invite a new user to the organization
+      parameters:
+      - description: Organization ID
+        in: path
+        name: org_id
+        required: true
+        type: string
+      - description: Invitation request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.SendInvitationRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.SendInvitationResponse'
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "409":
+          description: Conflict
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - Bearer: []
+      summary: Send user invitation
+      tags:
+      - Invitations
+  /api/v1/subject-types:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve all subject types from the database
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.SubjectType'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Error'
+      security:
+      - Bearer: []
+      summary: Get all subject types
+      tags:
+      - Subject Types
+  /auth/github/callback:
+    get:
+      consumes:
+      - application/json
+      description: Processes the callback from GitHub OAuth and creates/logs in user
+      parameters:
+      - description: Authorization code
+        in: query
+        name: code
+        required: true
+        type: string
+      - description: State parameter
+        in: query
+        name: state
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "302":
+          description: Redirect to frontend
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      summary: Handle GitHub OAuth callback
+      tags:
+      - auth
+  /auth/github/exchange:
+    post:
+      consumes:
+      - application/json
+      description: Exchanges GitHub OAuth authorization code for access tokens
+      parameters:
+      - description: Code exchange request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.ExchangeCodeRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.OAuthCallbackResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      summary: Exchange GitHub OAuth code for tokens
+      tags:
+      - auth
+  /auth/github/start:
+    post:
+      consumes:
+      - application/json
+      description: Initiates GitHub OAuth flow for user login or account linking
+      parameters:
+      - description: OAuth start request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.StartOAuthRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.StartOAuthResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      summary: Start GitHub OAuth flow
+      tags:
+      - auth
+  /auth/google/exchange:
+    post:
+      consumes:
+      - application/json
+      description: Exchanges Google OAuth authorization code for JWT tokens
+      parameters:
+      - description: Code exchange request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.GoogleExchangeCodeRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.GoogleOAuthCallbackResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handlers.GoogleOAuthCallbackResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handlers.GoogleOAuthCallbackResponse'
+      summary: Exchange Google OAuth code for tokens
+      tags:
+      - auth
+  /auth/google/start:
+    post:
+      consumes:
+      - application/json
+      description: Initiates Google OAuth flow for user login or account linking
+      parameters:
+      - description: OAuth start request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.GoogleStartOAuthRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.GoogleStartOAuthResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      summary: Start Google OAuth flow
+      tags:
+      - auth
+  /auth/invitation/{token}/validate:
+    get:
+      consumes:
+      - application/json
+      description: Validate an invitation token and return invitation details
+      parameters:
+      - description: Invitation token
+        in: path
+        name: token
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.ValidateInvitationResponse'
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Validate invitation token
+      tags:
+      - Invitations
+  /auth/invitation/accept:
+    post:
+      consumes:
+      - application/json
+      description: Accept an invitation and complete user account setup
+      parameters:
+      - description: Accept invitation request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.AcceptInvitationRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.AcceptInvitationResponse'
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Accept invitation
+      tags:
+      - Invitations
+  /auth/revoke:
+    post:
+      consumes:
+      - application/json
+      description: Revokes a refresh token, making it invalid for future use
+      parameters:
+      - description: Revoke token request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.RevokeTokenRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      summary: Revoke refresh token
+      tags:
+      - auth
+  /auth/signup:
+    post:
+      consumes:
+      - application/json
+      description: Handles user signup
+      parameters:
+      - description: User signup request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.signupRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/handlers.SignupResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handlers.SignupResponse'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/handlers.SignupResponse'
+      summary: User signup
+      tags:
+      - auth
+  /auth/token:
+    post:
+      consumes:
+      - application/json
+      description: Handles OAuth 2.0 token requests (password grant and refresh token
+        grant)
+      parameters:
+      - description: Token request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.TokenRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.TokenResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/fiber.Map'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/fiber.Map'
+      summary: OAuth 2.0 token endpoint
+      tags:
+      - auth
+securityDefinitions:
+  Bearer:
+    description: Type "Bearer" followed by a space and your JWT token
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

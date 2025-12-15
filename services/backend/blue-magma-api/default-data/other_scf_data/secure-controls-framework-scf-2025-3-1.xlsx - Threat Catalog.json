@@ -1,0 +1,621 @@
+[
+  {
+    "Threat Grouping": "",
+    "Threat #": "",
+    "Threat*": "",
+    "Threat Description": "",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "≥ 5% of pre-tax income",
+    "": "≥ 0.5% of total revenue"
+  },
+  {
+    "Threat Grouping": "Natural Threat",
+    "Threat #": [
+      "NT-1"
+    ],
+    "Threat*": "Drought & Water Shortage",
+    "Threat Description": "Regardless of geographic location, periods of reduced rainfall are expected. For non-agricultural industries, drought may not be impactful to operations until it reaches the extent of water rationing.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "NT-2"
+    ],
+    "Threat*": "Earthquakes",
+    "Threat Description": "Earthquakes are sudden rolling or shaking events caused by movement under the earth’s surface. Although earthquakes usually last less than one minute, the scope of devastation can be widespread and have long-lasting impact.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "NT-3"
+    ],
+    "Threat*": "Fire & Wildfires",
+    "Threat Description": "Regardless of geographic location or even building material, fire is a concern for every business. When thinking of a fire in a building, it envisions a total loss to all technology hardware, including backup tapes and all paper files being consumed in the fire.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "NT-4"
+    ],
+    "Threat*": "Floods",
+    "Threat Description": "Flooding is the most common of natural hazards and requires an understanding of the local environment, including floodplains and the frequency of flooding events. Location of critical technologies should be considered (e.g., server room is in the basement or first floor of the facility).",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "NT-5"
+    ],
+    "Threat*": "Hurricanes & Tropical Storms",
+    "Threat Description": "Hurricanes and tropical storms are among the most powerful natural disasters because of their size and destructive potential. In addition to high winds, regional flooding and infrastructure damage should be considered when assessing hurricanes and tropical storms.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "NT-6"
+    ],
+    "Threat*": "Landslides & Debris Flow",
+    "Threat Description": "Landslides occur throughout the world and can be caused by a variety of factors including earthquakes, storms, volcanic eruptions, fire and by human modification of land. Landslides can occur quickly, often with little notice. Location of critical technologies should be considered (e.g., server room is in the basement or first floor of the facility).",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "NT-7"
+    ],
+    "Threat*": "Pandemic (Disease) Outbreaks",
+    "Threat Description": "Due to the wide variety of possible scenarios, consideration should be given both to the magnitude of what can reasonably happen during a pandemic outbreak (e.g., COVID-19, Influenza, SARS, Ebola, etc.) and what actions the business can be taken to help lessen the impact of a pandemic on operations.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "NT-8"
+    ],
+    "Threat*": "Severe Weather",
+    "Threat Description": "Severe weather is a broad category of meteorological events that include events that range from damaging winds to hail.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "NT-9"
+    ],
+    "Threat*": "Space Weather",
+    "Threat Description": "Space weather includes natural events in space that can affect the near-earth environment and satellites. Most commonly, this is associated with solar flares from the Sun, so an understanding of how solar flares may impact the business is of critical importance in assessing this threat.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "NT-10"
+    ],
+    "Threat*": "Thunderstorms & Lightning",
+    "Threat Description": "Thunderstorms are most prevalent in the spring and summer months and generally occur during the afternoon and evening hours, but they can occur year-round and at all hours. Many hazardous weather events are associated with thunderstorms. Under the right conditions, rainfall from thunderstorms causes flash flooding and lightning is responsible for equipment damage, fires and fatalities.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "NT-11"
+    ],
+    "Threat*": "Tornadoes",
+    "Threat Description": "Tornadoes occur in many parts of the world, including the US, Australia, Europe, Africa, Asia and South America. Tornadoes can happen at any time of year and occur at any time of day or night, but most tornadoes occur between 4–9 p.m. Tornadoes (with winds up to about 300 mph) can destroy all but the best-built man-made structures.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "NT-12"
+    ],
+    "Threat*": "Tsunamis",
+    "Threat Description": "All tsunamis are potentially dangerous, even though they may not damage every coastline they strike. A tsunami can strike anywhere along most of the US coastline. The most destructive tsunamis have occurred along the coasts of California, Oregon, Washington, Alaska and Hawaii.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "NT-13"
+    ],
+    "Threat*": "Volcanoes",
+    "Threat Description": "While volcanoes are geographically fixed objects, volcanic fallout can have significant downwind impacts for thousands of miles. Far outside of the blast zone, volcanoes can significantly damage or degrade transportation systems and also cause electrical grids to fail.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "NT-14"
+    ],
+    "Threat*": "Winter Storms & Extreme Cold",
+    "Threat Description": "Winter storms is a broad category of meteorological events that include events that range from ice storms, to heavy snowfall, to unseasonably (e.g., record breaking) cold temperatures. Winter storms can significantly impact business operations and transportation systems over a wide geographic region.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "Man-Made Threat",
+    "Threat #": [
+      "MT-1"
+    ],
+    "Threat*": "Civil or Political Unrest",
+    "Threat Description": "Civil or political unrest can be singular or wide-spread events that can be unexpected and unpredictable. These events can occur anywhere, at any time.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-2"
+    ],
+    "Threat*": "Technology & Cybersecurity",
+    "Threat Description": "Unlike physical threats that prompt immediate action (e.g., \"stop, drop and roll\" in the event of a fire), cyber incidents are often difficult to identify as the incident is occurring. Detection generally occurs after the incident has occurred, with the exception of \"denial of service\" attacks. The spectrum of cybersecurity risks is limitless and threats can have wide-ranging effects on the individual, organizational, geographic and national levels.   This category of risk includes the management of cybersecurity requirements for Information and Communications Technology (ICT), including technical vulnerabilities and weaknesses in computation logic (code) found in software and hardware components that, when exploited, results in a negative impact to Confidentiality, Integrity, Availability and/or Safety (CIAS).",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-3"
+    ],
+    "Threat*": "Hazardous Materials Emergencies",
+    "Threat Description": "Hazardous materials emergencies are focused on accidental disasters that occur in industrialized nations. These incidents can range from industrial chemical spills to groundwater contamination.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-4"
+    ],
+    "Threat*": [
+      "Nuclear,",
+      "Biological",
+      "and",
+      "Chemical",
+      "(NBC)",
+      "Weapons"
+    ],
+    "Threat Description": "The use of NBC weapons are in the possible arsenals of international terrorists and it must be a consideration. Terrorist use of a “dirty bomb” — is considered far more likely than use of a traditional nuclear explosive device. This may be a combination of conventional explosive device with radioactive / chemical / biological material and be designed to scatter lethal and sub-lethal amounts of material over a wide area.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-5"
+    ],
+    "Threat*": "Physical Crime",
+    "Threat Description": "Physical crime includes \"traditional\" crimes of opportunity. These incidents can range from theft, to vandalism, riots, looting, arson and other forms of criminal activities.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-6"
+    ],
+    "Threat*": "Terrorism & Armed Attacks",
+    "Threat Description": "Armed attacks, regardless of the motivation of the attacker, can impact a business. Scenarios can range from single actors (e.g., \"disgruntled\" employee) all the way to a coordinated terrorist attack by multiple assailants. These incidents can range from the use of blade weapons (e.g., knives), blunt objects (e.g., clubs), to firearms and explosives.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-7"
+    ],
+    "Threat*": "Utility Service Disruption",
+    "Threat Description": "Utility service disruptions are focused on the sustained loss of electricity, Internet, natural gas, water and/or sanitation services. These incidents can have a variety of causes but directly impact the fulfillment of utility services that your business needs to operate.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-8"
+    ],
+    "Threat*": "Dysfunctional Management Practices",
+    "Threat Description": "Dysfunctional management practices are a manmade threat that expose an organization to significant risk. The threat stems from the inability of weak, ineffective and/or incompetent management to (1) make a risk-based decision and (2) support that decision. The resulting risk manifests due to (1) an absence of a required control or (2) a control deficiency.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-9"
+    ],
+    "Threat*": "Human Error",
+    "Threat Description": "Human error is a broad category that includes non-malicious actions that are unexpected and unpredictable by humans. These incidents can range from misconfigurations, to misunderstandings or other unintentional accidents.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-10"
+    ],
+    "Threat*": "Technical / Mechanical Failure",
+    "Threat Description": "Technical /mechanical failure is a broad category that includes non-malicious failure due to a defect in the technology, materials or workmanship. Technical / mechanical failures are unexpected and unpredictable, even when routine and preventative maintenance is performed. These incidents can range from malfunctions, to reliability concerns to catastrophic damage (including loss of life).",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-11"
+    ],
+    "Threat*": "Statutory / Regulatory / Contractual Obligation",
+    "Threat Description": [
+      "Laws,",
+      "regulations",
+      "and/or",
+      "contractual",
+      "obligations",
+      "that",
+      "directly",
+      "or",
+      "indirectly",
+      "weaken",
+      "an",
+      "organization's",
+      "security",
+      "&",
+      "privacy",
+      "controls.",
+      "This",
+      "includes",
+      "hostile",
+      "nation",
+      "states",
+      "that",
+      "leverage",
+      "statutory",
+      "and/or",
+      "regulatory",
+      "means",
+      "for",
+      "economic",
+      "or",
+      "political",
+      "espionage",
+      "and/or",
+      "cyberwarfare",
+      "activities.",
+      "Changes",
+      "in",
+      "statutes,",
+      "laws,",
+      "policies,",
+      "regulations",
+      "and/or",
+      "agreements",
+      "that",
+      "materially",
+      "impact",
+      "a",
+      "business",
+      "or",
+      "market",
+      "sector",
+      "and",
+      "that",
+      "can",
+      "increase",
+      "business",
+      "operating",
+      "costs,",
+      "reduce",
+      "the",
+      "attractiveness",
+      "of",
+      "investment,",
+      "or",
+      "change",
+      "the",
+      "competitive",
+      "landscape.",
+      "This",
+      "extends",
+      "across",
+      "the",
+      "supply",
+      "chain",
+      "due",
+      "to",
+      "a",
+      "wide-range",
+      "of",
+      "laws",
+      "and",
+      "regulations."
+    ],
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-12"
+    ],
+    "Threat*": [
+      "Redundant,",
+      "Obsolete/Outdated,",
+      "Toxic",
+      "or",
+      "Trivial",
+      "(ROTT)",
+      "Data"
+    ],
+    "Threat Description": [
+      "Redundant,",
+      "Obsolete/Outdated,",
+      "Toxic",
+      "or",
+      "Trivial",
+      "(ROTT)",
+      "data",
+      "is",
+      "information",
+      "an",
+      "organization",
+      "utilizes",
+      "for",
+      "business",
+      "processes",
+      "even",
+      "though",
+      "the",
+      "data",
+      "is",
+      "untrustworthy,",
+      "due",
+      "to",
+      "the",
+      "data's",
+      "currency,",
+      "accuracy,",
+      "integrity",
+      "and/or",
+      "applicability."
+    ],
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-13"
+    ],
+    "Threat*": "Artificial Intelligence & Autonomous Technologies (AAT)",
+    "Threat Description": "Artificial Intelligence & Autonomous Technologies (AAT) is a broad category that ranges from non-malicious failure due to a defect in the algorithm to emergent properties or unintended consequences. AAT failures can be due to hardware failures, inherent biases or other flaws in the underlying algorithm. These incidents can range from malfunctions, to reliability concerns to catastrophic damage (including loss of life).",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-14"
+    ],
+    "Threat*": [
+      "Fraud,",
+      "Corruption",
+      "and/or",
+      "Willful",
+      "Criminal",
+      "Conduct"
+    ],
+    "Threat Description": "Willful criminal conduct is a broad category that includes consciously-committed criminal acts performed by individuals (e.g., mens rea). These incidents can include a wide-range of activities that includes fraud, corruption, theft and illegal content. Criminal conduct generally involves one of the following kinds of mens rea: (1) intent, (2) knowledge, (3) recklessness and/or (4) negligence.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-15"
+    ],
+    "Threat*": "Conflict of Interest (COI)",
+    "Threat Description": "Conflict of Interest (COI) is a broad category but pertains to an ethical incompatibility. COI exist when (1) the concerns or goals of different parties are incompatible or (2) a person in a decision-making position is able to derive personal benefit from actions taken or decisions made in their official capacity.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-16"
+    ],
+    "Threat*": "Macroeconomics",
+    "Threat Description": "Macroeconomic factors that can negatively affect the global supply chain. Macroeconomic factors directly impact unemployment rates, interest rates, exchange rates and commodity prices. Due to how fiscal and monetary policies can negatively affect the global supply chain, this can disrupt or degrade an organization's business operations.  Economic instability can lead to reduced investment and weakened consumer confidence. Multiple factors may cause instability and may include recession, sanctions, demand shocks, price volatility, inflation and unemployment. An out-of-balance economy can lead to unpredictable fluctuations in growth, inflation, employment and financial health. This instability can be episodic, meaning discrete events such as job loss, or it can be chronic, meaning sustained events such as variations to employee compensation.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-17"
+    ],
+    "Threat*": "Foreign Ownership, Control, or Influence (FOCI)",
+    "Threat Description": "Foreign Ownership, Control, or Influence (FOCI) is a Supply Chain Risk Management (SCRM) threat category that pertains to the ownership of, control of, or influence over an organization. Primarily, the concern is if a foreign interest (e.g., foreign government or parties owned or controlled by a foreign government) has the direct or indirect ability to influence decisions that affect the management or operations of the organization.  The ability exercise the power to influence management or operations may result in unauthorized access to sensitive / regulated data  or may adversely affect the performance of contracts and/or programs. FOCI may have national security implications, in addition to corporate espionage / maleficence.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-18"
+    ],
+    "Threat*": "Geopolitical",
+    "Threat Description": "Geopolitical is a Supply Chain Risk Management (SCRM) threat category that pertains to a specific geographic location, or region of relevance, that affects the supply chain. Primarily, the concern is if a foreign state can affect the supply chain through political intervention within the host nation.  Internal or geopolitical instability can lead to disrupted supply chain operations, increased business operating costs, reduced attractiveness of investment and/or altered competitive landscapes.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-19"
+    ],
+    "Threat*": "Sanctions",
+    "Threat Description": "Sanctions is a Supply Chain Risk Management (SCRM) threat category that pertains to past or present fraudulent activity or corruption. Primarily, the concern is if the third-party is subject to suspension, exclusion or other sanctions that can affect the supply chain.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-20"
+    ],
+    "Threat*": "Counterfeit / Non-Conforming Products",
+    "Threat Description": "Counterfeit / Non-Conforming Products is a Supply Chain Risk Management (SCRM) threat category that pertains to the integrity of components within the supply chain. Counterfeits are products introduced to the supply chain that falsely claim to be produced by the legitimate Original Equipment Manufacturer (OEM), whereas non-conforming are OEM products / materials that fail to meet the customer specifications. Both can have a detrimental effect on the supply chain.  The items lack industry standard tests during the production phase ( e.g., pressure testing) or are counterfeit items could pose significant risk to the function and safety of the system, increased maintenance costs due to depreciation in quality and added stresses due to an item's inability to function at true capacity.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-21"
+    ],
+    "Threat*": "Operational Environment",
+    "Threat Description": "Operational Environment is a Supply Chain Risk Management (SCRM) threat category that pertains to the user environment (e.g., place of performance). Primarily, the concern is if the operational environment is hazardous that could expose the organization operationally or financially.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-22"
+    ],
+    "Threat*": "Manufacturing & Supply",
+    "Threat Description": "Manufacturing & Supply is a Supply Chain Risk Management (SCRM) threat category pertaining to interdependencies related to data, systems and mission functions. Concerns include the availability of supply, capacity to surge, sole-source and concentration within or over-reliance on a single source.  At issue is a single supplier or sector/market that is incapable of meeting market demand. This can be due to reduced throughput or production delays caused by capacity constraints, obsolescence, industrial limitations, market conditions, disrupted material delivery and other conditions.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-23"
+    ],
+    "Threat*": "Product Quality & Design",
+    "Threat Description": "Product Quality & Design s a Supply Chain Risk Management (SCRM) threat category that pertains to inherent design and quality problems (e.g., raw materials, ingredients, production, logistics, packaging) that result in the product and/or service failing to meet performance specifications and quality standards. This includes an understanding of the quality assurance practices associated with preventing mistakes or defects in manufactured/ developed products and avoiding problems when delivering solutions or services to customers.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-24"
+    ],
+    "Threat*": "Financial",
+    "Threat Description": "Financial is a Supply Chain Risk Management (SCRM) threat category that pertains to financial distress that can lead to the inability to meet contractual obligations, hostile takeovers, or bankruptcy. This involves situations where a supplier cannot generate revenue or income resulting in the inability to meet financial obligations.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "",
+    "": ""
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-25"
+    ],
+    "Threat*": "Human Capital",
+    "Threat Description": "Human Capital is a threat category that pertains to human skills, knowledge and actions that may impact a market's ability to produce goods and/or services to meet demand. This includes industrial disputes, labor availability and unrest, attrition of required skills and consumer behavior that disrupts a given market or industry.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "",
+    "": ""
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-26"
+    ],
+    "Threat*": "Transportation & Distribution",
+    "Threat Description": "Transportation & Distribution is a threat category that pertains to dynamic disruptions within the transportation and logistics of moving a product from one point to another. The transportation industry is among the most risk-prone of all industries due to accidents, losses of cargo, driver shortages and deteriorating infrastructure. These risks can cause shipment delays, supply chain disruptions, increased costs and damaged reputations. In addition, the inability to predict and plan for disruptions in the logistics plan presents risk in meeting delivery requirements and maintaining operations.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "",
+    "": ""
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": [
+      "MT-27"
+    ],
+    "Threat*": "Infrastructure",
+    "Threat Description": "Infrastructure is a threat category that pertains to the availability and functioning of fundamental facilities and systems necessary to support an industry and its supply chains within a country. This includes buildings, transportation networks, utilities and equipment. Additionally, this includes how well those facilities and systems are protected from both natural and man-made threats.",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "Unknown",
+    "": "Unknown"
+  },
+  {
+    "Threat Grouping": "",
+    "Threat #": "",
+    "Threat*": "",
+    "Threat Description": "",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "",
+    "": ""
+  },
+  {
+    "Threat Grouping": [
+      "Note:",
+      "These",
+      "are",
+      "POSSIBLE",
+      "threat",
+      "and",
+      "the",
+      "threat",
+      "catalog",
+      "is",
+      "expected",
+      "to",
+      "be",
+      "tailored",
+      "by",
+      "the",
+      "end",
+      "user",
+      "for",
+      "the",
+      "organization's",
+      "unique",
+      "set",
+      "of",
+      "obligations.",
+      "This",
+      "is",
+      "not",
+      "an",
+      "authoritative",
+      "list",
+      "of",
+      "all",
+      "applicable",
+      "threats.",
+      "You",
+      "are",
+      "required",
+      "to",
+      "apply",
+      "critical",
+      "thought",
+      "processes",
+      "when",
+      "identifying",
+      "and",
+      "evaluating",
+      "threats."
+    ],
+    "Threat #": "",
+    "Threat*": "",
+    "Threat Description": "",
+    "Materiality Considerations If this threat materialized, would it potentially exceed the following financial impacts for the organization?": "",
+    "": ""
+  }
+]

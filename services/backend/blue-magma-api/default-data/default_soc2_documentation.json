@@ -1,0 +1,259 @@
+{
+  "template_page_id": "cc6-1-access-restriction",
+  "documents": [
+    {
+      "title": "Control: CC6.1 - Restrict Logical Access",
+      "content": "## Control: CC6.1 - Restrict Logical Access\n\n### Control Objective\nLogical access to information assets, including hardware, data, software, administrative authorities, mobile devices, output, and offline elements is restricted through the use of access control software and rule sets.\n\n### Implementation Status\n✅ **Implemented** - Access controls are in place and operating effectively.\n\n### Evidence Summary\nThis control is supported by the following evidence:\n- Access control configuration from Okta identity provider\n- Quarterly user access reviews\n- MFA enrollment at 100%\n- Sample access provisioning and deprovisioning tickets\n\n### Compliance Status\n- [x] Access control policy documented and approved\n- [x] MFA enforced for all production system access\n- [x] Password policy meets requirements (12+ characters, complexity)\n- [x] User access reviews conducted quarterly\n- [x] Terminated user access revoked within 24 hours\n- [x] Evidence collected for full audit period (3-12 months)",
+      "status": "complete",
+      "evidence": [
+        {
+          "name": "Okta Access Control Configuration",
+          "description": "Configuration export showing MFA enforcement, password policies, and session timeout settings from Okta identity provider",
+          "type": "static",
+          "source_id": "okta-prod-instance",
+          "source_type": "identity_provider",
+          "source_method": "api_export",
+          "source_query": "GET /api/v1/policies",
+          "date_collected": "2025-11-01T10:00:00Z",
+          "date_expires": null,
+          "context": "Quarterly snapshot of access control configuration to demonstrate CC6.1 compliance",
+          "value_type": "config",
+          "value": {
+            "password_policy": {
+              "min_length": 14,
+              "require_uppercase": true,
+              "require_lowercase": true,
+              "require_number": true,
+              "require_symbol": true,
+              "password_age_days": 90,
+              "password_history_count": 5,
+              "lockout_attempts": 5,
+              "lockout_duration_minutes": 30
+            },
+            "mfa_policy": {
+              "enforcement": "required",
+              "allowed_factors": ["okta_verify", "google_authenticator", "yubikey"],
+              "grace_period_days": 0,
+              "remember_device_days": 30
+            },
+            "session_policy": {
+              "max_idle_time_minutes": 15,
+              "max_session_lifetime_hours": 12,
+              "require_reauth_for_sensitive_operations": true
+            }
+          },
+          "group": "access_controls",
+          "tags": ["cc6.1", "mfa", "password_policy", "okta"]
+        },
+        {
+          "name": "AWS IAM Password Policy",
+          "description": "AWS IAM password policy configuration showing complexity requirements and rotation settings",
+          "type": "static",
+          "source_id": "aws-prod-account-123456789",
+          "source_type": "cloud_provider",
+          "source_method": "aws_cli",
+          "source_query": "aws iam get-account-password-policy",
+          "date_collected": "2025-11-01T10:15:00Z",
+          "date_expires": null,
+          "context": "AWS account password policy configuration for CC6.1 compliance",
+          "value_type": "config",
+          "value": {
+            "MinimumPasswordLength": 16,
+            "RequireSymbols": true,
+            "RequireNumbers": true,
+            "RequireUppercaseCharacters": true,
+            "RequireLowercaseCharacters": true,
+            "AllowUsersToChangePassword": true,
+            "ExpirePasswords": true,
+            "MaxPasswordAge": 90,
+            "PasswordReusePrevention": 5,
+            "HardExpiry": false
+          },
+          "group": "access_controls",
+          "tags": ["cc6.1", "aws", "iam", "password_policy"]
+        },
+        {
+          "name": "Q4 2025 User Access Review",
+          "description": "Quarterly user access review conducted by department managers showing all users reviewed and access confirmed or modified",
+          "type": "static",
+          "source_id": "access-review-q4-2025",
+          "source_type": "manual_review",
+          "source_method": "spreadsheet",
+          "source_query": "N/A",
+          "date_collected": "2025-10-15T14:30:00Z",
+          "date_expires": null,
+          "context": "Quarterly access review for Q4 2025 demonstrating periodic review of user access rights per CC6.1 requirements",
+          "value_type": "collection",
+          "value": {},
+          "group": "access_controls",
+          "tags": ["cc6.1", "access_review", "q4_2025"]
+        },
+        {
+          "name": "MFA Enrollment Report - November 2025",
+          "description": "Monthly MFA enrollment report showing 100% adoption across all production users",
+          "type": "static",
+          "source_id": "okta-mfa-report-nov-2025",
+          "source_type": "identity_provider",
+          "source_method": "api_report",
+          "source_query": "GET /api/v1/reports/mfa-enrollment",
+          "date_collected": "2025-11-01T09:00:00Z",
+          "date_expires": null,
+          "context": "Monthly MFA enrollment verification for CC6.1 compliance",
+          "value_type": "collection",
+          "value": {},
+          "group": "access_controls",
+          "tags": ["cc6.1", "mfa", "enrollment", "november_2025"]
+        },
+        {
+          "name": "Access Provisioning Samples - Q3 2025",
+          "description": "Sample access request tickets showing manager approval and timely provisioning for new employees",
+          "type": "static",
+          "source_id": "jira-access-requests-q3-2025",
+          "source_type": "ticketing_system",
+          "source_method": "jql_query",
+          "source_query": "project = IT AND type = 'Access Request' AND created >= '2025-07-01' AND created <= '2025-09-30'",
+          "date_collected": "2025-10-01T16:00:00Z",
+          "date_expires": null,
+          "context": "Sample access provisioning tickets from Q3 2025 demonstrating proper approval workflow per CC6.1",
+          "value_type": "collection",
+          "value": {},
+          "group": "access_controls",
+          "tags": ["cc6.1", "provisioning", "q3_2025", "jira"]
+        },
+        {
+          "name": "Access Deprovisioning Samples - Q3 2025",
+          "description": "Sample termination tickets showing access revoked within 24 hours of employee termination",
+          "type": "static",
+          "source_id": "jira-terminations-q3-2025",
+          "source_type": "ticketing_system",
+          "source_method": "jql_query",
+          "source_query": "project = IT AND type = 'Termination' AND created >= '2025-07-01' AND created <= '2025-09-30'",
+          "date_collected": "2025-10-01T16:30:00Z",
+          "date_expires": null,
+          "context": "Sample deprovisioning tickets from Q3 2025 demonstrating timely access revocation per CC6.1",
+          "value_type": "collection",
+          "value": {},
+          "group": "access_controls",
+          "tags": ["cc6.1", "deprovisioning", "termination", "q3_2025"]
+        }
+      ],
+      "collections": [
+        {
+          "name": "Q4 2025 Access Review Summary",
+          "description": "Aggregated summary of Q4 2025 quarterly access review showing all departments completed reviews with 100% coverage",
+          "type": "table",
+          "agent_type": "compliance_aggregator",
+          "agent_reasoning": "Aggregated access review data from multiple department spreadsheets to provide a unified view of quarterly access review completion and findings",
+          "agent_prompt": "Summarize Q4 2025 access review results across all departments, showing completion status, users reviewed, and actions taken",
+          "agent_context": "SOC 2 CC6.1 requires quarterly access reviews. This collection demonstrates that all departments completed their reviews on time with appropriate actions taken.",
+          "content": {
+            "headers": ["Department", "Reviewer", "Review Date", "Users Reviewed", "Access Confirmed", "Access Modified", "Access Removed", "Completion %"],
+            "rows": [
+              ["Engineering", "Sarah Chen (VP Engineering)", "2025-10-10", 45, 42, 2, 1, "100%"],
+              ["Product", "Mike Johnson (CPO)", "2025-10-12", 18, 17, 1, 0, "100%"],
+              ["Sales", "Jennifer Martinez (VP Sales)", "2025-10-08", 32, 30, 0, 2, "100%"],
+              ["Marketing", "David Kim (CMO)", "2025-10-15", 12, 12, 0, 0, "100%"],
+              ["Finance", "Lisa Wang (CFO)", "2025-10-09", 8, 8, 0, 0, "100%"],
+              ["HR", "Robert Taylor (CHRO)", "2025-10-11", 5, 5, 0, 0, "100%"],
+              ["Customer Success", "Amanda Brown (VP CS)", "2025-10-14", 22, 21, 1, 0, "100%"]
+            ],
+            "summary": {
+              "total_users_reviewed": 142,
+              "total_access_confirmed": 135,
+              "total_access_modified": 4,
+              "total_access_removed": 3,
+              "overall_completion": "100%",
+              "review_period": "Q4 2025 (Oct 1 - Oct 15)",
+              "findings": "All departments completed access reviews on schedule. 3 terminated users had access properly removed, 4 users had access adjusted due to role changes."
+            }
+          },
+          "sources": [
+            {"type": "evidence", "id": "access-review-q4-2025", "method": "spreadsheet_aggregation"},
+            {"type": "external", "id": "hr-system-workday", "method": "employee_roster_verification"},
+            {"type": "external", "id": "okta-user-list", "method": "active_user_count_verification"}
+          ]
+        },
+        {
+          "name": "MFA Enrollment Trend Analysis",
+          "description": "6-month trend analysis of MFA enrollment showing consistent 100% adoption across the audit period",
+          "type": "diagram",
+          "agent_type": "trend_analyzer",
+          "agent_reasoning": "Created a Mermaid diagram to visualize MFA enrollment trends over the audit period, demonstrating sustained compliance with CC6.1 MFA requirements",
+          "agent_prompt": "Create a visual representation of MFA enrollment trends from June 2025 to November 2025",
+          "agent_context": "SOC 2 CC6.1 requires MFA for production access. This diagram shows sustained 100% MFA enrollment throughout the audit period.",
+          "content": {
+            "diagram_type": "mermaid",
+            "diagram_code": "graph TD\n    A[MFA Enrollment Tracking] --> B[June 2025: 100%]\n    A --> C[July 2025: 100%]\n    A --> D[August 2025: 100%]\n    A --> E[September 2025: 100%]\n    A --> F[October 2025: 100%]\n    A --> G[November 2025: 100%]\n    \n    B --> H[Total Users: 138]\n    C --> I[Total Users: 142]\n    D --> J[Total Users: 145]\n    E --> K[Total Users: 143]\n    F --> L[Total Users: 142]\n    G --> M[Total Users: 142]\n    \n    H --> N[MFA Enabled: 138]\n    I --> O[MFA Enabled: 142]\n    J --> P[MFA Enabled: 145]\n    K --> Q[MFA Enabled: 143]\n    L --> R[MFA Enabled: 142]\n    M --> S[MFA Enabled: 142]\n    \n    style A fill:#2196F3,color:#fff\n    style N fill:#4CAF50,color:#fff\n    style O fill:#4CAF50,color:#fff\n    style P fill:#4CAF50,color:#fff\n    style Q fill:#4CAF50,color:#fff\n    style R fill:#4CAF50,color:#fff\n    style S fill:#4CAF50,color:#fff",
+            "summary": "MFA enrollment has remained at 100% throughout the 6-month audit period (June-November 2025). All new users are enrolled in MFA during onboarding before receiving production access."
+          },
+          "sources": [
+            {"type": "evidence", "id": "okta-mfa-report-jun-2025", "method": "monthly_report"},
+            {"type": "evidence", "id": "okta-mfa-report-jul-2025", "method": "monthly_report"},
+            {"type": "evidence", "id": "okta-mfa-report-aug-2025", "method": "monthly_report"},
+            {"type": "evidence", "id": "okta-mfa-report-sep-2025", "method": "monthly_report"},
+            {"type": "evidence", "id": "okta-mfa-report-oct-2025", "method": "monthly_report"},
+            {"type": "evidence", "id": "okta-mfa-report-nov-2025", "method": "monthly_report"}
+          ]
+        },
+        {
+          "name": "Access Lifecycle Process Flow",
+          "description": "Process diagram showing the complete access lifecycle from provisioning through quarterly reviews to deprovisioning",
+          "type": "process",
+          "agent_type": "process_documenter",
+          "agent_reasoning": "Created a comprehensive process flow diagram to document the access control lifecycle, demonstrating how CC6.1 and CC6.2 controls are implemented in practice",
+          "agent_prompt": "Document the complete user access lifecycle process including provisioning, reviews, and deprovisioning",
+          "agent_context": "SOC 2 requires documented and followed processes for access management. This diagram shows the end-to-end workflow.",
+          "content": {
+            "diagram_type": "mermaid",
+            "diagram_code": "flowchart TD\n    Start([New Employee/Contractor]) --> A[HR Creates Onboarding Ticket]\n    A --> B[Manager Submits Access Request in Jira]\n    B --> C{IT Reviews Request}\n    C -->|Approved| D[IT Creates Okta Account]\n    C -->|Rejected| E[Request Clarification]\n    E --> B\n    D --> F[User Enrolls in MFA]\n    F --> G[Access Granted to Systems]\n    G --> H[User Active]\n    \n    H --> I[Quarterly Access Review]\n    I --> J{Access Still Needed?}\n    J -->|Yes| K[Access Confirmed]\n    J -->|No| L[Access Removed]\n    J -->|Modified| M[Access Adjusted]\n    K --> H\n    M --> H\n    \n    H --> N[Employee Termination/Contract End]\n    N --> O[HR Notifies IT]\n    O --> P[IT Disables Okta Account]\n    P --> Q[IT Removes App Access]\n    Q --> R[IT Confirms Revocation]\n    R --> End([Access Lifecycle Complete])\n    \n    style Start fill:#4CAF50,color:#fff\n    style End fill:#F44336,color:#fff\n    style D fill:#2196F3,color:#fff\n    style F fill:#FF9800,color:#fff\n    style I fill:#9C27B0,color:#fff\n    style P fill:#F44336,color:#fff",
+            "summary": "This process ensures: (1) All access requires manager approval, (2) MFA is enforced before access is granted, (3) Access is reviewed quarterly, (4) Terminated users have access revoked within 24 hours"
+          },
+          "sources": [
+            {"type": "external", "id": "it-procedures-wiki", "method": "process_documentation"},
+            {"type": "evidence", "id": "jira-access-requests-q3-2025", "method": "workflow_analysis"},
+            {"type": "evidence", "id": "jira-terminations-q3-2025", "method": "workflow_analysis"}
+          ]
+        }
+      ],
+      "evidence_requests": [
+        {
+          "title": "Q1 2026 User Access Review",
+          "description": "Conduct quarterly user access review for Q1 2026. All department managers must review their team members' access and confirm, modify, or remove access as appropriate.",
+          "required_type": "collection",
+          "suggested_sources": ["okta", "aws_iam", "github", "jira"],
+          "acceptance_criteria": "Access review must cover 100% of active users. Review must be completed by January 15, 2026. Results must show reviewer name, review date, and actions taken for each user.",
+          "assigned_to": "security-team",
+          "priority": "high",
+          "due_date": "2026-01-15T23:59:59Z",
+          "status": "pending",
+          "created_by": "compliance-officer"
+        },
+        {
+          "title": "December 2025 MFA Enrollment Report",
+          "description": "Generate monthly MFA enrollment report for December 2025 showing MFA adoption rate across all users.",
+          "required_type": "collection",
+          "suggested_sources": ["okta"],
+          "acceptance_criteria": "Report must show total users, users with MFA enabled, enrollment percentage, and list of any users without MFA (target: 0). Report must be generated from Okta.",
+          "assigned_to": "it-team",
+          "priority": "medium",
+          "due_date": "2025-12-05T23:59:59Z",
+          "status": "pending",
+          "created_by": "security-officer"
+        },
+        {
+          "title": "Q4 2025 Access Provisioning Samples",
+          "description": "Collect 10-15 sample access request tickets from Q4 2025 (Oct-Dec) showing proper manager approval and timely provisioning.",
+          "required_type": "collection",
+          "suggested_sources": ["jira", "servicenow"],
+          "acceptance_criteria": "Samples must include: (1) Manager approval, (2) Date requested vs date provisioned, (3) Access level matches job role, (4) Provisioning completed within 24 hours of approval. Minimum 10 samples required.",
+          "assigned_to": "it-team",
+          "priority": "medium",
+          "due_date": "2026-01-10T23:59:59Z",
+          "status": "pending",
+          "created_by": "auditor"
+        }
+      ]
+    }
+  ]
+}
+
