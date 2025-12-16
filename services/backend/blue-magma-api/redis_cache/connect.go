@@ -7,6 +7,7 @@ import (
 	"os"
 	"strings"
 
+	"github.com/redis/go-redis/extra/redisotel/v9"
 	"github.com/redis/go-redis/v9"
 	log "github.com/sirupsen/logrus"
 )
@@ -36,6 +37,14 @@ func ConnectToRedis() *redis.Client {
 		DB:        0,        // default DB
 		TLSConfig: tlsConfig,
 	})
+
+	// Enable OpenTelemetry instrumentation for Redis.
+	if err := redisotel.InstrumentTracing(rdb); err != nil {
+		log.WithError(err).Warn("failed to enable Redis tracing")
+	}
+	if err := redisotel.InstrumentMetrics(rdb); err != nil {
+		log.WithError(err).Warn("failed to enable Redis metrics")
+	}
 
 	// Test the connection
 	ctx := context.Background()

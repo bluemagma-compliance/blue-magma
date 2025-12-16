@@ -1,0 +1,37 @@
+receivers:
+  otlp:
+    protocols:
+      http:
+        endpoint: 0.0.0.0:4318
+
+processors:
+  batch:
+
+exporters:
+  debug:
+    verbosity: detailed
+  datadog:
+    api:
+      # Datadog API key is read from the DD_API_KEY environment variable
+      key: ${env:DD_API_KEY}
+      # Datadog site is configurable via DD_SITE (for example us3.datadoghq.com, datadoghq.eu).
+      # If DD_SITE is not set, the exporter will use its own default.
+      site: ${env:DD_SITE}
+
+service:
+  telemetry:
+    logs:
+      level: info
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      # Export traces both to local debug logs and to Datadog (if DD_API_KEY is set).
+      exporters: [debug, datadog]
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      # Export metrics to Datadog. The Datadog exporter uses the same API
+      # settings as for traces (DD_API_KEY/DD_SITE).
+      exporters: [datadog]
+
