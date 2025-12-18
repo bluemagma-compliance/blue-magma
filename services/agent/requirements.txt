@@ -14,3 +14,11 @@ neo4j>=5.0.0
 langgraph-checkpoint-sqlite
 aiosqlite<0.22.0
 redis>=5.0.0
+
+# Vendor-neutral observability with OpenTelemetry
+opentelemetry-api>=1.24.0
+opentelemetry-sdk>=1.24.0
+opentelemetry-exporter-otlp-proto-http>=1.24.0
+opentelemetry-instrumentation-fastapi>=0.44b0
+opentelemetry-instrumentation-requests>=0.44b0
+opentelemetry-instrumentation-redis>=0.44b0
