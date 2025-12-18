@@ -38,10 +38,4 @@ service:
       # By default, send traces only to the debug exporter so you
       # can see them in the collector logs.
       exporters: [debug]
-    metrics:
-      receivers: [otlp]
-      processors: [batch]
-      # No metrics exporters enabled by default. Add one (or more)
-      # here, for example: exporters: [myvendor]
-      exporters: []
 
