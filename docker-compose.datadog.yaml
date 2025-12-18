@@ -1,0 +1,6 @@
+services:
+  otel-collector:
+    volumes:
+      # Override the default vendor-neutral collector config with the
+      # Datadog-specific configuration.
+      - ./observability/otel-collector-config.datadog.yaml:/etc/otelcol/config.yaml:ro

@@ -32,8 +32,22 @@ We would love tips and tricks on how to implement controls and how you have been
 ````bash
 git clone https://github.com/bluemagma/bluemagma.git
 cd bluemagma
-docker-compose up --build
+docker compose up --build
 ````
+
+## Observability
+
+Blue Magma is instrumented with vendor-neutral [OpenTelemetry](https://opentelemetry.io/) across the backend, agent, and frontend. All services emit OTLP/HTTP telemetry to a shared OpenTelemetry Collector, and the collector is the only place that knows about specific observability vendors.
+
+- Collector configs live under [`observability/`](./observability/README.md).
+- By default, `docker compose up` uses a **vendor-neutral template** that logs traces via the `debug` exporter only.
+- To send telemetry to Datadog, use the Datadog override compose file:
+
+  ````bash
+  docker compose -f docker-compose.yaml -f docker-compose.datadog.yaml up -d
+  ````
+
+See [`observability/README.md`](./observability/README.md) for more details and for guidance on adapting the collector config to other observability backends.
 
 # Acknowledgements
 This project is made possible by the support of the following organizations and individuals:

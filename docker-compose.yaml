@@ -134,7 +134,10 @@ services:
     image: otel/opentelemetry-collector-contrib:0.112.0
     container_name: otel-collector
     volumes:
-      - ./otel-collector-config.yaml:/etc/otelcol/config.yaml:ro
+        # Default to the vendor-neutral collector config. For Datadog or
+        # other vendor-specific setups, see the files under
+        # ./observability/ and the docker-compose.datadog.yaml override.
+        - ./observability/otel-collector-config.template.yaml:/etc/otelcol/config.yaml:ro
     command: ["--config=/etc/otelcol/config.yaml"]
     environment:
       # Datadog API key for the collector's Datadog exporter. Define DD_API_KEY

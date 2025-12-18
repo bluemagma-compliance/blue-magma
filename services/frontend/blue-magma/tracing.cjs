@@ -2,8 +2,7 @@
 
 const { NodeSDK } = require('@opentelemetry/sdk-node');
 const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-http');
-const { Resource } = require('@opentelemetry/resources');
-const { SemanticResourceAttributes } = require('@opentelemetry/semantic-conventions');
+const { defaultResource, resourceFromAttributes } = require('@opentelemetry/resources');
 const { getNodeAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-node');
 
 const serviceName = process.env.OTEL_SERVICE_NAME || 'blue-magma-frontend';
@@ -32,38 +31,45 @@ if (!endpoint.startsWith('http')) {
 
 const traceExporter = new OTLPTraceExporter({ url: endpoint });
 
-const resource = new Resource({
-  [SemanticResourceAttributes.SERVICE_NAME]: serviceName,
-  'deployment.environment': environment,
-});
+const resource = defaultResource().merge(
+	resourceFromAttributes({
+		'service.name': serviceName,
+		'deployment.environment': environment,
+	}),
+);
 
 const sdk = new NodeSDK({
-  resource,
-  traceExporter,
-  instrumentations: [getNodeAutoInstrumentations()],
+	resource,
+	traceExporter,
+	instrumentations: [getNodeAutoInstrumentations()],
 });
 
-sdk
-  .start()
-  .then(() => {
-    console.log(
-      `[otel] NodeSDK initialized for ${serviceName}, exporting traces to ${endpoint}`,
-    );
-  })
-  .catch((error) => {
-    console.error('[otel] Error initializing OpenTelemetry NodeSDK for frontend:', error);
-  });
+(async () => {
+	try {
+		await sdk.start();
+		console.log(
+			`[otel] NodeSDK initialized for ${serviceName}, exporting traces to ${endpoint}`,
+		);
+	} catch (error) {
+		console.error('[otel] Error initializing OpenTelemetry NodeSDK for frontend:', error);
+	}
+})();
 
 process.on('SIGTERM', () => {
-  sdk
-    .shutdown()
-    .then(() => {
-      console.log('[otel] OpenTelemetry NodeSDK for frontend shut down successfully.');
-      process.exit(0);
-    })
-    .catch((error) => {
-      console.error('[otel] Error shutting down OpenTelemetry NodeSDK for frontend:', error);
-      process.exit(1);
-    });
+	(async () => {
+		try {
+			await sdk.shutdown();
+			console.log(
+				'[otel] OpenTelemetry NodeSDK for frontend shut down successfully.',
+			);
+			process.exit(0);
+		} catch (error) {
+			console.error(
+				'[otel] Error shutting down OpenTelemetry NodeSDK for frontend:',
+				error,
+			);
+			process.exit(1);
+		}
+	})();
 });
 
