@@ -10,6 +10,7 @@
 package main
 
 import (
+	"context"
 	"os"
 	"strings"
 
@@ -18,6 +19,7 @@ import (
 	defaultdata "github.com/bluemagma-compliance/blue-magma-api/default-data"
 	"github.com/bluemagma-compliance/blue-magma-api/middleware"
 	"github.com/bluemagma-compliance/blue-magma-api/models"
+	"github.com/bluemagma-compliance/blue-magma-api/observability"
 	rediscache "github.com/bluemagma-compliance/blue-magma-api/redis_cache"
 	"github.com/bluemagma-compliance/blue-magma-api/routes"
 
@@ -100,11 +102,27 @@ func checkEnvVars(vars []string) {
 func main() {
 	app := fiber.New()
 
+	// Instrument HTTP server with OpenTelemetry (traces per request).
+	observability.InstrumentFiber(app)
+
 	// Check required environment variables
 	checkEnvVars(requiredEnvVars)
 
 	// Configure logging
 	configureLogging()
+
+	// Initialize vendor-neutral observability (OpenTelemetry).
+	ctx := context.Background()
+	shutdown, err := observability.Init(ctx)
+	if err != nil {
+		log.WithError(err).Warn("failed to initialize OpenTelemetry; continuing without tracing exporter")
+	} else {
+		defer func() {
+			if err := shutdown(ctx); err != nil {
+				log.WithError(err).Warn("error shutting down OpenTelemetry provider")
+			}
+		}()
+	}
 
 	// Connect to DB
 	database.Connect()
@@ -194,7 +212,10 @@ func main() {
 		log.Info("Skipping default data seeding at API startup (handled by seeder command)")
 	}
 
-	// Connect to Redis
+	// Instrument GORM with OpenTelemetry. Use logical DB name for context.
+	observability.InstrumentGorm(database.DB, os.Getenv("DB_NAME"))
+
+	// Connect to Redis (client is instrumented inside ConnectToRedis).
 	redisClient := rediscache.ConnectToRedis()
 	defer func() {
 		if err := redisClient.Close(); err != nil {

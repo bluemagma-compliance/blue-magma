@@ -11,7 +11,10 @@ import { usePathname } from "next/navigation";
 
 import Script from "next/script";
 
-const projectId = process.env.NEXT_PUBLIC_CLARITY_ID || "ubwpn0yjk3";
+// Optional Microsoft Clarity analytics. When NEXT_PUBLIC_CLARITY_ID is not
+// set, we skip injecting the script so that OSS users don't send data to our
+// Clarity project by default.
+const clarityProjectId = process.env.NEXT_PUBLIC_CLARITY_ID;
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,7 +47,7 @@ export default function RootLayout({
       <head>
         <title>Blue Magma</title>
       </head>
-      <body className={inter.className}>
+	      <body className={inter.className}>
         <ThemeProvider
           attribute="class"
 	          defaultTheme="light"
@@ -56,17 +59,19 @@ export default function RootLayout({
             <AppContent>{children}</AppContent>
           </AuthProvider>
           <Toaster />
-        </ThemeProvider>
-      </body>
-      <Script id="ms-clarity" strategy="afterInteractive">
-        {`
-          (function(c,l,a,r,i,t,y){
-              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-          })(window, document, "clarity", "script", "${projectId}");
-        `}
-     </Script>
-    </html>
-  );
+	        </ThemeProvider>
+	      </body>
+	      {clarityProjectId && (
+	        <Script id="ms-clarity" strategy="afterInteractive">
+	          {`
+	            (function(c,l,a,r,i,t,y){
+	                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+	                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+	                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+	            })(window, document, "clarity", "script", "${clarityProjectId}");
+	          `}
+	       </Script>
+	      )}
+	    </html>
+	  );
 }

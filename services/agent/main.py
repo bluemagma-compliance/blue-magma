@@ -16,6 +16,7 @@ from agent import RouterAgent
 from contextlib import asynccontextmanager
 # Import message emitter (package-relative)
 from emitters.message_emitter import MessageEmitter, set_global_message_emitter
+from observability import init_telemetry, instrument_fastapi, instrument_clients
 
 
 
@@ -26,6 +27,9 @@ REQUEST_TIMEOUT = 10.0  # seconds
 # Store active WebSocket connections
 active_connections: Dict[str, WebSocket] = {}
 
+
+telemetry_shutdown = init_telemetry()
+instrument_clients()
 
 agent = RouterAgent()  # <-- define before lifespan
 
@@ -41,13 +45,26 @@ async def lifespan(app: FastAPI):
 
     if redis_url:
         try:
-            redis_client = Redis.from_url(redis_url, password=redis_password, decode_responses=True)
+            redis_client = Redis.from_url(
+                redis_url,
+                password=redis_password,
+                decode_responses=True,
+            )
             agent.redis_client = redis_client
-            print(f"[DEBUG] Connected to Redis at {redis_url} for session persistence", flush=True)
+            print(
+                f"[DEBUG] Connected to Redis at {redis_url} for session persistence",
+                flush=True,
+            )
         except Exception as e:
-            print(f"[DEBUG] Failed to initialize Redis client: {e}. Session persistence disabled.", flush=True)
+            print(
+                f"[DEBUG] Failed to initialize Redis client: {e}. Session persistence disabled.",
+                flush=True,
+            )
     else:
-        print("[DEBUG] REDIS_URL not set. Redis-backed session persistence is disabled.", flush=True)
+        print(
+            "[DEBUG] REDIS_URL not set. Redis-backed session persistence is disabled.",
+            flush=True,
+        )
 
     await agent.startup()  # opens AsyncSqliteSaver and compiles graph
     try:
@@ -61,8 +78,15 @@ async def lifespan(app: FastAPI):
                 print(f"[DEBUG] Error while closing Redis client: {e}", flush=True)
 
         await agent.shutdown()  # closes saver cleanly
+        # Best-effort flush of telemetry on shutdown.
+        try:
+            telemetry_shutdown()
+        except Exception:
+            pass
+
 
 app = FastAPI(title="GraphLang Agent", version="1.0.0", lifespan=lifespan)
+instrument_fastapi(app)
 
 def fetch_user_info(jwt_token: str) -> Optional[Dict[str, Any]]:
     """Fetch user information from backend API"""

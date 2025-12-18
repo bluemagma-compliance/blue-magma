@@ -9,8 +9,15 @@ services:
       - "8080:8080"
     env_file:
       - .env
+    environment:
+      OTEL_SERVICE_NAME: blue-magma-api
+      OTEL_EXPORTER_OTLP_ENDPOINT: otel-collector:4318
+      OTEL_EXPORTER_OTLP_INSECURE: "true"
+      OTEL_TRACES_SAMPLER: parentbased_traceidratio
+      OTEL_TRACES_SAMPLER_ARG: "1.0"
     depends_on:
       - db
+      - otel-collector
     restart: unless-stopped
     volumes:
       # Mount backend source code into the container for live reload with air
@@ -28,10 +35,17 @@ services:
       - "8011:8001"
     env_file:
       - .env
+    environment:
+      OTEL_SERVICE_NAME: graphlang-agent
+      OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: http://otel-collector:4318/v1/traces
+      OTEL_EXPORTER_OTLP_INSECURE: "true"
+      OTEL_ENVIRONMENT: development
     depends_on:
       redis:
         condition: service_started
       app:
+        condition: service_started
+      otel-collector:
         condition: service_started
     restart: unless-stopped
     volumes:
@@ -55,6 +69,11 @@ services:
       - "3000:3000"
     env_file:
       - .env
+    environment:
+      OTEL_SERVICE_NAME: blue-magma-frontend
+      OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: http://otel-collector:4318/v1/traces
+      OTEL_ENVIRONMENT: development
+      NODE_OPTIONS: "--require ./tracing.cjs"
     volumes:
       # Mount frontend source code into the container for live reload
       - ./services/frontend/blue-magma:/app
@@ -63,6 +82,7 @@ services:
     command: ["npm", "run", "dev:docker"]
     depends_on:
       - app
+      - otel-collector
     restart: unless-stopped
 
   db:
@@ -109,6 +129,26 @@ services:
     depends_on:
       - app
       - frontend
+
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.112.0
+    container_name: otel-collector
+    volumes:
+        # Default to the vendor-neutral collector config. For Datadog or
+        # other vendor-specific setups, see the files under
+        # ./observability/ and the docker-compose.datadog.yaml override.
+        - ./observability/otel-collector-config.template.yaml:/etc/otelcol/config.yaml:ro
+    command: ["--config=/etc/otelcol/config.yaml"]
+    environment:
+      # Datadog API key for the collector's Datadog exporter. Define DD_API_KEY
+      # in your local shell or in the root .env file (which should not be committed).
+      DD_API_KEY: ${DD_API_KEY}
+      # Optional: Datadog site (e.g. us3.datadoghq.com, datadoghq.eu). If not set,
+      # the Datadog exporter will fall back to its built-in default.
+      DD_SITE: ${DD_SITE}
+    ports:
+      - "4318:4318"
+    restart: unless-stopped
 
 volumes:
   postgres_data:
