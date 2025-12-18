@@ -855,9 +855,23 @@ async def websocket_public_endpoint(websocket: WebSocket):
                 f"{PUBLIC_VISITOR_COOKIE_NAME}={visitor_id}; "
                 f"Path=/; HttpOnly; SameSite=Lax; Max-Age={PUBLIC_VISITOR_COOKIE_MAX_AGE}; Secure"
             )
+            print(
+                f"👤 [Public WS] New anonymous visitor created: {visitor_id}",
+                flush=True,
+            )
+        else:
+            print(
+                f"👤 [Public WS] Existing anonymous visitor from cookie: {visitor_id}",
+                flush=True,
+            )
+    else:
+        print("👤 [Public WS] Visitor tracking disabled; no cookie-based id", flush=True)
 
     if set_cookie_header:
-        await websocket.accept(headers=[("Set-Cookie", set_cookie_header)])
+        # Uvicorn expects header name/value as bytes for WebSocket accept.
+        await websocket.accept(
+            headers=[(b"set-cookie", set_cookie_header.encode("latin-1"))]
+        )
     else:
         await websocket.accept()
 
@@ -880,6 +894,23 @@ async def websocket_public_endpoint(websocket: WebSocket):
             state = get_public_visitor_state(visitor_id)
             if state is not None:
                 current_tokens = int(state.get("total_public_tokens", 0) or 0)
+                if current_tokens > 0:
+                    print(
+                        "📊 [Public WS] Existing visitor usage "
+                        f"for {visitor_id}: {current_tokens} tokens so far",
+                        flush=True,
+                    )
+                else:
+                    print(
+                        "📊 [Public WS] Visitor has no recorded public tokens yet: "
+                        f"{visitor_id}",
+                        flush=True,
+                    )
+            else:
+                print(
+                    f"📊 [Public WS] No visitor usage state available for {visitor_id}",
+                    flush=True,
+                )
 
         # Keep a short in-memory history for this tab/session only. This is
         # used to provide a bit more context to the public LLM but is never
@@ -935,6 +966,12 @@ async def websocket_public_endpoint(websocket: WebSocket):
                 if PUBLIC_VISITOR_TRACKING_ENABLED and visitor_id:
                     turn_text = f"{user_message}\n{response.answer}"
                     turn_tokens = estimate_public_tokens(turn_text)
+                    print(
+                        "📈 [Public WS] Turn usage for visitor "
+                        f"{visitor_id}: {turn_tokens} tokens (before total={current_tokens})",
+                        flush=True,
+                    )
+
                     messages_for_tracking = [
                         {
                             "role": "user",
@@ -954,10 +991,31 @@ async def websocket_public_endpoint(websocket: WebSocket):
                     )
                     if track_result is not None:
                         try:
-                            current_tokens = int(track_result.get("total_public_tokens", current_tokens))
-                        except Exception:
+                            new_total = int(
+                                track_result.get("total_public_tokens", current_tokens)
+                            )
+                            last_messages = track_result.get("last_messages", []) or []
+                            print(
+                                "💾 [Public WS] Tracked visitor usage for "
+                                f"{visitor_id}: turn={turn_tokens} tokens, "
+                                f"new total={new_total}, "
+                                f"saved_messages={len(last_messages)}",
+                                flush=True,
+                            )
+                            current_tokens = new_total
+                        except Exception as e:
                             # Keep last known value on parsing issues.
-                            pass
+                            print(
+                                "⚠️ [Public WS] Failed to parse tracking response for "
+                                f"{visitor_id}: {e}",
+                                flush=True,
+                            )
+                    else:
+                        print(
+                            "⚠️ [Public WS] Failed to track visitor usage for "
+                            f"{visitor_id}; backend did not return a result",
+                            flush=True,
+                        )
 
                 await websocket.send_text(json.dumps({
                     "type": "response",
