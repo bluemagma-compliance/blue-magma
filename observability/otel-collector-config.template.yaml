@@ -1,0 +1,41 @@
+## Vendor-neutral OpenTelemetry Collector configuration template.
+##
+## This config is intended as a starting point for any OTLP-based
+## observability backend. By default it only exports to the "debug"
+## exporter so you can verify that telemetry is flowing without
+## sending data to any vendor.
+##
+## To use a specific backend (Datadog, OTLP to another collector,
+## Prometheus, etc.), add an exporter under `exporters:` and then
+## reference it from the pipelines below. See
+## `otel-collector-config.datadog.yaml` in this same folder for an
+## example Datadog configuration.
+
+receivers:
+  otlp:
+    protocols:
+      http:
+        endpoint: 0.0.0.0:4318
+
+processors:
+  batch:
+
+exporters:
+  debug:
+    verbosity: detailed
+  # myvendor:
+  #   # Example vendor exporter configuration goes here
+  #   endpoint: https://example.com
+
+service:
+  telemetry:
+    logs:
+      level: info
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      # By default, send traces only to the debug exporter so you
+      # can see them in the collector logs.
+      exporters: [debug]
+

@@ -1,0 +1,158 @@
+{
+  "name": "HIPAA Software Compliance Template",
+  "description": "This template is designed to help guide the development of HIPAA-compliant software systems. It includes sections aligned with HIPAA principles such as privacy, security, risk management, and auditing.",
+  "version": "1.0",
+  "source": "HIPAA",
+  "sections": [
+    {
+      "name": "Access Control",
+      "description": "Ensure only authorized individuals can access ePHI.",
+      "rules": [
+        {
+          "name": "Unique User Identification",
+          "rule": "Each user accessing the system must be assigned a unique user ID.",
+          "scope": "authentication",
+          "tags": [
+            "access_control",
+            "user_id",
+            "hipaa_technical"
+          ]
+        },
+        {
+          "name": "Automatic Logoff",
+          "rule": "Implement automatic session timeouts after a defined period of inactivity.",
+          "scope": "frontend, backend",
+          "tags": [
+            "access_control",
+            "timeout",
+            "session"
+          ]
+        },
+        {
+          "name": "Encryption and Decryption",
+          "rule": "Implement encryption and decryption mechanisms for ePHI transmission and storage.",
+          "scope": "backend, database",
+          "tags": [
+            "access_control",
+            "encryption",
+            "data_protection"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Audit Controls",
+      "description": "Implement hardware, software, and/or procedural mechanisms that record and examine activity in information systems that contain or use ePHI.",
+      "rules": [
+        {
+          "name": "Audit Log Generation",
+          "rule": "Generate audit logs for all access to ePHI including user identification, date/time, and type of action performed.",
+          "scope": "backend, database",
+          "tags": [
+            "audit_controls",
+            "logging",
+            "hipaa_technical"
+          ]
+        },
+        {
+          "name": "Audit Log Protection",
+          "rule": "Protect audit logs from unauthorized access, modification, or deletion.",
+          "scope": "backend, infrastructure",
+          "tags": [
+            "audit_controls",
+            "log_protection",
+            "security"
+          ]
+        },
+        {
+          "name": "Audit Log Review",
+          "rule": "Implement procedures for regular review and analysis of audit logs.",
+          "scope": "backend, monitoring",
+          "tags": [
+            "audit_controls",
+            "log_review",
+            "monitoring"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Integrity",
+      "description": "ePHI must not be improperly altered or destroyed.",
+      "rules": [
+        {
+          "name": "Data Integrity Controls",
+          "rule": "Implement controls to ensure ePHI is not improperly altered or destroyed.",
+          "scope": "backend, database",
+          "tags": [
+            "integrity",
+            "data_protection",
+            "hipaa_technical"
+          ]
+        },
+        {
+          "name": "Electronic Signature",
+          "rule": "Implement electronic signature mechanisms to verify data integrity.",
+          "scope": "backend, api",
+          "tags": [
+            "integrity",
+            "electronic_signature",
+            "verification"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Person or Entity Authentication",
+      "description": "Verify that a person or entity seeking access to ePHI is the one claimed.",
+      "rules": [
+        {
+          "name": "User Authentication",
+          "rule": "Implement strong authentication mechanisms to verify user identity before granting access to ePHI.",
+          "scope": "authentication, frontend",
+          "tags": [
+            "authentication",
+            "user_verification",
+            "hipaa_technical"
+          ]
+        },
+        {
+          "name": "Multi-Factor Authentication",
+          "rule": "Implement multi-factor authentication for accessing systems containing ePHI.",
+          "scope": "authentication, frontend",
+          "tags": [
+            "authentication",
+            "mfa",
+            "security"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Transmission Security",
+      "description": "Guard against unauthorized access to ePHI that is being transmitted over an electronic communications network.",
+      "rules": [
+        {
+          "name": "End-to-End Encryption",
+          "rule": "Implement end-to-end encryption for all ePHI transmissions over networks.",
+          "scope": "backend, api, frontend",
+          "tags": [
+            "transmission_security",
+            "encryption",
+            "network_security"
+          ]
+        },
+        {
+          "name": "Network Controls",
+          "rule": "Implement network controls to prevent unauthorized access during ePHI transmission.",
+          "scope": "infrastructure, network",
+          "tags": [
+            "transmission_security",
+            "network_controls",
+            "security"
+          ]
+        }
+      ]
+    }
+  ]
+}

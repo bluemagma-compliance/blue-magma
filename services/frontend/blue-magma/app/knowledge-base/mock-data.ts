@@ -1,0 +1,140 @@
+import type { MockUser, MockPolicy } from './types';
+
+// Mock Users Data - Simplified with vendor roles
+export const mockUsers: MockUser[] = [
+  {
+    id: 'user-1',
+    name: 'Sarah Johnson',
+    email: 'sarah.johnson@company.com',
+    status: 'Active',
+    vendorRoles: [
+      { vendor: 'GitHub', role: 'Admin' },
+      { vendor: 'AWS', role: 'PowerUser' },
+      { vendor: 'Jira', role: 'Admin' },
+    ],
+    avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150',
+    joinedAt: '2023-06-15T09:00:00Z',
+  },
+  {
+    id: 'user-2',
+    name: 'Michael Chen',
+    email: 'michael.chen@company.com',
+    status: 'Active',
+    vendorRoles: [
+      { vendor: 'GitHub', role: 'Developer' },
+      { vendor: 'AWS', role: 'Developer' },
+      { vendor: 'Slack', role: 'Member' },
+    ],
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150',
+    joinedAt: '2023-08-22T09:00:00Z',
+  },
+  {
+    id: 'user-3',
+    name: 'Emily Rodriguez',
+    email: 'emily.rodriguez@company.com',
+    status: 'Active',
+    vendorRoles: [
+      { vendor: 'GitHub', role: 'Viewer' },
+      { vendor: 'Jira', role: 'Project Admin' },
+      { vendor: 'Confluence', role: 'Editor' },
+    ],
+    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150',
+    joinedAt: '2023-09-10T09:00:00Z',
+  },
+  {
+    id: 'user-4',
+    name: 'David Kim',
+    email: 'david.kim@company.com',
+    status: 'Active',
+    vendorRoles: [
+      { vendor: 'GitHub', role: 'Developer' },
+      { vendor: 'AWS', role: 'ReadOnly' },
+      { vendor: 'Docker Hub', role: 'Developer' },
+    ],
+    joinedAt: '2023-11-05T09:00:00Z',
+  },
+  {
+    id: 'user-5',
+    name: 'Lisa Thompson',
+    email: 'lisa.thompson@company.com',
+    status: 'Pending',
+    vendorRoles: [
+      { vendor: 'GitHub', role: 'Viewer' },
+      { vendor: 'Slack', role: 'Guest' },
+    ],
+    joinedAt: '2024-01-15T08:00:00Z',
+  },
+  {
+    id: 'user-6',
+    name: 'James Wilson',
+    email: 'james.wilson@company.com',
+    status: 'Pending',
+    vendorRoles: [
+      { vendor: 'GitHub', role: 'Developer' },
+    ],
+    joinedAt: '2024-01-15T08:00:00Z',
+  },
+];
+
+// Mock Policies Data - Simplified as uploaded documents
+export const mockPolicies: MockPolicy[] = [
+  {
+    id: 'policy-1',
+    name: 'GDPR Compliance Policy',
+    summary: 'Comprehensive GDPR compliance policy covering data protection and privacy requirements for EU users, including consent management, data minimization, and right to erasure.',
+    pageCount: 42,
+    author: 'Emily Rodriguez',
+    uploadedAt: '2023-06-01T09:00:00Z',
+    fileSize: '2.4 MB',
+    fileType: 'PDF',
+  },
+  {
+    id: 'policy-2',
+    name: 'HIPAA Security Policy',
+    summary: 'Healthcare data protection policy ensuring HIPAA compliance for PHI handling, including encryption standards, access controls, and audit logging requirements.',
+    pageCount: 38,
+    author: 'Dr. Michael Chen',
+    uploadedAt: '2023-07-15T09:00:00Z',
+    fileSize: '1.8 MB',
+    fileType: 'PDF',
+  },
+  {
+    id: 'policy-3',
+    name: 'Application Security Standards',
+    summary: 'General application security standards covering common vulnerabilities, secure coding practices, input validation, and SQL injection prevention.',
+    pageCount: 56,
+    author: 'Sarah Johnson',
+    uploadedAt: '2023-08-01T09:00:00Z',
+    fileSize: '3.2 MB',
+    fileType: 'PDF',
+  },
+  {
+    id: 'policy-4',
+    name: 'SOX Financial Controls',
+    summary: 'Sarbanes-Oxley compliance policy for financial reporting and internal controls, ensuring accuracy and completeness of financial data.',
+    pageCount: 67,
+    uploadedAt: '2024-01-01T09:00:00Z',
+    fileSize: '4.1 MB',
+    fileType: 'PDF',
+  },
+  {
+    id: 'policy-5',
+    name: 'Code Quality Standards',
+    summary: 'Code quality and maintainability standards for development teams, including test coverage requirements and documentation guidelines.',
+    pageCount: 24,
+    author: 'David Kim',
+    uploadedAt: '2023-09-01T09:00:00Z',
+    fileSize: '1.2 MB',
+    fileType: 'DOCX',
+  },
+  {
+    id: 'policy-6',
+    name: 'PCI-DSS Payment Security',
+    summary: 'Payment Card Industry Data Security Standard compliance for payment processing, covering cardholder data protection and secure transmission.',
+    pageCount: 89,
+    author: 'Lisa Thompson',
+    uploadedAt: '2023-05-01T09:00:00Z',
+    fileSize: '5.6 MB',
+    fileType: 'PDF',
+  },
+];

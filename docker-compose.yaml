@@ -1,0 +1,157 @@
+services:
+  app:
+    build:
+      # Use the backend service directory in this repo as build context
+      context: ./services/backend/blue-magma-api
+      dockerfile: Dockerfile.dev
+    container_name: blue-magma-api-devd
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    environment:
+      OTEL_SERVICE_NAME: blue-magma-api
+      OTEL_EXPORTER_OTLP_ENDPOINT: otel-collector:4318
+      OTEL_EXPORTER_OTLP_INSECURE: "true"
+      OTEL_TRACES_SAMPLER: parentbased_traceidratio
+      OTEL_TRACES_SAMPLER_ARG: "1.0"
+    depends_on:
+      - db
+      - otel-collector
+    restart: unless-stopped
+    volumes:
+      # Mount backend source code into the container for live reload with air
+      - ./services/backend/blue-magma-api:/app
+      # Ensure the air config from the repo is available inside the container
+      - ./services/backend/blue-magma-api/.air.toml:/app/.air.toml
+
+  graphlang-agent:
+    build:
+      # Use the graphlang agent service directory in this repo as build context
+      context: ./services/agent
+      dockerfile: Dockerfile.dev
+    container_name: graphlang-agent
+    ports:
+      - "8011:8001"
+    env_file:
+      - .env
+    environment:
+      OTEL_SERVICE_NAME: graphlang-agent
+      OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: http://otel-collector:4318/v1/traces
+      OTEL_EXPORTER_OTLP_INSECURE: "true"
+      OTEL_ENVIRONMENT: development
+    depends_on:
+      redis:
+        condition: service_started
+      app:
+        condition: service_started
+      otel-collector:
+        condition: service_started
+    restart: unless-stopped
+    volumes:
+      # Mount agent source code into the container for live reload
+      - ./services/agent:/app
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  frontend:
+    build:
+      # Use the frontend service directory in this repo as build context
+      context: ./services/frontend/blue-magma
+      dockerfile: Dockerfile
+      target: dev
+    container_name: blue-magma-frontend
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      OTEL_SERVICE_NAME: blue-magma-frontend
+      OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: http://otel-collector:4318/v1/traces
+      OTEL_ENVIRONMENT: development
+      NODE_OPTIONS: "--require ./tracing.cjs"
+    volumes:
+      # Mount frontend source code into the container for live reload
+      - ./services/frontend/blue-magma:/app
+      - /app/node_modules  # Prevent node_modules from being overwritten
+      - /app/.next         # Prevent .next from being overwritten
+    command: ["npm", "run", "dev:docker"]
+    depends_on:
+      - app
+      - otel-collector
+    restart: unless-stopped
+
+  db:
+    image: pgvector/pgvector:pg17
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  adminer:
+    image: adminer
+    ports:
+      - "8081:8080" 
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    entrypoint: ["sh", "-c", "exec redis-server --requirepass \"$REDIS_PASSWORD\""]
+    environment:
+      - REDIS_PASSWORD="test_password"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "test_password", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+      - frontend
+
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.112.0
+    container_name: otel-collector
+    volumes:
+        # Default to the vendor-neutral collector config. For Datadog or
+        # other vendor-specific setups, see the files under
+        # ./observability/ and the docker-compose.datadog.yaml override.
+        - ./observability/otel-collector-config.template.yaml:/etc/otelcol/config.yaml:ro
+    command: ["--config=/etc/otelcol/config.yaml"]
+    environment:
+      # Datadog API key for the collector's Datadog exporter. Define DD_API_KEY
+      # in your local shell or in the root .env file (which should not be committed).
+      DD_API_KEY: ${DD_API_KEY}
+      # Optional: Datadog site (e.g. us3.datadoghq.com, datadoghq.eu). If not set,
+      # the Datadog exporter will fall back to its built-in default.
+      DD_SITE: ${DD_SITE}
+    ports:
+      - "4318:4318"
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local

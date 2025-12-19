@@ -1,0 +1,295 @@
+{
+  "document": {
+    "object_id": "doc_abc123xyz456",
+    "template_page_id": "cc6-1-access-restriction",
+    "title": "Control: CC6.1 - Restrict Logical Access",
+    "content": "## Control: CC6.1 - Restrict Logical Access\n\n### Control Objective\nLogical access to information assets, including hardware, data, software, administrative authorities, mobile devices, output, and offline elements is restricted through the use of access control software and rule sets.\n\n### Implementation Status\n✅ **Implemented** - Access controls are in place and operating effectively.\n\n### Evidence Summary\nThis control is supported by the following evidence:\n- Access control configuration from Okta identity provider\n- Quarterly user access reviews\n- MFA enrollment at 100%\n- Sample access provisioning and deprovisioning tickets\n\n### Compliance Status\n- [x] Access control policy documented and approved\n- [x] MFA enforced for all production system access\n- [x] Password policy meets requirements (12+ characters, complexity)\n- [x] User access reviews conducted quarterly\n- [x] Terminated user access revoked within 24 hours\n- [x] Evidence collected for full audit period (3-12 months)",
+    "parent_id": null,
+    "order": 1,
+    "status": "complete",
+    "version": 1,
+    "last_edited_by": "user_xyz789"
+  },
+  "evidence": [
+    {
+      "object_id": "evi_okta_config_001",
+      "name": "Okta Access Control Configuration",
+      "description": "Configuration export showing MFA enforcement, password policies, and session timeout settings from Okta identity provider",
+      "type": "static",
+      "source_id": "okta-prod-instance",
+      "source_type": "identity_provider",
+      "source_method": "api_export",
+      "source_query": "GET /api/v1/policies",
+      "date_collected": "2025-11-01T10:00:00Z",
+      "date_expires": null,
+      "context": "Quarterly snapshot of access control configuration to demonstrate CC6.1 compliance",
+      "value_type": "config",
+      "value": {
+        "password_policy": {
+          "min_length": 14,
+          "require_uppercase": true,
+          "require_lowercase": true,
+          "require_number": true,
+          "require_symbol": true,
+          "password_age_days": 90,
+          "password_history_count": 5,
+          "lockout_attempts": 5,
+          "lockout_duration_minutes": 30
+        },
+        "mfa_policy": {
+          "enforcement": "required",
+          "allowed_factors": ["okta_verify", "google_authenticator", "yubikey"],
+          "grace_period_days": 0,
+          "remember_device_days": 30
+        },
+        "session_policy": {
+          "max_idle_time_minutes": 15,
+          "max_session_lifetime_hours": 12,
+          "require_reauth_for_sensitive_operations": true
+        }
+      },
+      "content_hash": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6",
+      "group": "access_controls",
+      "tags": ["cc6.1", "mfa", "password_policy", "okta"],
+      "is_verified": true,
+      "verified_by": "user_auditor_123",
+      "verified_at": "2025-11-02T14:30:00Z",
+      "collection": null
+    },
+    {
+      "object_id": "evi_aws_iam_001",
+      "name": "AWS IAM Password Policy",
+      "description": "AWS IAM password policy configuration showing complexity requirements and rotation settings",
+      "type": "static",
+      "source_id": "aws-prod-account-123456789",
+      "source_type": "cloud_provider",
+      "source_method": "aws_cli",
+      "source_query": "aws iam get-account-password-policy",
+      "date_collected": "2025-11-01T10:15:00Z",
+      "date_expires": null,
+      "context": "AWS account password policy configuration for CC6.1 compliance",
+      "value_type": "config",
+      "value": {
+        "MinimumPasswordLength": 16,
+        "RequireSymbols": true,
+        "RequireNumbers": true,
+        "RequireUppercaseCharacters": true,
+        "RequireLowercaseCharacters": true,
+        "AllowUsersToChangePassword": true,
+        "ExpirePasswords": true,
+        "MaxPasswordAge": 90,
+        "PasswordReusePrevention": 5,
+        "HardExpiry": false
+      },
+      "content_hash": "b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7",
+      "group": "access_controls",
+      "tags": ["cc6.1", "aws", "iam", "password_policy"],
+      "is_verified": true,
+      "verified_by": "user_auditor_123",
+      "verified_at": "2025-11-02T14:35:00Z",
+      "collection": null
+    },
+    {
+      "object_id": "evi_access_review_q4",
+      "name": "Q4 2025 User Access Review",
+      "description": "Quarterly user access review conducted by department managers showing all users reviewed and access confirmed or modified",
+      "type": "static",
+      "source_id": "access-review-q4-2025",
+      "source_type": "manual_review",
+      "source_method": "spreadsheet",
+      "source_query": "N/A",
+      "date_collected": "2025-10-15T14:30:00Z",
+      "date_expires": null,
+      "context": "Quarterly access review for Q4 2025 demonstrating periodic review of user access rights per CC6.1 requirements",
+      "value_type": "collection",
+      "value": {},
+      "content_hash": "c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8",
+      "group": "access_controls",
+      "tags": ["cc6.1", "access_review", "q4_2025"],
+      "is_verified": true,
+      "verified_by": "user_auditor_123",
+      "verified_at": "2025-11-02T15:00:00Z",
+      "collection": {
+        "id": 1,
+        "created_at": "2025-10-15T14:30:00Z",
+        "updated_at": "2025-10-15T14:30:00Z",
+        "deleted_at": null,
+        "object_id": "col_access_review_summary",
+        "organization_id": 2,
+        "project_id": 1,
+        "name": "Q4 2025 Access Review Summary",
+        "description": "Aggregated summary of Q4 2025 quarterly access review showing all departments completed reviews with 100% coverage",
+        "type": "table",
+        "agent_type": "compliance_aggregator",
+        "agent_reasoning": "Aggregated access review data from multiple department spreadsheets to provide a unified view of quarterly access review completion and findings",
+        "agent_prompt": "Summarize Q4 2025 access review results across all departments, showing completion status, users reviewed, and actions taken",
+        "agent_context": "SOC 2 CC6.1 requires quarterly access reviews. This collection demonstrates that all departments completed their reviews on time with appropriate actions taken.",
+        "content": {
+          "headers": ["Department", "Reviewer", "Review Date", "Users Reviewed", "Access Confirmed", "Access Modified", "Access Removed", "Completion %"],
+          "rows": [
+            ["Engineering", "Sarah Chen (VP Engineering)", "2025-10-10", 45, 42, 2, 1, "100%"],
+            ["Product", "Mike Johnson (CPO)", "2025-10-12", 18, 17, 1, 0, "100%"],
+            ["Sales", "Jennifer Martinez (VP Sales)", "2025-10-08", 32, 30, 0, 2, "100%"],
+            ["Marketing", "David Kim (CMO)", "2025-10-15", 12, 12, 0, 0, "100%"],
+            ["Finance", "Lisa Wang (CFO)", "2025-10-09", 8, 8, 0, 0, "100%"],
+            ["HR", "Robert Taylor (CHRO)", "2025-10-11", 5, 5, 0, 0, "100%"],
+            ["Customer Success", "Amanda Brown (VP CS)", "2025-10-14", 22, 21, 1, 0, "100%"]
+          ],
+          "summary": {
+            "total_users_reviewed": 142,
+            "total_access_confirmed": 135,
+            "total_access_modified": 4,
+            "total_access_removed": 3,
+            "overall_completion": "100%",
+            "review_period": "Q4 2025 (Oct 1 - Oct 15)",
+            "findings": "All departments completed access reviews on schedule. 3 terminated users had access properly removed, 4 users had access adjusted due to role changes."
+          }
+        },
+        "content_hash": "d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9",
+        "sources": [
+          {"type": "evidence", "id": "access-review-q4-2025", "method": "spreadsheet_aggregation"},
+          {"type": "external", "id": "hr-system-workday", "method": "employee_roster_verification"},
+          {"type": "external", "id": "okta-user-list", "method": "active_user_count_verification"}
+        ]
+      }
+    },
+    {
+      "object_id": "evi_mfa_enrollment_nov",
+      "name": "MFA Enrollment Report - November 2025",
+      "description": "Monthly MFA enrollment report showing 100% adoption across all production users",
+      "type": "static",
+      "source_id": "okta-mfa-report-nov-2025",
+      "source_type": "identity_provider",
+      "source_method": "api_report",
+      "source_query": "GET /api/v1/reports/mfa-enrollment",
+      "date_collected": "2025-11-01T09:00:00Z",
+      "date_expires": null,
+      "context": "Monthly MFA enrollment verification for CC6.1 compliance",
+      "value_type": "collection",
+      "value": {},
+      "content_hash": "e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0",
+      "group": "access_controls",
+      "tags": ["cc6.1", "mfa", "enrollment", "november_2025"],
+      "is_verified": false,
+      "verified_by": "",
+      "verified_at": null,
+      "collection": {
+        "id": 2,
+        "created_at": "2025-11-01T09:00:00Z",
+        "updated_at": "2025-11-01T09:00:00Z",
+        "deleted_at": null,
+        "object_id": "col_mfa_trend_analysis",
+        "organization_id": 2,
+        "project_id": 1,
+        "name": "MFA Enrollment Trend Analysis",
+        "description": "6-month trend analysis of MFA enrollment showing consistent 100% adoption across the audit period",
+        "type": "diagram",
+        "agent_type": "trend_analyzer",
+        "agent_reasoning": "Created a Mermaid diagram to visualize MFA enrollment trends over the audit period, demonstrating sustained compliance with CC6.1 MFA requirements",
+        "agent_prompt": "Create a visual representation of MFA enrollment trends from June 2025 to November 2025",
+        "agent_context": "SOC 2 CC6.1 requires MFA for production access. This diagram shows sustained 100% MFA enrollment throughout the audit period.",
+        "content": {
+          "diagram_type": "mermaid",
+          "diagram_code": "graph TD\n    A[MFA Enrollment Tracking] --> B[June 2025: 100%]\n    A --> C[July 2025: 100%]\n    A --> D[August 2025: 100%]\n    A --> E[September 2025: 100%]\n    A --> F[October 2025: 100%]\n    A --> G[November 2025: 100%]\n    \n    B --> H[Total Users: 138]\n    C --> I[Total Users: 142]\n    D --> J[Total Users: 145]\n    E --> K[Total Users: 143]\n    F --> L[Total Users: 142]\n    G --> M[Total Users: 142]\n    \n    H --> N[MFA Enabled: 138]\n    I --> O[MFA Enabled: 142]\n    J --> P[MFA Enabled: 145]\n    K --> Q[MFA Enabled: 143]\n    L --> R[MFA Enabled: 142]\n    M --> S[MFA Enabled: 142]\n    \n    style A fill:#2196F3,color:#fff\n    style N fill:#4CAF50,color:#fff\n    style O fill:#4CAF50,color:#fff\n    style P fill:#4CAF50,color:#fff\n    style Q fill:#4CAF50,color:#fff\n    style R fill:#4CAF50,color:#fff\n    style S fill:#4CAF50,color:#fff",
+          "summary": "MFA enrollment has remained at 100% throughout the 6-month audit period (June-November 2025). All new users are enrolled in MFA during onboarding before receiving production access."
+        },
+        "content_hash": "f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1",
+        "sources": [
+          {"type": "evidence", "id": "okta-mfa-report-jun-2025", "method": "monthly_report"},
+          {"type": "evidence", "id": "okta-mfa-report-jul-2025", "method": "monthly_report"},
+          {"type": "evidence", "id": "okta-mfa-report-aug-2025", "method": "monthly_report"},
+          {"type": "evidence", "id": "okta-mfa-report-sep-2025", "method": "monthly_report"},
+          {"type": "evidence", "id": "okta-mfa-report-oct-2025", "method": "monthly_report"},
+          {"type": "evidence", "id": "okta-mfa-report-nov-2025", "method": "monthly_report"}
+        ]
+      }
+    }
+  ],
+  "evidence_requests": [
+    {
+      "object_id": "evireq_github_sso_config",
+      "project_id": 1,
+      "document_id": 1,
+      "title": "GitHub SSO Configuration Evidence",
+      "description": "Need evidence showing GitHub Enterprise is configured with SSO through Okta and MFA is enforced",
+      "required_type": "config",
+      "suggested_sources": [
+        {"type": "saas", "name": "GitHub Enterprise", "method": "API export of SSO settings"},
+        {"type": "identity_provider", "name": "Okta", "method": "GitHub app configuration"}
+      ],
+      "acceptance_criteria": "Configuration export must show: 1) SSO enabled and enforced, 2) Okta as the identity provider, 3) MFA required for all users, 4) No bypass allowed",
+      "assigned_to": "user_security_eng_456",
+      "priority": "high",
+      "due_date": "2025-11-15T23:59:59Z",
+      "status": "in_progress",
+      "fulfilled_at": null,
+      "fulfilled_by_user": "",
+      "rejection_reason": "",
+      "created_by": "user_compliance_mgr_789"
+    },
+    {
+      "object_id": "evireq_vpn_mfa_config",
+      "project_id": 1,
+      "document_id": 1,
+      "title": "VPN MFA Configuration",
+      "description": "Evidence showing corporate VPN requires MFA for all connections",
+      "required_type": "config",
+      "suggested_sources": [
+        {"type": "network_device", "name": "Cisco AnyConnect", "method": "Configuration export"},
+        {"type": "identity_provider", "name": "Okta", "method": "VPN app MFA settings"}
+      ],
+      "acceptance_criteria": "VPN configuration must show MFA is required and cannot be bypassed. Should include authentication policy and MFA enforcement settings.",
+      "assigned_to": "user_network_admin_321",
+      "priority": "medium",
+      "due_date": "2025-11-20T23:59:59Z",
+      "status": "pending",
+      "fulfilled_at": null,
+      "fulfilled_by_user": "",
+      "rejection_reason": "",
+      "created_by": "user_compliance_mgr_789"
+    }
+  ],
+  "children": [
+    {
+      "id": 2,
+      "created_at": "2025-11-01T12:00:00Z",
+      "updated_at": "2025-11-01T12:00:00Z",
+      "deleted_at": null,
+      "object_id": "doc_child_001",
+      "organization_id": 2,
+      "project_id": 1,
+      "template_page_id": "cc6-1-1-password-policy",
+      "title": "CC6.1.1 - Password Policy Details",
+      "content": "## Password Policy Implementation\n\nDetailed password policy requirements and implementation...",
+      "parent_id": 1,
+      "order": 1,
+      "status": "in_progress",
+      "version": 1,
+      "last_edited_by": "user_xyz789",
+      "evidence": null,
+      "evidence_requests": null,
+      "children": null
+    },
+    {
+      "id": 3,
+      "created_at": "2025-11-01T12:05:00Z",
+      "updated_at": "2025-11-01T12:05:00Z",
+      "deleted_at": null,
+      "object_id": "doc_child_002",
+      "organization_id": 2,
+      "project_id": 1,
+      "template_page_id": "cc6-1-2-mfa-implementation",
+      "title": "CC6.1.2 - Multi-Factor Authentication",
+      "content": "## MFA Implementation\n\nMulti-factor authentication requirements and rollout...",
+      "parent_id": 1,
+      "order": 2,
+      "status": "complete",
+      "version": 1,
+      "last_edited_by": "user_xyz789",
+      "evidence": null,
+      "evidence_requests": null,
+      "children": null
+    }
+  ]
+}
+
