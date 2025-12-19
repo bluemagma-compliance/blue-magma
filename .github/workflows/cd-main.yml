@@ -57,7 +57,8 @@ jobs:
           echo "image=$IMAGE:$IMAGE_TAG" >> $GITHUB_OUTPUT
 
       - name: Image built successfully
-        run: echo "Backend image pushed to ECR: ${{ steps.build-image.outputs.image }}"
+        run: |
+          echo "Backend image pushed to ECR: ${{ steps.build-image.outputs.image }}"
 
   frontend-publish:
     name: Publish frontend to ECR
@@ -107,7 +108,8 @@ jobs:
           echo "image=$IMAGE:$IMAGE_TAG" >> $GITHUB_OUTPUT
 
       - name: Image built successfully
-        run: echo "Frontend image pushed to ECR: ${{ steps.build-image.outputs.image }}"
+        run: |
+          echo "Frontend image pushed to ECR: ${{ steps.build-image.outputs.image }}"
 
   agent-publish:
     name: Publish agent to ECR
@@ -157,4 +159,5 @@ jobs:
           echo "image=$IMAGE:$IMAGE_TAG" >> $GITHUB_OUTPUT
 
       - name: Image built successfully
-        run: echo "Agent image pushed to ECR: ${{ steps.build-image.outputs.image }}"
+        run: |
+          echo "Agent image pushed to ECR: ${{ steps.build-image.outputs.image }}"
