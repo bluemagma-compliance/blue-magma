@@ -8,11 +8,13 @@ from typing import Dict, Any, List, Optional
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, HTTPException
 from pydantic import BaseModel
 import requests
+import tiktoken
 from langgraph.types import Command
 from langgraph.errors import GraphRecursionError
 from langchain_core.messages import AIMessage
 from redis.asyncio import Redis
 from agent import RouterAgent
+from public_agent import PublicAgent
 from contextlib import asynccontextmanager
 # Import message emitter (package-relative)
 from emitters.message_emitter import MessageEmitter, set_global_message_emitter
@@ -24,14 +26,25 @@ from observability import init_telemetry, instrument_fastapi, instrument_clients
 BACKEND_API_URL = "http://app:8080"  # Using HTTP instead of HTTPS
 REQUEST_TIMEOUT = 10.0  # seconds
 
-# Store active WebSocket connections
+# Public visitor tracking configuration (for unauthenticated public agent)
+PUBLIC_VISITOR_COOKIE_NAME = os.getenv("PUBLIC_VISITOR_COOKIE_NAME", "bm_public_visitor")
+PUBLIC_VISITOR_COOKIE_MAX_AGE = int(os.getenv("PUBLIC_VISITOR_COOKIE_MAX_AGE", "2592000"))  # 30 days
+PUBLIC_AGENT_MAX_TOKENS = int(os.getenv("PUBLIC_AGENT_MAX_TOKENS", "3000"))
+INTERNAL_API_KEY = os.getenv("INTERNAL_API_KEY")
+PUBLIC_VISITOR_TRACKING_ENABLED = bool(INTERNAL_API_KEY)
+
+# Store active WebSocket connections for authenticated agent
 active_connections: Dict[str, WebSocket] = {}
+
+# Store active WebSocket connections for the public (unauthenticated) agent
+public_active_connections: Dict[str, WebSocket] = {}
 
 
 telemetry_shutdown = init_telemetry()
 instrument_clients()
 
 agent = RouterAgent()  # <-- define before lifespan
+public_agent = PublicAgent()
 
 
 @asynccontextmanager
@@ -151,6 +164,47 @@ def fetch_org_info(jwt_token: str, org_id: str) -> Optional[Dict[str, Any]]:
     except Exception as e:
         print(f"❌ Unexpected error fetching org info: {e}", flush=True)
         return None
+
+
+def _get_public_token_encoder():
+    """Initialize a tiktoken encoder for the public agent model.
+
+    Best-effort: falls back to a generic encoding and finally to None.
+    """
+
+    model_name = os.getenv("DEFAULT_LLM_MODEL", "gpt-5.1")
+    try:
+        return tiktoken.encoding_for_model(model_name)
+    except Exception:
+        try:
+            return tiktoken.get_encoding("cl100k_base")
+        except Exception:
+            return None
+
+
+_PUBLIC_TOKEN_ENCODER = _get_public_token_encoder()
+
+
+def estimate_public_tokens(text: str) -> int:
+    """Estimate token count for public agent usage (best-effort).
+
+    This does not need to be perfectly accurate; it is only used for coarse
+    quota enforcement for the public demo agent.
+    """
+
+    if not text:
+        return 0
+
+    encoder = _PUBLIC_TOKEN_ENCODER
+    if encoder is not None:
+        try:
+            return len(encoder.encode(text))
+        except Exception:
+            # Fall back to a simple heuristic below
+            pass
+
+    # Fallback heuristic: ~4 characters per token
+    return max(len(text) // 4, 1)
 
 def fetch_codebases(jwt_token: str, org_id: str) -> Optional[List[Dict[str, Any]]]:
     """Fetch codebases list from backend API"""
@@ -297,6 +351,86 @@ def fetch_policy_templates(jwt_token: str, org_id: str, project_id: str) -> Opti
     except Exception as e:
         print(f"❌ Unexpected error fetching policy templates: {e}", flush=True)
         return None
+
+
+def get_public_visitor_state(visitor_id: str) -> Optional[Dict[str, Any]]:
+    """Fetch existing public visitor usage from backend (internal API).
+
+    Best-effort only: failures are logged but do not block the public agent.
+    """
+
+    if not PUBLIC_VISITOR_TRACKING_ENABLED:
+        return None
+
+    url = f"{BACKEND_API_URL}/api/v1/public-visitors/{visitor_id}"
+    headers = {
+        "Authorization": f"Bearer {INTERNAL_API_KEY}",
+        "Content-Type": "application/json",
+    }
+
+    try:
+        response = requests.get(url, headers=headers, timeout=REQUEST_TIMEOUT)
+    except requests.RequestException as e:
+        print(f"Failed to fetch public visitor state: {e}", flush=True)
+        return None
+
+    if response.status_code == 200:
+        try:
+            return response.json()
+        except Exception as e:
+            print(f"Failed to decode public visitor state JSON: {e}", flush=True)
+            return None
+    if response.status_code == 404:
+        # No record yet; treat as zero usage.
+        return {"total_public_tokens": 0, "last_messages": []}
+
+    print(
+        f"Unexpected status fetching public visitor state: "
+        f"{response.status_code} - {response.text}",
+        flush=True,
+    )
+    return None
+
+
+def track_public_visitor_usage(visitor_id: str, tokens_used: int, messages: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
+    """Update public visitor usage in backend (internal API).
+
+    Best-effort only: failures are logged but do not block the public agent.
+    """
+
+    if not PUBLIC_VISITOR_TRACKING_ENABLED:
+        return None
+
+    url = f"{BACKEND_API_URL}/api/v1/public-visitors/{visitor_id}/track"
+    payload = {
+        "tokens_used": max(int(tokens_used or 0), 0),
+        "messages": messages or [],
+    }
+    headers = {
+        "Authorization": f"Bearer {INTERNAL_API_KEY}",
+        "Content-Type": "application/json",
+    }
+
+    try:
+        response = requests.post(url, headers=headers, json=payload, timeout=REQUEST_TIMEOUT)
+    except requests.RequestException as e:
+        print(f"Failed to track public visitor usage: {e}", flush=True)
+        return None
+
+    if response.status_code in (200, 201):
+        try:
+            return response.json()
+        except Exception as e:
+            print(f"Failed to decode public visitor track response JSON: {e}", flush=True)
+            return None
+
+    print(
+        f"Unexpected status tracking public visitor usage: "
+        f"{response.status_code} - {response.text}",
+        flush=True,
+    )
+    return None
+
 
 def fetch_auditors(jwt_token: str, org_id: str, project_id: str) -> Optional[List[Dict[str, Any]]]:
     """Fetch auditors list from backend API"""
@@ -682,9 +816,248 @@ async def health_check():
     return {
         "status": "healthy",
         "timestamp": datetime.now().isoformat(),
-        "active_connections": len(active_connections)
+        "active_connections": len(active_connections),
+        "public_active_connections": len(public_active_connections),
     }
 
+
+@app.websocket("/ws/public")
+async def websocket_public_endpoint(websocket: WebSocket):
+    """Public (unauthenticated) WebSocket endpoint.
+
+    This endpoint intentionally mirrors only the minimal behavior of the main
+    /ws handler:
+    - It assigns a unique session id.
+    - It forwards chat messages into a small public LangGraph agent.
+    - It returns a structured response payload.
+
+    It does *not* perform authentication, does not touch Redis, and does not
+    persist chat history.
+    """
+
+    # Log the connection attempt for observability in container logs.
+    try:
+        client = websocket.client
+        client_host = getattr(client, "host", "unknown") if client else "unknown"
+        client_port = getattr(client, "port", "unknown") if client else "unknown"
+        print(f"🌐 [Public WS] Connection attempt from {client_host}:{client_port}", flush=True)
+    except Exception:
+        # Best-effort only; never fail the connection because of logging.
+        print("🌐 [Public WS] Connection attempt (client info unavailable)", flush=True)
+
+    # Determine or create an anonymous visitor id via cookie.
+    visitor_id = websocket.cookies.get(PUBLIC_VISITOR_COOKIE_NAME)
+    set_cookie_header = None
+    if PUBLIC_VISITOR_TRACKING_ENABLED:
+        if not visitor_id:
+            visitor_id = f"public_{uuid.uuid4().hex}"
+            set_cookie_header = (
+                f"{PUBLIC_VISITOR_COOKIE_NAME}={visitor_id}; "
+                f"Path=/; HttpOnly; SameSite=Lax; Max-Age={PUBLIC_VISITOR_COOKIE_MAX_AGE}; Secure"
+            )
+            print(
+                f"👤 [Public WS] New anonymous visitor created: {visitor_id}",
+                flush=True,
+            )
+        else:
+            print(
+                f"👤 [Public WS] Existing anonymous visitor from cookie: {visitor_id}",
+                flush=True,
+            )
+    else:
+        print("👤 [Public WS] Visitor tracking disabled; no cookie-based id", flush=True)
+
+    if set_cookie_header:
+        # Uvicorn expects header name/value as bytes for WebSocket accept.
+        await websocket.accept(
+            headers=[(b"set-cookie", set_cookie_header.encode("latin-1"))]
+        )
+    else:
+        await websocket.accept()
+
+    session_id = str(uuid.uuid4())
+    public_active_connections[session_id] = websocket
+
+    print(f"✅ [Public WS] Session opened: {session_id} (visitor={visitor_id})", flush=True)
+
+    try:
+        await websocket.send_text(json.dumps({
+            "type": "system",
+            "message": "Connected to GraphLang Public Agent",
+            "session_id": session_id,
+            "visitor_id": visitor_id,
+        }))
+
+        # Seed visitor usage state (best-effort; failures do not block chat).
+        current_tokens = 0
+        if PUBLIC_VISITOR_TRACKING_ENABLED and visitor_id:
+            state = get_public_visitor_state(visitor_id)
+            if state is not None:
+                current_tokens = int(state.get("total_public_tokens", 0) or 0)
+                if current_tokens > 0:
+                    print(
+                        "📊 [Public WS] Existing visitor usage "
+                        f"for {visitor_id}: {current_tokens} tokens so far",
+                        flush=True,
+                    )
+                else:
+                    print(
+                        "📊 [Public WS] Visitor has no recorded public tokens yet: "
+                        f"{visitor_id}",
+                        flush=True,
+                    )
+            else:
+                print(
+                    f"📊 [Public WS] No visitor usage state available for {visitor_id}",
+                    flush=True,
+                )
+
+        # Keep a short in-memory history for this tab/session only. This is
+        # used to provide a bit more context to the public LLM but is never
+        # loaded from persistent storage.
+        session_history: List[Dict[str, str]] = []
+
+        while True:
+            data = await websocket.receive_text()
+            try:
+                message_data = json.loads(data)
+                message_type = message_data.get("type", "chat")
+
+                if message_type != "chat":
+                    # For now, only simple chat messages are supported on the
+                    # public endpoint to keep behavior predictable and safe.
+                    await websocket.send_text(json.dumps({
+                        "type": "error",
+                        "message": f"Unsupported message type for public endpoint: {message_type}",
+                    }))
+                    continue
+
+                user_message = message_data.get("message", "")
+                if not user_message:
+                    # Skip empty messages silently.
+                    continue
+
+                # Enforce a coarse per-visitor token quota for the public agent.
+                if PUBLIC_VISITOR_TRACKING_ENABLED and visitor_id:
+                    if current_tokens >= PUBLIC_AGENT_MAX_TOKENS:
+                        await websocket.send_text(json.dumps({
+                            "type": "error",
+                            "error_type": "limit_reached",
+                            "message": "You have reached the free public limit. Please create an account to continue.",
+                        }))
+                        await websocket.close()
+                        break
+
+                # Run the public agent with the in-memory short history.
+                response = await public_agent.run_turn(
+                    user_message,
+                    session_id,
+                    history=session_history,
+                )
+
+                # Update in-memory history with the latest turn, keeping only
+                # the last 10 messages (user + assistant entries).
+                session_history.append({"role": "user", "content": user_message})
+                session_history.append({"role": "assistant", "content": response.answer})
+                if len(session_history) > 10:
+                    session_history = session_history[-10:]
+
+                # Best-effort token estimation and visitor usage tracking.
+                if PUBLIC_VISITOR_TRACKING_ENABLED and visitor_id:
+                    turn_text = f"{user_message}\n{response.answer}"
+                    turn_tokens = estimate_public_tokens(turn_text)
+                    print(
+                        "📈 [Public WS] Turn usage for visitor "
+                        f"{visitor_id}: {turn_tokens} tokens (before total={current_tokens})",
+                        flush=True,
+                    )
+
+                    messages_for_tracking = [
+                        {
+                            "role": "user",
+                            "content": user_message,
+                            "timestamp": datetime.now().isoformat(),
+                        },
+                        {
+                            "role": "assistant",
+                            "content": response.answer,
+                            "timestamp": datetime.now().isoformat(),
+                        },
+                    ]
+                    track_result = track_public_visitor_usage(
+                        visitor_id=visitor_id,
+                        tokens_used=turn_tokens,
+                        messages=messages_for_tracking,
+                    )
+                    if track_result is not None:
+                        try:
+                            new_total = int(
+                                track_result.get("total_public_tokens", current_tokens)
+                            )
+                            last_messages = track_result.get("last_messages", []) or []
+                            print(
+                                "💾 [Public WS] Tracked visitor usage for "
+                                f"{visitor_id}: turn={turn_tokens} tokens, "
+                                f"new total={new_total}, "
+                                f"saved_messages={len(last_messages)}",
+                                flush=True,
+                            )
+                            current_tokens = new_total
+                        except Exception as e:
+                            # Keep last known value on parsing issues.
+                            print(
+                                "⚠️ [Public WS] Failed to parse tracking response for "
+                                f"{visitor_id}: {e}",
+                                flush=True,
+                            )
+                    else:
+                        print(
+                            "⚠️ [Public WS] Failed to track visitor usage for "
+                            f"{visitor_id}; backend did not return a result",
+                            flush=True,
+                        )
+
+                await websocket.send_text(json.dumps({
+                    "type": "response",
+                    "message": response.answer,
+                    "session_id": session_id,
+                    "structured": response.model_dump(),
+                    "timestamp": datetime.now().isoformat(),
+                }))
+
+            except json.JSONDecodeError:
+                await websocket.send_text(json.dumps({
+                    "type": "error",
+                    "message": "Invalid JSON format",
+                }))
+            except GraphRecursionError as e:
+                # Safety net in case we ever expand this graph and hit recursion
+                # limits; mirror the main handler's user-friendly error.
+                error_msg = (
+                    "⚠️ The public agent hit the maximum processing steps limit. "
+                    "Try a simpler question or refresh the page. Technical details: "
+                    f"{str(e)}"
+                )
+                await websocket.send_text(json.dumps({
+                    "type": "error",
+                    "message": error_msg,
+                    "error_type": "recursion_limit",
+                }))
+                print(f"❌ GraphRecursionError in public WebSocket: {e}", flush=True)
+            except Exception as e:
+                await websocket.send_text(json.dumps({
+                    "type": "error",
+                    "message": f"Error processing public message: {str(e)}",
+                }))
+
+    except WebSocketDisconnect:
+        pass
+    except Exception as e:
+        print(f"Public WebSocket error: {e}")
+    finally:
+        # Clean up connection
+        if session_id in public_active_connections:
+            del public_active_connections[session_id]
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):

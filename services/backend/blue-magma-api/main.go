@@ -172,6 +172,7 @@ func main() {
 		&models.SCFThreat{},              // Add SCF threat table
 		&models.SCFEvidenceRequest{},     // Add SCF evidence request catalog table
 		&models.SCFAssessmentObjective{}, // Add SCF assessment objective catalog table
+		&models.PublicVisitor{},          // Add public visitor tracking table
 
 	)
 
@@ -254,6 +255,8 @@ func main() {
 
 	// Public project template routes (all authenticated users)
 	routes.RegisterProjectTemplateRoutes(api_group.(*fiber.Group), database.DB)
+	// Internal-only public visitor usage tracking routes (service token auth)
+	routes.RegisterPublicVisitorRoutes(api_group.(*fiber.Group), database.DB)
 
 	org_group := api_group.Group("/org/:org_id")
 	org_group.Use(middleware.RestOrgCheckMiddleware(database.DB))
