@@ -173,6 +173,7 @@ func main() {
 		&models.SCFEvidenceRequest{},     // Add SCF evidence request catalog table
 		&models.SCFAssessmentObjective{}, // Add SCF assessment objective catalog table
 		&models.PublicVisitor{},          // Add public visitor tracking table
+		&models.SuperAdmin{},             // Add super admin table
 
 	)
 
@@ -184,6 +185,13 @@ func main() {
 		log.Fatalf("Failed to seed RBAC data: %v", err)
 	}
 	log.Info("✅ RBAC data seeded")
+
+	// Seed Super Admin (always run to ensure super admin exists with latest config)
+	log.Info("Seeding super admin...")
+	if err := database.SeedSuperAdmin(database.DB); err != nil {
+		log.Fatalf("Failed to seed super admin: %v", err)
+	}
+	log.Info("✅ Super admin seeded")
 
 	// Initialize hierarchy service after RBAC seeding
 	authz.InitializeHierarchyService(database.DB)
@@ -228,6 +236,9 @@ func main() {
 
 	// Register routes
 	routes.RegisterAuthRoutes(app, database.DB, redisClient)
+
+	// Register super admin routes (separate authentication system)
+	routes.RegisterSuperAdminRoutes(app, database.DB)
 
 	// Register GitHub webhook routes BEFORE authenticated group to avoid auth middleware
 	routes.RegisterGitHubWebhookRoutes(app, database.DB, redisClient)
