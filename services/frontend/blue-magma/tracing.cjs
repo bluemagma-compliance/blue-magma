@@ -1,5 +1,6 @@
 'use strict';
 
+const http = require('http');
 const { NodeSDK } = require('@opentelemetry/sdk-node');
 const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-http');
 const { defaultResource, resourceFromAttributes } = require('@opentelemetry/resources');
@@ -38,11 +39,53 @@ const resource = defaultResource().merge(
 	}),
 );
 
-const sdk = new NodeSDK({
-	resource,
-	traceExporter,
-	instrumentations: [getNodeAutoInstrumentations()],
-});
+	function renameHttpSpan(span, request, response) {
+		// Only adjust incoming SERVER spans; outgoing CLIENT spans use IncomingMessage
+		// as response, so we skip those.
+		if (!(response instanceof http.ServerResponse)) {
+			return;
+		}
+
+		const method = request.method || 'GET';
+		const rawUrl = request.url || '/';
+		const path = rawUrl.split('?')[0] || '/';
+
+		// Ignore noisy internal Next.js assets and favicon
+		if (path.startsWith('/_next') || path === '/favicon.ico') {
+			return;
+		}
+
+		// Give distinct names only to the two super-admin API routes for now (option A).
+		if (path === '/super-admin/api/login') {
+			span.updateName('super_admin_login_flow');
+			return;
+		}
+		if (path === '/super-admin/api/verify-2fa') {
+			span.updateName('super_admin_verify_2fa_flow');
+			return;
+		}
+
+		// For all other routes, leave the default GET/POST naming intact.
+	}
+
+	const sdk = new NodeSDK({
+		resource,
+		traceExporter,
+		instrumentations: [
+			getNodeAutoInstrumentations({
+				'@opentelemetry/instrumentation-http': {
+					applyCustomAttributesOnSpan: (span, request, response) => {
+						try {
+							renameHttpSpan(span, request, response);
+						} catch (error) {
+							// Avoid breaking the app if the hook throws for some reason.
+							console.error('[otel] Error in HTTP span renaming hook:', error);
+						}
+					},
+				},
+			}),
+		],
+	});
 
 (async () => {
 	try {

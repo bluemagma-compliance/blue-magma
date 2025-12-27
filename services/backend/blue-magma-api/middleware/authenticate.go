@@ -1,13 +1,13 @@
 package middleware
 
 import (
-	"os"
 	"strings"
 
 	log "github.com/sirupsen/logrus"
 
 	"github.com/bluemagma-compliance/blue-magma-api/authz"
 	"github.com/bluemagma-compliance/blue-magma-api/models"
+	"github.com/bluemagma-compliance/blue-magma-api/utils"
 	"github.com/gofiber/fiber/v2"
 	"gorm.io/gorm"
 )
@@ -22,9 +22,12 @@ type AuthContext struct {
 	Scopes         []string
 }
 
-// serviceToken is loaded dynamically to support testing
+// GetServiceToken previously lived in this package but its logic has been moved
+// to utils.GetServiceToken to avoid import cycles and keep middleware depending
+// on utils, not the other way around. This wrapper is kept for compatibility
+// with existing code that imports middleware.GetServiceToken.
 func GetServiceToken() string {
-	return os.Getenv("INTERNAL_API_KEY")
+	return utils.GetServiceToken()
 }
 
 type TokenValidator interface {

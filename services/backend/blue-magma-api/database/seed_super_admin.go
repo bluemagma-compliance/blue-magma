@@ -11,13 +11,17 @@ import (
 	"gorm.io/gorm"
 )
 
-// SeedSuperAdmin creates or updates the super admin user from environment variables
-// This function validates all required environment variables and returns an error if any are missing
+// SeedSuperAdmin creates or updates the super admin user from environment variables.
+// This function validates all required environment variables and returns an error if any are missing.
+//
+// NOTE: The canonical login identifier env var is SUPER_ADMIN_LOGIN_IDENTIFIER.
+// SUPER_ADMIN_LOGIN was previously used but has been removed to avoid confusion.
 func SeedSuperAdmin(db *gorm.DB) error {
 	log.Info("Seeding super admin...")
 
 	// Required environment variables
-	loginIdentifier := os.Getenv("SUPER_ADMIN_LOGIN")
+	// SUPER_ADMIN_LOGIN_IDENTIFIER is the canonical env var for the super admin username.
+	loginIdentifier := os.Getenv("SUPER_ADMIN_LOGIN_IDENTIFIER")
 	password := os.Getenv("SUPER_ADMIN_PASSWORD")
 	allowedIPs := os.Getenv("SUPER_ADMIN_ALLOWED_IPS")
 	twoFactorEmails := os.Getenv("SUPER_ADMIN_2FA_EMAILS")
@@ -25,7 +29,7 @@ func SeedSuperAdmin(db *gorm.DB) error {
 	// Validate all required variables are present
 	var missingVars []string
 	if loginIdentifier == "" {
-		missingVars = append(missingVars, "SUPER_ADMIN_LOGIN")
+		missingVars = append(missingVars, "SUPER_ADMIN_LOGIN_IDENTIFIER")
 	}
 	if password == "" {
 		missingVars = append(missingVars, "SUPER_ADMIN_PASSWORD")
@@ -40,7 +44,9 @@ func SeedSuperAdmin(db *gorm.DB) error {
 	if len(missingVars) > 0 {
 		errMsg := fmt.Sprintf("Missing required super admin environment variables: %s", strings.Join(missingVars, ", "))
 		log.Error(errMsg)
-		return fmt.Errorf(errMsg)
+		// Using a constant format string here keeps fmt.Errorf happy while still
+		// returning the full, already-formatted error message above.
+		return fmt.Errorf("%s", errMsg)
 	}
 
 	// Validate IP addresses format (basic validation)
@@ -153,4 +159,3 @@ func validateEmailList(emailList string) error {
 
 	return nil
 }
-

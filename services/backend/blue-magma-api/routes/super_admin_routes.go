@@ -31,15 +31,9 @@ func RegisterSuperAdminRoutes(app *fiber.App, db *gorm.DB) {
 	protectedGroup.Use(middleware.AuthenticateSuperAdmin(db))
 	protectedGroup.Use(middleware.RequireSuperAdmin())
 
-	// Example protected endpoint (can be removed or used for testing)
-	protectedGroup.Get("/status", func(c *fiber.Ctx) error {
-		ctx := middleware.GetSuperAdminContext(c)
-		return c.JSON(fiber.Map{
-			"message":          "Super admin authenticated",
-			"login_identifier": ctx.LoginIdentifier,
-			"origin_ip":        ctx.OriginIP,
-		})
-	})
+	// NOTE: Previously there was a /super-admin/api/status test endpoint here.
+	// It has been removed because it was only intended for manual verification
+	// and is not used in production.
 
 	// Future super admin endpoints will be registered here
 	// Example:
@@ -47,4 +41,3 @@ func RegisterSuperAdminRoutes(app *fiber.App, db *gorm.DB) {
 	// protectedGroup.Get("/organizations", superAdminHandler.ListAllOrganizations)
 	// protectedGroup.Post("/system/maintenance", superAdminHandler.EnableMaintenanceMode)
 }
-

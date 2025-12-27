@@ -130,9 +130,16 @@ services:
       - app
       - frontend
 
+  jaeger:
+    image: jaegertracing/jaeger:2.12.0
+    ports:
+      - "16686:16686" # Jaeger UI
+    depends_on:
+      - otel-collector
+    restart: unless-stopped
+
   otel-collector:
     image: otel/opentelemetry-collector-contrib:0.112.0
-    container_name: otel-collector
     volumes:
         # Default to the vendor-neutral collector config. For Datadog or
         # other vendor-specific setups, see the files under

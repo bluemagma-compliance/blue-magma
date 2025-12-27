@@ -117,6 +117,35 @@ func (es *EmailService) SendPasswordResetEmail(data PasswordResetEmailData) erro
 	return nil
 }
 
+// SendEmail sends a generic HTML email using the configured Mailgun domain.
+// This is intended for simple system emails (like super-admin 2FA) that don't
+// need a dedicated template struct. Callers are responsible for providing the
+// full HTML body.
+func (es *EmailService) SendEmail(to, subject, htmlBody string) error {
+	if to == "" {
+		return fmt.Errorf("email recipient cannot be empty")
+	}
+
+	message := es.mg.NewMessage(
+		fmt.Sprintf("Blue Magma <noreply@%s>", es.domain),
+		subject,
+		"", // plain-text body (optional) - we primarily rely on the HTML body below
+		to,
+	)
+
+	message.SetHtml(htmlBody)
+
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*30)
+	defer cancel()
+
+	_, _, err := es.mg.Send(ctx, message)
+	if err != nil {
+		return fmt.Errorf("failed to send email to %s: %w", to, err)
+	}
+
+	log.Infof("Email sent to %s with subject %s", to, subject)
+	return nil
+}
 
 func (es *EmailService) generateInvitationHTML(data InvitationEmailData) (string, error) {
 	tmpl := `
@@ -295,4 +324,3 @@ This link will expire on %s. If you didn't request a password reset, you can saf
 This email was sent by Blue Magma.
 `, data.ResetURL, expires)
 }
-

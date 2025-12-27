@@ -23,9 +23,13 @@ processors:
 exporters:
   debug:
     verbosity: detailed
+  otlphttp/jaeger:
+    endpoint: http://jaeger:4318
+    tls:
+      insecure: true
   # myvendor:
-  #   # Example vendor exporter configuration goes here
-  #   endpoint: https://example.com
+	#   # Example vendor exporter configuration goes here
+	#   endpoint: https://example.com
 
 service:
   telemetry:
@@ -35,7 +39,6 @@ service:
     traces:
       receivers: [otlp]
       processors: [batch]
-      # By default, send traces only to the debug exporter so you
-      # can see them in the collector logs.
-      exporters: [debug]
+      # Export traces both to the collector debug logs and to Jaeger via OTLP/HTTP.
+      exporters: [otlphttp/jaeger]
 

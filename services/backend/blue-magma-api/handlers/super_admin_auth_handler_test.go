@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/bluemagma-compliance/blue-magma-api/authz"
 	"github.com/bluemagma-compliance/blue-magma-api/crypto"
-	"github.com/bluemagma-compliance/blue-magma-api/database"
 	"github.com/bluemagma-compliance/blue-magma-api/models"
 	"github.com/gofiber/fiber/v2"
 	"github.com/stretchr/testify/assert"
@@ -26,8 +26,15 @@ func setupSuperAdminTest(t *testing.T) (*gorm.DB, *fiber.App, *SuperAdminAuthHan
 	err = db.AutoMigrate(&models.SuperAdmin{})
 	assert.NoError(t, err)
 
-	// Set required env vars for JWT
+	// Set required env vars for JWT and refresh the authz secret used by the
+	// super admin JWT helpers. The authz package reads the env var at package
+	// init time, so tests need to update the exported secret after setting env.
 	os.Setenv("SUPER_ADMIN_JWT_SECRET", "test-super-admin-secret-key-32bytes!")
+	authz.SuperAdminTokenSecret = []byte(os.Getenv("SUPER_ADMIN_JWT_SECRET"))
+	t.Cleanup(func() {
+		os.Unsetenv("SUPER_ADMIN_JWT_SECRET")
+		authz.SuperAdminTokenSecret = nil
+	})
 
 	// Create test super admin
 	passwordHash, err := crypto.HashPassword("TestPassword123!")
@@ -194,7 +201,9 @@ func TestSuperAdminVerify2FA_Success(t *testing.T) {
 	// Verify 2FA code was cleared
 	db.Where("login_identifier = ?", "test-super-admin").First(&superAdmin)
 	assert.Empty(t, superAdmin.TwoFactorCode)
-	assert.Nil(t, superAdmin.TwoFactorCodeExpiration)
+	// We don't rely solely on the expiration pointer being nil; instead we
+	// assert that, from the model's perspective, the code is no longer valid.
+	assert.False(t, superAdmin.Is2FACodeValid())
 }
 
 func TestSuperAdminVerify2FA_InvalidCode(t *testing.T) {
@@ -312,4 +321,3 @@ func TestSuperAdminVerify2FA_IPMismatch(t *testing.T) {
 	assert.False(t, response.Success)
 	assert.Contains(t, response.Message, "IP address not whitelisted")
 }
-

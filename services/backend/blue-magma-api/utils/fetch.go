@@ -5,8 +5,6 @@ import (
 	"io"
 	"net/http"
 	"time"
-
-	"github.com/bluemagma-compliance/blue-magma-api/middleware"
 )
 
 // Fetch performs a simple HTTP GET request and returns the response body as a byte slice.
@@ -22,7 +20,7 @@ func FetchInternal(url string) ([]byte, error) {
 	}
 
 	req.Header.Set("Content-Type", "application/json")
-	serviceToken := middleware.GetServiceToken()
+	serviceToken := GetServiceToken()
 	req.Header.Set("Authorization", serviceToken)
 
 	resp, err := client.Do(req)

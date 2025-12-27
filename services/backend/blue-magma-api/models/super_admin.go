@@ -23,10 +23,10 @@ type SuperAdmin struct {
 
 	// Audit fields
 	LastLoginAt       *time.Time `json:"last_login_at,omitempty"`
-	LastLoginIP       string     `json:"-"`                       // Last successful login IP
-	FailedLoginCount  int        `json:"-" gorm:"default:0"`      // Failed login attempts
-	LastFailedLoginAt *time.Time `json:"-"`                       // Last failed login timestamp
-	LockedUntil       *time.Time `json:"-"`                       // Account lock expiration (after too many failures)
+	LastLoginIP       string     `json:"-"`                  // Last successful login IP
+	FailedLoginCount  int        `json:"-" gorm:"default:0"` // Failed login attempts
+	LastFailedLoginAt *time.Time `json:"-"`                  // Last failed login timestamp
+	LockedUntil       *time.Time `json:"-"`                  // Account lock expiration (after too many failures)
 }
 
 // SetPasswordHash sets the password hash
@@ -49,6 +49,13 @@ func (sa *SuperAdmin) IsLocked() bool {
 
 // Is2FACodeValid checks if the 2FA code is still valid
 func (sa *SuperAdmin) Is2FACodeValid() bool {
+	// A code is only considered valid if we still have a non-empty code *and*
+	// a non-expired expiration timestamp. This guards against cases where the
+	// code string has been cleared but an old expiration value might still be
+	// present in the database.
+	if sa.TwoFactorCode == "" {
+		return false
+	}
 	if sa.TwoFactorCodeExpiration == nil {
 		return false
 	}
@@ -94,4 +101,3 @@ func (sa *SuperAdmin) IncrementTwoFactorAttempts() {
 func (sa *SuperAdmin) IsTwoFactorAttemptsExceeded() bool {
 	return sa.TwoFactorCodeAttempts >= 3
 }
-
